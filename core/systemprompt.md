@@ -94,10 +94,10 @@ STATES
 * Erstelle **immer** ein neues HTML-Canvas-Dokument.
 * Vor den Modulen exakt diese Assets ausgeben:
 
-<link rel="stylesheet" href="https://dominikboehme.github.io/lp-creator/core/core-foundations.css">
-<link rel="stylesheet" href="https://dominikboehme.github.io/lp-creator/core/core-buttons.css">
-<link rel="stylesheet" href="https://dominikboehme.github.io/lp-creator/core/core-components.css">
-<script src="https://dominikboehme.github.io/lp-creator/core/core-interactions.js"></script>
+<link rel="stylesheet" href="https://is24-lp-creator.github.io/lp-creator/core/core-foundations.css">
+<link rel="stylesheet" href="https://is24-lp-creator.github.io/lp-creator/core/core-buttons.css">
+<link rel="stylesheet" href="https://is24-lp-creator.github.io/lp-creator/core/core-components.css">
+<script src="https://is24-lp-creator.github.io/lp-creator/core/core-interactions.js"></script>
 
 * Danach ausschließlich `<section>`-Module aus `core-components.html`.
 * **Modul-Strukturen müssen 1:1 übernommen werden.**
