@@ -1,0 +1,749 @@
+/* =========================================================
+   LP Creator – core-components.css (canonical, commented)
+
+   Enthält ausschließlich Modul-CSS für bestehende Module
+   gemäß Module Editability Matrix.
+
+   Regeln (verbindlich):
+   - Keine Typografie
+   - Keine Farben
+   - Kein eigenes Grid (außer bei expliziten Sondermodulen)
+   - Nur notwendiges Modul-CSS
+   ========================================================= */
+
+
+/* =========================================================
+   Modul: hero-bleed
+   Typ: Hero Sondermodul (Bleed / Overlay)
+   ========================================================= */
+
+.hero-bleed{
+  position: relative;
+  display: grid;
+  align-items: center;
+}
+
+.hero-bleed__image{
+  position: relative;
+  z-index: 0;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  height: 53.1rem;
+}
+
+.hero-bleed__image,
+.hero-bleed__content{
+  grid-row: 1 / -1;
+  grid-column: 1 / -1;
+}
+
+.hero-bleed__content{
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: start;
+  padding: 32px;
+  width: 48%;
+}
+
+@media (max-width: 900px){
+  .hero-bleed__content{
+    width: 100%;
+  }
+}
+
+@media (max-width: 668px){
+  .hero-bleed__image{
+    height: 20rem;
+  }
+
+  .hero-bleed__image,
+  .hero-bleed__content{
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .hero-bleed__content{
+    padding: 0;
+    padding-top: 24px;
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   Overlay stacking fix (Hero)
+   ========================================================= */
+
+.hero-bleed__image .lp-media__inner{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bleed__content{
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================================================
+   Modul: hero-bleed-centered
+   Typ: Hero Sondermodul (Bleed / Overlay – zentriert)
+
+   ========================================================= */
+
+.hero-bleed-centered{
+  position: relative;
+  display: grid;
+  align-items: center;
+}
+
+.hero-bleed-centered .hero-bleed__image{
+  position: relative;
+  z-index: 0;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  height: 53.1rem;
+}
+
+.hero-bleed-centered .hero-bleed__image,
+.hero-bleed-centered .hero-bleed__content{
+  grid-row: 1 / -1;
+  grid-column: 1 / -1;
+}
+
+.hero-bleed-centered .hero-bleed__content{
+  position: relative;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  padding: 32px;
+  width: 48%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+@media (max-width: 900px){
+  .hero-bleed-centered .hero-bleed__content{
+    width: 100%;
+  }
+}
+
+@media (max-width: 668px){
+  .hero-bleed-centered .hero-bleed__image{
+    height: 20rem;
+  }
+
+  .hero-bleed-centered .hero-bleed__image,
+  .hero-bleed-centered .hero-bleed__content{
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .hero-bleed-centered .hero-bleed__content{
+    padding: 0;
+    padding-top: 24px;
+    width: 100%;
+    text-align: left;
+    justify-items: start;
+  }
+}
+
+/* =========================================================
+   Overlay stacking fix (Hero – centered only)
+   ========================================================= */
+
+.hero-bleed-centered .hero-bleed__image .lp-media__inner{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+
+
+/* =========================================================
+   Modul: hero-split
+   Typ: Hero Sondermodul (Split)
+   ========================================================= */
+
+.hero-split{
+  position:relative;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  overflow-x:clip;
+  height:clamp(360px, 35vw, 500px);
+}
+
+.hero-split__inner{
+  max-width:1157px;
+  margin:0 auto;
+  padding:0 16px;
+  height:100%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:stretch;
+  position:relative;
+  z-index:1;
+}
+
+.hero-split__text{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  padding-right:32px;
+}
+
+.hero-split__spacer{
+  min-height:1px;
+}
+
+.hero-split__visual{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:50%;
+  right:0;
+  overflow:hidden;
+}
+
+.hero-split__visual .lp-media__inner{
+  position:absolute;
+  inset:0;
+}
+
+@media (max-width:1120px){
+  .hero-split__text{
+    padding-right:16px;
+  }
+}
+
+@media (max-width:900px){
+  .hero-split{
+    height:auto;
+  }
+
+  .hero-split__inner{
+    display:flex;
+    flex-direction:column;
+    height:auto;
+  }
+
+  .hero-split__spacer{
+    display:none;
+  }
+
+  .hero-split__visual{
+    position:relative;
+    left:auto;
+    right:auto;
+    top:auto;
+    bottom:auto;
+    width:100%;
+    height:180px;
+  }
+
+  .hero-split__text{
+    padding-right:0;
+    padding-top:24px;
+    padding-bottom:32px;
+  }
+}
+
+@media (max-width:669px){
+  .hero-split__text{
+    padding-top:16px;
+    padding-bottom:24px;
+  }
+}
+
+
+/* =========================================================
+   Modul: steps-3col / steps-4col
+   ========================================================= */
+
+.steps-3col__step,
+.steps-4col__step{
+  position: relative;
+}
+
+.steps-3col__step-header,
+.steps-4col__step-header{
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.steps-3col__step-number,
+.steps-4col__step-number{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  color: #333333;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.steps-3col__step-line,
+.steps-4col__step-line{
+  z-index: 1;
+}
+
+.steps-3col__step-title,
+.steps-4col__step-title{
+  margin: 0 16px;
+}
+
+.steps-3col__step-line,
+.steps-4col__step-line{
+  flex: 1;
+  height: 1px;
+  background-color: #333333;
+}
+
+.steps-3col__steps .grid-item:last-child .steps-3col__step-line,
+.steps-4col__steps .grid-item:last-child .steps-4col__step-line{
+  display: none;
+}
+
+@media (max-width: 740px){
+  .steps-3col__step,
+  .steps-4col__step{
+    padding-left: 56px;
+  }
+
+  .steps-3col__step-number,
+  .steps-4col__step-number{
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .steps-3col__step-header,
+  .steps-4col__step-header{
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .steps-3col__step-title,
+  .steps-4col__step-title{
+    margin: 0 0 8px 0;
+  }
+
+  .steps-3col__step-line,
+  .steps-4col__step-line{
+    position: absolute;
+    left: 20px;
+    top: 40px;
+    bottom: -16px;
+    width: 1px;
+    height: auto;
+    background-color: #333333;
+  }
+
+  .steps-3col__steps .grid-item:last-child .steps-3col__step-line,
+  .steps-4col__steps .grid-item:last-child .steps-4col__step-line{
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   Modul: teaser-split-image-left / teaser-split-image-right
+   ========================================================= */
+
+.teaser-split{
+  overflow-x: clip;
+}
+
+.teaser-split__grid{
+  align-items: stretch;
+}
+
+.teaser-split__media-wrapper{
+  height: 400px;
+}
+
+.teaser-split__media-box{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.teaser-split__media-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.teaser-split__content{
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.teaser-split__cta{
+  display: inline-flex;
+  align-self: flex-start;
+}
+
+@media (max-width:668px){
+  .teaser-split__media-wrapper{
+    height: 260px;
+  }
+
+  .teaser-split__content{
+    height: auto;
+  }
+
+  .teaser-split-image-right .teaser-split__media-col{
+    order: 1;
+  }
+
+  .teaser-split-image-right .teaser-split__content-col{
+    order: 2;
+  }
+}
+
+
+/* =========================================================
+   Modul: callout
+   ========================================================= */
+
+.callout{
+  display:block;
+}
+
+.callout--base,
+.callout--illu,
+.callout--expert{
+  padding:40px 48px;
+}
+
+@media (max-width:668px){
+  .callout--base,
+  .callout--illu,
+  .callout--expert{
+    padding:24px;
+  }
+}
+
+.callout__layout{
+  display:flex;
+  gap:24px;
+}
+
+.callout__media{
+  flex:0 0 auto;
+}
+
+@media (max-width:668px){
+  .callout__layout{
+    flex-direction:column;
+    gap:16px;
+  }
+}
+
+.callout__illu{
+  width:56px;
+  height:56px;
+}
+
+.callout__expert{
+  display:flex;
+  gap:12px;
+  margin-top:16px;
+}
+
+.callout__avatar{
+  width:48px;
+  height:48px;
+  border-radius:9999px;
+}
+
+
+/* =========================================================
+   Modul: ekomi-reviews
+   ========================================================= */
+
+.ekomi-reviews__badge-wrapper{
+  text-align:center;
+}
+
+.ekomi-reviews__headline{
+  text-align:center;
+}
+
+.ekomi-reviews__intro{
+  text-align:center;
+}
+
+.ekomi-reviews__badge{
+  display:block;
+  width:112px;
+  height:auto;
+  margin:0 auto;
+}
+
+.ekomi-reviews__list{
+  align-items:flex-start;
+}
+
+.ekomi-reviews__meta{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.ekomi-reviews__avatar{
+  width:32px;
+  height:32px;
+  border-radius:9999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+}
+
+.ekomi-reviews__avatar-icon{
+  display:block;
+  width:24px;
+  height:24px;
+}
+
+.ekomi-reviews__rating{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.ekomi-reviews__stars{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+}
+
+.ekomi-reviews__star{
+  display:block;
+  width:22px;
+  height:22px;
+}
+
+
+/* =========================================================
+   Modul: servicetiles
+   ========================================================= */
+
+.servicetiles__link{
+  display:block;
+  height:100%;
+  text-decoration:none;
+  color:inherit;
+}
+
+.servicetiles__card{
+  height:100%;
+  padding:24px;
+}
+
+.servicetiles__header{
+  margin-bottom:8px;
+}
+
+.servicetiles__icon{
+  display:block;
+}
+
+.servicetiles__icon--desktop{
+  width:48px;
+  height:48px;
+}
+
+.servicetiles__icon--mobile{
+  display:none;
+  width:24px;
+  height:24px;
+}
+
+@media (max-width:668px){
+  .servicetiles__card{
+    padding:16px;
+  }
+
+  .servicetiles__icon--desktop{
+    display:none;
+  }
+
+  .servicetiles__icon--mobile{
+    display:block;
+  }
+}
+
+
+/* =========================================================
+   Modul: checkmark-list
+   ========================================================= */
+
+.checkmark-list{
+  margin:0;
+  padding:0;
+}
+
+.checkmark-list li{
+  list-style:none;
+}
+
+.checkmark-list__item{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  margin-bottom:8px;
+}
+
+.checkmark-list__item:last-child{
+  margin-bottom:0;
+}
+
+.checkmark-list__icon{
+  flex:0 0 auto;
+  width:20px;
+  height:20px;
+  margin-top:2px;
+}
+
+.checkmark-list__icon::before{
+  content:"";
+  display:block;
+  width:100%;
+  height:100%;
+  background-image:url("https://www.static-immobilienscout24.de/statpic/_/ae25c93f00cf707c6c92965a14d7fe50_checkmark.svg");
+  background-repeat:no-repeat;
+  background-size:contain;
+}
+
+.checkmark-list__text{
+  margin:0;
+}
+
+/* =========================================================
+   Accordion (modern, global – FINAL)
+   Bestandteil von core-components.css
+   Zweck:
+   - Produktionsstabiles Accordion-Pattern
+   - JS steuert State (.is-open) + Inline-max-height
+   - CSS steuert ausschließlich Darstellung & Transition
+   ========================================================= */
+
+/* Wrapper */
+.accordion {
+  border-top: 0px;
+}
+
+/* Headline */
+.accordion__headline {
+  margin-bottom: var(--space-m, 24px);
+}
+
+/* Item */
+.accordion__item {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Trigger (Button) */
+.accordion__trigger {
+  appearance: none;
+  background: none;
+  border: 0;
+  width: 100%;
+  padding: var(--space-m, 20px) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+}
+
+.accordion__question {
+  font-size: inherit;
+}
+
+/* Chevron */
+.accordion__chevron {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+/* Default: geschlossen → Pfeil nach unten */
+.accordion__chevron::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translate(-50%, -50%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+/* Panel */
+.accordion__panel {
+  overflow: hidden;
+  max-height: 0; /* wird durch JS gesetzt */
+  transition: max-height 0.25s ease;
+}
+
+.accordion__panel p {
+  padding-bottom: var(--space-m, 20px);
+}
+
+/* Open state */
+.accordion__item.is-open .accordion__chevron::before {
+  transform: translate(-50%, -50%) rotate(-135deg); /* Pfeil nach oben */
+}
+
+.accordion__item.is-open .accordion__trigger {
+  padding-bottom: var(--space-s, 12px);
+}
+
+/* Accessibility: Fokus */
+.accordion__trigger:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+/* =========================================================
+   Counter Animated (modern, global)
+   Bestandteil von core-components.css
+   Zweck:
+   - Spacing & Typo-Feinjustierung für Counter-Modul
+   - Keine Animation (kommt aus core-interactions.js)
+   ========================================================= */
+
+.counter-animated__item > [class^="font-heading-"],
+.counter-animated__item > [class*=" font-heading-"] {
+  margin-bottom: 0; /* kein Abstand unter dem Zahlenwert */
+}
+
+.counter-animated__label {
+  margin-bottom: var(--space-m, 16px);
+}
+
+/* Sicherstellen, dass Text sauber getrennt ist */
+.counter-animated__item p:last-child {
+  margin-bottom: 0;
+}
