@@ -113,7 +113,7 @@
   }
 
 /* =========================================
-   STICKY FOOTER – FIRST SCROLL + HERO RETURN
+   STICKY FOOTER – SCROLL DOWN / HERO VISIBILITY
    ========================================= */
 function initStickyFooter() {
   var footer = document.querySelector('.lp-sticky-footer');
@@ -122,38 +122,43 @@ function initStickyFooter() {
   var hero = document.querySelector('.hero-split');
   if (!hero) return;
 
-  var hasActivated = false;
+  var heroVisible = true;
+  var lastScrollY = window.scrollY;
 
-  /* ---------- Trigger 1: First Scroll ---------- */
-  function onFirstScroll() {
-    if (hasActivated) return;
-    hasActivated = true;
+  /* ---------- Hero Visibility ---------- */
+  if ('IntersectionObserver' in window) {
+    var heroObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          heroVisible = entry.isIntersecting;
 
-    footer.classList.add('is-visible');
-    window.removeEventListener('scroll', onFirstScroll);
+          // Sobald Hero sichtbar → Footer immer ausblenden
+          if (heroVisible) {
+            footer.classList.remove('is-visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    heroObserver.observe(hero);
   }
 
-  window.addEventListener('scroll', onFirstScroll, { passive: true });
+  /* ---------- Scroll Direction ---------- */
+  function onScroll() {
+    var currentY = window.scrollY;
 
-  /* ---------- Trigger 2: Hero Visibility ---------- */
-  if (!('IntersectionObserver' in window)) return;
-
-  var heroObserver = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          // Hero wieder sichtbar → Footer ausblenden
-          footer.classList.remove('is-visible');
-        }
-      });
-    },
-    {
-      threshold: 0.1
+    // Scroll nach unten UND Hero nicht sichtbar → Footer zeigen
+    if (currentY > lastScrollY && !heroVisible) {
+      footer.classList.add('is-visible');
     }
-  );
 
-  heroObserver.observe(hero);
+    lastScrollY = currentY;
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
 }
+
 
 
   /* =========================================
