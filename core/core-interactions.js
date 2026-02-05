@@ -118,7 +118,7 @@
    Sticky Footer – Hero Primary CTA Trigger
    ========================================================= */
 
-(function () {
+function () {
   var footer = document.querySelector('.lp-sticky-footer');
   if (!footer) return;
 
