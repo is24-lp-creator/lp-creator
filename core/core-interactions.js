@@ -113,7 +113,7 @@
   }
 
 /* =========================================
-   STICKY FOOTER – SCROLL DOWN / HERO VISIBILITY (TUNED)
+   STICKY FOOTER – SCROLL DOWN / HERO VISIBILITY (SOFTER)
    ========================================= */
 function initStickyFooter() {
   var footer = document.querySelector('.lp-sticky-footer');
@@ -125,33 +125,33 @@ function initStickyFooter() {
   var heroVisible = true;
   var lastScrollY = window.scrollY;
 
-  /* ---------- Hero Visibility (later hide) ---------- */
+  /* ---------- Hero Visibility (much later hide) ---------- */
   if ('IntersectionObserver' in window) {
     var heroObserver = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           heroVisible = entry.isIntersecting;
 
-          // Hero wieder deutlich sichtbar → Footer aus
+          // Hero wieder klar präsent → Footer aus
           if (heroVisible) {
             footer.classList.remove('is-visible');
           }
         });
       },
       {
-        threshold: 0.25,                 // Hero muss deutlicher sichtbar sein
-        rootMargin: '80px 0px 0px 0px'    // später ausblenden
+        threshold: 0.45,                  // Hero muss wirklich präsent sein
+        rootMargin: '160px 0px 0px 0px'   // deutlich später ausblenden
       }
     );
 
     heroObserver.observe(hero);
   }
 
-  /* ---------- Scroll Direction (earlier show) ---------- */
+  /* ---------- Scroll Direction (much earlier show) ---------- */
   function onScroll() {
     var currentY = window.scrollY;
 
-    // Scroll nach unten UND Hero praktisch weg → Footer zeigen
+    // Scroll nach unten UND Hero weitgehend „verlassen“ → Footer zeigen
     if (currentY > lastScrollY && !heroVisible) {
       footer.classList.add('is-visible');
     }
