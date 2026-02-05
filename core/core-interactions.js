@@ -115,30 +115,40 @@
   });
 })();
 
-/* =========================================================
-   Sticky Footer – Hero Primary CTA Trigger
-   ========================================================= */
+/* =========================================
+     STICKY FOOTER – HERO PRIMARY CTA
+     ========================================= */
+  function initStickyFooter() {
+    var footer = document.querySelector('.lp-sticky-footer');
+    if (!footer) return;
 
-onReady(function () {
-  var footer = document.querySelector('.lp-sticky-footer');
-  if (!footer) return;
+    var heroPrimaryCta = document.querySelector('[data-hero-primary-cta]');
+    if (!heroPrimaryCta) return;
 
-  var heroPrimaryCta = document.querySelector('[data-hero-primary-cta]');
-  if (!heroPrimaryCta) return;
-
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (!entry.isIntersecting) {
-        footer.classList.add('is-visible');
-      } else {
-        footer.classList.remove('is-visible');
-      }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) {
+          footer.classList.add('is-visible');
+        } else {
+          footer.classList.remove('is-visible');
+        }
+      });
+    }, {
+      threshold: 0,
+      rootMargin: '-120px 0px 0px 0px'
     });
-  }, {
-    threshold: 0,
-    rootMargin: '-120px 0px 0px 0px'
-  });
 
-  observer.observe(heroPrimaryCta);
-});
+    observer.observe(heroPrimaryCta);
+  }
+
+  /* =========================================
+     INIT ALL
+     ========================================= */
+  onReady(function () {
+    initCounterAnimated();
+    initAccordion();
+    initStickyFooter();
+  });
+})();
+
 
