@@ -112,38 +112,27 @@
     });
   }
 
-  /* =========================================
-     STICKY FOOTER – HERO TRIGGER
-     Erscheint, sobald der Hero aus dem Viewport ist
-     ========================================= */
-  function initStickyFooter() {
-    var footer = document.querySelector('.lp-sticky-footer');
-    if (!footer) return;
+/* =========================================
+   STICKY FOOTER – FIRST SCROLL TRIGGER
+   Erscheint beim ersten Scroll des Users
+   ========================================= */
+function initStickyFooter() {
+  var footer = document.querySelector('.lp-sticky-footer');
+  if (!footer) return;
 
-    // Robuster Trigger: Hero-Container
-    var hero = document.querySelector('.hero-split');
-    if (!hero) return;
+  var hasShown = false;
 
-    if (!('IntersectionObserver' in window)) return;
+  function onFirstScroll() {
+    if (hasShown) return;
+    hasShown = true;
 
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) {
-            footer.classList.add('is-visible');
-          } else {
-            footer.classList.remove('is-visible');
-          }
-        });
-      },
-      {
-        threshold: 0,
-        rootMargin: '-80px 0px 0px 0px'
-      }
-    );
-
-    observer.observe(hero);
+    footer.classList.add('is-visible');
+    window.removeEventListener('scroll', onFirstScroll);
   }
+
+  window.addEventListener('scroll', onFirstScroll, { passive: true });
+}
+
 
   /* =========================================
      INIT ALL INTERACTIONS
