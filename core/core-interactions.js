@@ -114,12 +114,12 @@
     initAccordion();
   });
 })();
+
 /* =========================================================
    Sticky Footer – Hero Primary CTA Trigger
    ========================================================= */
 
-
-(function () {
+onReady(function () {
   var footer = document.querySelector('.lp-sticky-footer');
   if (!footer) return;
 
@@ -128,15 +128,17 @@
 
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
-      if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+      if (!entry.isIntersecting) {
         footer.classList.add('is-visible');
       } else {
         footer.classList.remove('is-visible');
       }
     });
-  }, { threshold: 0 });
+  }, {
+    threshold: 0,
+    rootMargin: '-120px 0px 0px 0px'
+  });
 
   observer.observe(heroPrimaryCta);
-})();
-
+});
 
