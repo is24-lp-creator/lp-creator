@@ -116,16 +116,22 @@
 })();
 
 /* =========================================
-     STICKY FOOTER – HERO PRIMARY CTA
-     ========================================= */
-  function initStickyFooter() {
-    var footer = document.querySelector('.lp-sticky-footer');
-    if (!footer) return;
+   STICKY FOOTER – HERO TRIGGER
+   Erscheint, sobald der Hero aus dem Viewport ist
+   ========================================= */
 
-    var heroPrimaryCta = document.querySelector('[data-hero-primary-cta]');
-    if (!heroPrimaryCta) return;
+function initStickyFooter() {
+  var footer = document.querySelector('.lp-sticky-footer');
+  if (!footer) return;
 
-    var observer = new IntersectionObserver(function (entries) {
+  // Wir beobachten bewusst den Hero-Container,
+  // NICHT den Button (robuster, kein IO-Edge-Case)
+  var hero = document.querySelector('.hero-split');
+  if (!hero) return;
+
+  // IntersectionObserver
+  var observer = new IntersectionObserver(
+    function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) {
           footer.classList.add('is-visible');
@@ -133,22 +139,13 @@
           footer.classList.remove('is-visible');
         }
       });
-    }, {
+    },
+    {
       threshold: 0,
-      rootMargin: '-120px 0px 0px 0px'
-    });
+      // leicht früher triggern, UX-stabil
+      rootMargin: '-80px 0px 0px 0px'
+    }
+  );
 
-    observer.observe(heroPrimaryCta);
-  }
-
-  /* =========================================
-     INIT ALL
-     ========================================= */
-  onReady(function () {
-    initCounterAnimated();
-    initAccordion();
-    initStickyFooter();
-  });
-})();
-
-
+  observer.observe(hero);
+}
