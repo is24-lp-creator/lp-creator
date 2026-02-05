@@ -113,24 +113,46 @@
   }
 
 /* =========================================
-   STICKY FOOTER – FIRST SCROLL TRIGGER
-   Erscheint beim ersten Scroll des Users
+   STICKY FOOTER – FIRST SCROLL + HERO RETURN
    ========================================= */
 function initStickyFooter() {
   var footer = document.querySelector('.lp-sticky-footer');
   if (!footer) return;
 
-  var hasShown = false;
+  var hero = document.querySelector('.hero-split');
+  if (!hero) return;
 
+  var hasActivated = false;
+
+  /* ---------- Trigger 1: First Scroll ---------- */
   function onFirstScroll() {
-    if (hasShown) return;
-    hasShown = true;
+    if (hasActivated) return;
+    hasActivated = true;
 
     footer.classList.add('is-visible');
     window.removeEventListener('scroll', onFirstScroll);
   }
 
   window.addEventListener('scroll', onFirstScroll, { passive: true });
+
+  /* ---------- Trigger 2: Hero Visibility ---------- */
+  if (!('IntersectionObserver' in window)) return;
+
+  var heroObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          // Hero wieder sichtbar → Footer ausblenden
+          footer.classList.remove('is-visible');
+        }
+      });
+    },
+    {
+      threshold: 0.1
+    }
+  );
+
+  heroObserver.observe(hero);
 }
 
 
