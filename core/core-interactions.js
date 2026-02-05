@@ -114,3 +114,39 @@
     initAccordion();
   });
 })();
+/* =========================================================
+   Sticky Footer – Hero Primary CTA Trigger
+   ========================================================= */
+
+(function () {
+  var footer = document.querySelector('.lp-sticky-footer');
+  if (!footer) return;
+
+  /*
+    Trigger:
+    – Primary CTA im Hero
+    – erscheint, sobald dieser den Viewport nach oben verlässt
+  */
+
+  // Empfehlung langfristig:
+  // var heroPrimaryCta = document.querySelector('[data-hero-primary-cta]');
+  var heroPrimaryCta = document.querySelector('.hero .ai-button.button-filled-brand');
+  if (!heroPrimaryCta) return;
+
+  var observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+          footer.classList.add('is-visible');
+        } else {
+          footer.classList.remove('is-visible');
+        }
+      });
+    },
+    {
+      threshold: 0
+    }
+  );
+
+  observer.observe(heroPrimaryCta);
+})();
