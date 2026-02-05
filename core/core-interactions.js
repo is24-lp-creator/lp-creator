@@ -1,8 +1,12 @@
 /* =========================================================
    LP Creator – core-interactions.js
+   (FINAL · vollständig · konsistent)
    ========================================================= */
 
 (function () {
+  /* =========================================
+     DOM READY HELPER
+     ========================================= */
   function onReady(fn) {
     if (document.readyState !== 'loading') {
       fn();
@@ -89,7 +93,6 @@
       var panel = item.querySelector('.accordion__panel');
       if (!item || !panel) return;
 
-      // Initial state
       trigger.setAttribute('aria-expanded', 'false');
       panel.style.maxHeight = '0px';
 
@@ -109,43 +112,46 @@
     });
   }
 
+  /* =========================================
+     STICKY FOOTER – HERO TRIGGER
+     Erscheint, sobald der Hero aus dem Viewport ist
+     ========================================= */
+  function initStickyFooter() {
+    var footer = document.querySelector('.lp-sticky-footer');
+    if (!footer) return;
+
+    // Robuster Trigger: Hero-Container
+    var hero = document.querySelector('.hero-split');
+    if (!hero) return;
+
+    if (!('IntersectionObserver' in window)) return;
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) {
+            footer.classList.add('is-visible');
+          } else {
+            footer.classList.remove('is-visible');
+          }
+        });
+      },
+      {
+        threshold: 0,
+        rootMargin: '-80px 0px 0px 0px'
+      }
+    );
+
+    observer.observe(hero);
+  }
+
+  /* =========================================
+     INIT ALL INTERACTIONS
+     ========================================= */
   onReady(function () {
     initCounterAnimated();
     initAccordion();
+    initStickyFooter();
   });
+
 })();
-
-/* =========================================
-   STICKY FOOTER – HERO TRIGGER
-   Erscheint, sobald der Hero aus dem Viewport ist
-   ========================================= */
-
-function initStickyFooter() {
-  var footer = document.querySelector('.lp-sticky-footer');
-  if (!footer) return;
-
-  // Wir beobachten bewusst den Hero-Container,
-  // NICHT den Button (robuster, kein IO-Edge-Case)
-  var hero = document.querySelector('.hero-split');
-  if (!hero) return;
-
-  // IntersectionObserver
-  var observer = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) {
-          footer.classList.add('is-visible');
-        } else {
-          footer.classList.remove('is-visible');
-        }
-      });
-    },
-    {
-      threshold: 0,
-      // leicht früher triggern, UX-stabil
-      rootMargin: '-80px 0px 0px 0px'
-    }
-  );
-
-  observer.observe(hero);
-}
