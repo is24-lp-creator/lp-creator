@@ -801,12 +801,14 @@
    - content-cards-3col
    - content-cards-2col
 
-   Gemeinsame Regeln:
-   - gleicher Card-Aufbau
-   - fixer Media-Slot (100px)
-   - Bild / Logo / Illustration via contain
-   - Placeholder nur im Library- / Empty-State
+   Core-CSS – LP-Creator-konform
+   Regeln:
+   - KEINE Farben
+   - KEINE Typografie
+   - KEIN Grid
+   - NUR Struktur & Layout
    ========================================================= */
+
 
 /* =========================================================
    Gemeinsame Card-Basis
@@ -818,8 +820,12 @@
   border-radius: var(--border-radius-300);
 }
 
+
 /* =========================================================
    Gemeinsamer Media-Slot
+   - fixer Slot (100px)
+   - linksbündig
+   - oben ausgerichtet
    ========================================================= */
 
 .content-cards-3col__media,
@@ -827,29 +833,23 @@
   width:100%;
   height:100px;
   display:flex;
-  align-items:center;
+  align-items:flex-start;   /* NICHT zentrieren */
   justify-content:flex-start;
-  background:transparent;
   margin-bottom:16px;
 }
 
-/* Eingesetzte Bilder (alle Typen) */
-.content-cards-3col__media img,
-.content-cards-2col__media img{
-  max-height:100%;
-  max-width:100%;
-  width:auto;
-  height:auto;
-  display:block;
-}
 
 /* =========================================================
-   Placeholder (Library-Version)
+   Bilder im Media-Slot
+   - volle Breite
+   - volle Slot-Höhe
+   - flächiges Verhalten
    ========================================================= */
 
-.content-cards-3col__placeholder,
-.content-cards-2col__placeholder{
+.content-cards-3col__media img,
+.content-cards-2col__media img{
   width:100%;
   height:100%;
-  background:#E6F3FF;
+  object-fit:cover;   /* bewusst: Content-Bild, kein Logo */
+  display:block;
 }
