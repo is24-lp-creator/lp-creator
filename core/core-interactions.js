@@ -162,6 +162,146 @@ function initStickyFooter() {
   window.addEventListener('scroll', onScroll, { passive: true });
 }
 
+/* =========================================================
+   LP Creator – teaser-2col @carousel
+   Content-Slider Initialisierung + Dot Sync
+   ========================================================= */
+
+(function () {
+  if (!window.jQuery) return;
+
+  var ARROW_SVG_URL =
+    "https://www.immobilienscout24.de/content/dam/claude-lp-creator/assets/s24_arrow_left_24.svg";
+
+  function hasContentSlider() {
+    return !!(jQuery.fn && typeof jQuery.fn.contentSlider === "function");
+  }
+
+  /* ---------------------------------------------
+     Helpers
+     --------------------------------------------- */
+
+  function readTranslateX(el) {
+    var t = window.getComputedStyle(el).transform;
+    if (!t || t === "none") return 0;
+    var m = t.match(/matrix\\(([^)]+)\\)/);
+    if (!m) return 0;
+    var parts = m[1].split(",").map(function (p) {
+      return parseFloat(p.trim());
+    });
+    return parts.length >= 6 ? parts[4] : 0;
+  }
+
+  function getActiveIndex($wrapper) {
+    var ul = $wrapper.find(".content-slider-viewable-area > ul").get(0);
+    if (!ul) return 0;
+
+    var $pages = jQuery(ul).children(".content-slider-page");
+    if (!$pages.length) return 0;
+
+    var pageW =
+      $pages.get(0).getBoundingClientRect().width || 1;
+
+    var ml =
+      parseFloat(window.getComputedStyle(ul).marginLeft) || 0;
+    var tx = readTranslateX(ul) || 0;
+    var offset = ml !== 0 ? ml : tx;
+
+    var idx = Math.round(Math.abs(offset) / pageW);
+    return Math.max(0, Math.min(idx, $pages.length - 1));
+  }
+
+  function applyActiveDot($wrapper) {
+    var idx = getActiveIndex($wrapper);
+    var $dots = $wrapper.find(".content-slider-page-trigger");
+    $dots.removeClass("active");
+    $dots.eq(idx).addClass("active");
+  }
+
+  function scheduleDotSync($wrapper) {
+    applyActiveDot($wrapper);
+    setTimeout(function () {
+      applyActiveDot($wrapper);
+    }, 120);
+    setTimeout(function () {
+      applyActiveDot($wrapper);
+    }, 320);
+  }
+
+  function wireDotSync($wrapper) {
+    if ($wrapper.data("dotSyncBound")) return;
+    $wrapper.data("dotSyncBound", true);
+
+    $wrapper.on(
+      "click",
+      ".es-nav-prev, .es-nav-next, .content-slider-page-trigger",
+      function () {
+        scheduleDotSync($wrapper);
+      }
+    );
+
+    $wrapper.on(
+      "mouseup touchend pointerup",
+      ".content-slider-viewable-area",
+      function () {
+        scheduleDotSync($wrapper);
+      }
+    );
+
+    window.addEventListener("resize", function () {
+      scheduleDotSync($wrapper);
+    });
+
+    scheduleDotSync($wrapper);
+  }
+
+  /* ---------------------------------------------
+     Init
+     --------------------------------------------- */
+
+  function initCarousel($slider) {
+    if ($slider.data("carouselInit")) return;
+    if (!hasContentSlider()) return;
+
+    $slider.data("carouselInit", true);
+
+    var prevTpl =
+      '<div class="es-nav-prev" aria-label="Zurück">' +
+      '<img src="' +
+      ARROW_SVG_URL +
+      '" alt="" width="24" height="24" />' +
+      "</div>";
+
+    var nextTpl =
+      '<div class="es-nav-next" aria-label="Weiter">' +
+      '<img src="' +
+      ARROW_SVG_URL +
+      '" alt="" width="24" height="24" style="transform:rotate(180deg)" />' +
+      "</div>";
+
+    $slider.find(".content-slider-viewable-area").contentSlider({
+      step: 0,
+      navButtonPrev: prevTpl,
+      navButtonNext: nextTpl,
+    });
+
+    wireDotSync($slider);
+  }
+
+  function boot() {
+    jQuery(".teaser.teaser-2col .content-slider").each(
+      function () {
+        initCarousel(jQuery(this));
+      }
+    );
+  }
+
+  if (document.readyState === "complete") {
+    boot();
+  } else {
+    window.addEventListener("load", boot);
+  }
+})();
 
 
 
