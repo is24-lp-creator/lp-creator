@@ -164,7 +164,7 @@ function initStickyFooter() {
 
 /* =========================================================
    LP Creator – teaser-2col @carousel
-   Content-Slider Initialisierung + Dot Sync
+   Content-Slider Initialisierung + Pagination Sync
    ========================================================= */
 
 (function () {
@@ -177,14 +177,14 @@ function initStickyFooter() {
     return !!(jQuery.fn && typeof jQuery.fn.contentSlider === "function");
   }
 
-  /* ---------------------------------------------
+  /* ---------------------------------------------------------
      Helpers
-     --------------------------------------------- */
+     --------------------------------------------------------- */
 
   function readTranslateX(el) {
     var t = window.getComputedStyle(el).transform;
     if (!t || t === "none") return 0;
-    var m = t.match(/matrix\\(([^)]+)\\)/);
+    var m = t.match(/matrix\(([^)]+)\)/);
     if (!m) return 0;
     var parts = m[1].split(",").map(function (p) {
       return parseFloat(p.trim());
@@ -199,11 +199,9 @@ function initStickyFooter() {
     var $pages = jQuery(ul).children(".content-slider-page");
     if (!$pages.length) return 0;
 
-    var pageW =
-      $pages.get(0).getBoundingClientRect().width || 1;
+    var pageW = $pages.get(0).getBoundingClientRect().width || 1;
 
-    var ml =
-      parseFloat(window.getComputedStyle(ul).marginLeft) || 0;
+    var ml = parseFloat(window.getComputedStyle(ul).marginLeft) || 0;
     var tx = readTranslateX(ul) || 0;
     var offset = ml !== 0 ? ml : tx;
 
@@ -226,11 +224,14 @@ function initStickyFooter() {
     setTimeout(function () {
       applyActiveDot($wrapper);
     }, 320);
+    setTimeout(function () {
+      applyActiveDot($wrapper);
+    }, 520);
   }
 
   function wireDotSync($wrapper) {
-    if ($wrapper.data("dotSyncBound")) return;
-    $wrapper.data("dotSyncBound", true);
+    if ($wrapper.data("carouselDotSync")) return;
+    $wrapper.data("carouselDotSync", true);
 
     $wrapper.on(
       "click",
@@ -255,9 +256,9 @@ function initStickyFooter() {
     scheduleDotSync($wrapper);
   }
 
-  /* ---------------------------------------------
+  /* ---------------------------------------------------------
      Init
-     --------------------------------------------- */
+     --------------------------------------------------------- */
 
   function initCarousel($slider) {
     if ($slider.data("carouselInit")) return;
@@ -282,18 +283,16 @@ function initStickyFooter() {
     $slider.find(".content-slider-viewable-area").contentSlider({
       step: 0,
       navButtonPrev: prevTpl,
-      navButtonNext: nextTpl,
+      navButtonNext: nextTpl
     });
 
     wireDotSync($slider);
   }
 
   function boot() {
-    jQuery(".teaser.teaser-2col .content-slider").each(
-      function () {
-        initCarousel(jQuery(this));
-      }
-    );
+    jQuery('.content-slider[data-carousel="teaser-2col"]').each(function () {
+      initCarousel(jQuery(this));
+    });
   }
 
   if (document.readyState === "complete") {
@@ -302,6 +301,7 @@ function initStickyFooter() {
     window.addEventListener("load", boot);
   }
 })();
+
 
 
 
