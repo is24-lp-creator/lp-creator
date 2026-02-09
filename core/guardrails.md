@@ -34,7 +34,7 @@ Dieses Dokument ergänzt:
 
 ### 1.4 Fallback
 
-* Ist kein Bucket eindeutig zuordenbar, muss ein Icon aus dem Bucket `general-positive` verwendet werden.
+* Ist kein Bucket eindeutig zuordenbar, **muss** ein Icon aus dem Bucket `general-positive` verwendet werden.
 
 ### 1.5 Verbindliche Anwendung
 
@@ -46,6 +46,17 @@ Dieses Dokument ergänzt:
 * Semantisches Raten oder rein optische Icon-Auswahl
 * Nutzung eines Icons aus einem unpassenden Bucket
 * Kombination mehrerer Icons für ein einzelnes semantisches Element
+* **Rendering eines Icon-Slots ohne valide `src`-URL aus der `icon-library.md`**
+* **Leere, fehlende oder Platzhalter-`src`-Attribute in `<img>`-Tags**
+
+### 1.7 Rendering-Enforcement (verbindlich)
+
+* Jeder Icon-Slot **muss** ein `<img>`-Element mit **gesetzter, valider `src`-URL** enthalten.
+* Die `src`-URL **muss exakt** aus der `icon-library.md` stammen.
+* Ist keine eindeutige Bucket-Zuordnung möglich, **muss verpflichtend** ein Fallback-Icon aus dem Bucket `general-positive` verwendet werden.
+* Ein Icon-Slot darf **niemals leer gerendert** werden.
+* Das Anzeigen von Alt-Texten durch fehlgeschlagene Icon-Loads ist **nicht zulässig** und durch Fallbacks aktiv zu verhindern.
+
 
 ---
 
