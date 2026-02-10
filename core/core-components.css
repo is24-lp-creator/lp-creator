@@ -966,6 +966,12 @@
   justify-content:center;
   margin-top:16px;
 }
+/* AEM FIX – Swiper darf nicht vertikal stapeln */
+.carousel-2col .swiper-wrapper,
+.carousel-3col .swiper-wrapper,
+.carousel-4col .swiper-wrapper{
+  flex-direction: row;
+}
 
 /* ---------------------------------------------------------
    Responsive
