@@ -436,6 +436,8 @@ function initStickyFooter() {
 
 (function(){
   function init(root){
+    if (root.dataset.carouselInit) return;
+    root.dataset.carouselInit = 'true';
     var viewport = root.querySelector('.carousel-2col__swiper');
     var track = root.querySelector('.swiper-wrapper');
     var slides = [].slice.call(root.querySelectorAll('.swiper-slide'));
@@ -507,6 +509,7 @@ function initStickyFooter() {
     document.querySelectorAll('.carousel-3col').forEach(init);
   });
 })();
+
 
 
   /* =========================================
