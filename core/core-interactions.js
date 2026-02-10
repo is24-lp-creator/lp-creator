@@ -368,8 +368,15 @@ function initStickyFooter() {
       var pageWidth;
 
       if(pv > 1){
-        pageWidth = viewport.clientWidth - gap * (pv - 1);
+        pageWidth = ((viewport.clientWidth - gap * (pv - 1)) / pv) * pv + gap * (pv - 1);
       } else {
+        pageWidth = viewport.clientWidth;
+      }
+
+      track.style.transform = 'translateX(' + (-page * pageWidth) + 'px)';
+      updateArrows();
+      updatePagination();
+    } else {
         pageWidth = viewport.clientWidth;
       }
 
