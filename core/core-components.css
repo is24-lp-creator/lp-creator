@@ -853,9 +853,6 @@
   object-fit:cover;   /* bewusst: Content-Bild, kein Logo */
   display:block;
 }
-
-
-
 /* =========================================================
    Carousel Teaser – Core CSS
    Gültig für:
@@ -987,4 +984,3 @@
     display:none;
   }
 }
-
