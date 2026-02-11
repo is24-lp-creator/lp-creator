@@ -360,62 +360,43 @@
 /* =========================================================
    Modul: teaser-split-image-left / teaser-split-image-right
    ========================================================= */
-
+<style>
 .teaser-split{
-  overflow-x: clip;
+  overflow-x:clip;
 }
 
 .teaser-split__grid{
-  align-items: stretch;
-}
-
-.teaser-split__media-wrapper{
-  height: 400px;
-}
-
-.teaser-split__media-box{
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.teaser-split__media-image{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  align-items:stretch;
 }
 
 .teaser-split__content{
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  height:100%;
+}
+
+.teaser-split__content-col{
+  display:flex;
 }
 
 .teaser-split__cta{
-  display: inline-flex;
-  align-self: flex-start;
+  display:inline-flex;
+  align-self:flex-start;
 }
 
 @media (max-width:668px){
-  .teaser-split__media-wrapper{
-    height: 260px;
-  }
-
-  .teaser-split__content{
-    height: auto;
-  }
-
   .teaser-split-image-right .teaser-split__media-col{
-    order: 1;
+    order:1;
   }
 
   .teaser-split-image-right .teaser-split__content-col{
-    order: 2;
+    order:2;
   }
 }
+</style>
+
 
 
 /* =========================================================
