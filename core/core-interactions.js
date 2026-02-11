@@ -433,13 +433,11 @@ function initStickyFooter() {
   /* =========================================
     Carousel 3-col
      ========================================= */
-
 (function(){
   function init(root){
     if (root.dataset.carouselInit) return;
     root.dataset.carouselInit = 'true';
-    if (root.dataset.carouselInit) return;
-    root.dataset.carouselInit = 'true';
+
     var viewport = root.querySelector('.carousel-2col__swiper');
     var track = root.querySelector('.swiper-wrapper');
     var slides = [].slice.call(root.querySelectorAll('.swiper-slide'));
@@ -468,7 +466,13 @@ function initStickyFooter() {
     function update(){
       var pv = perView();
       var gap = 24;
-      var pageWidth = pv > 1 ? (viewport.clientWidth - gap * (pv - 1)) : viewport.clientWidth;
+      var pageWidth;
+
+      if(pv > 1){
+        pageWidth = ((viewport.clientWidth - gap * (pv - 1)) / pv) * pv + gap * (pv - 1);
+      } else {
+        pageWidth = viewport.clientWidth;
+      }
 
       track.style.transform = 'translateX(' + (-page * pageWidth) + 'px)';
       updateArrows();
@@ -511,8 +515,6 @@ function initStickyFooter() {
     document.querySelectorAll('.carousel-4col').forEach(init);
   });
 })();
-
-
 
 
   /* =========================================
