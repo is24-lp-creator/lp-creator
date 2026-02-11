@@ -446,7 +446,7 @@ function initStickyFooter() {
     var pagination = root.querySelector('.carousel-2col__pagination');
     var page = 0;
 
-    function perView(){ return window.innerWidth >= 1024 ? 4 : (window.innerWidth >= 669 ? 2 : 1); }
+    function perView(){ return window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 669 ? 2 : 1); }
     function pages(){ return Math.ceil(slides.length / perView()); }
 
     function layout(){
@@ -512,9 +512,10 @@ function initStickyFooter() {
   }
 
   window.addEventListener('load', function(){
-    document.querySelectorAll('.carousel-4col').forEach(init);
+    document.querySelectorAll('.carousel-3col').forEach(init);
   });
 })();
+
 
 
   /* =========================================
