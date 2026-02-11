@@ -471,7 +471,7 @@ function initStickyFooter() {
   }
 
   window.addEventListener('load', function(){
-    document.querySelectorAll('[data-carousel]').forEach(init);
+    document.querySelectorAll('.carousel-2col').forEach(init);
   });
 })();
 
