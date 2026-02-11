@@ -530,13 +530,13 @@ function initStickyFooter() {
     if (root.dataset.carouselInit) return;
     root.dataset.carouselInit = 'true';
 
-    var viewport=root.querySelector('.carousel-2col__swiper');
-    var track=root.querySelector('.swiper-wrapper');
-    var slides=[].slice.call(root.querySelectorAll('.swiper-slide'));
-    var prevBtn=root.querySelector('.carousel-2col__arrow--prev');
-    var nextBtn=root.querySelector('.carousel-2col__arrow--next');
-    var pagination=root.querySelector('.carousel-2col__pagination');
-    var page=0;
+    var viewport = root.querySelector('.carousel-2col__swiper');
+    var track = root.querySelector('.swiper-wrapper');
+    var slides = [].slice.call(root.querySelectorAll('.swiper-slide'));
+    var prevBtn = root.querySelector('.carousel-2col__arrow--prev');
+    var nextBtn = root.querySelector('.carousel-2col__arrow--next');
+    var pagination = root.querySelector('.carousel-2col__pagination');
+    var page = 0;
 
     function perView(){ 
       return window.innerWidth >= 1024 ? 4 :
@@ -567,8 +567,17 @@ function initStickyFooter() {
 
       update();
       buildPagination();
-       root.classList.add('carousel-ready');
 
+      // mark ready (removes FOUC)
+      root.classList.add('carousel-ready');
+
+      // center arrows based on actual media height
+      var media = root.querySelector('.carousel-2col__media');
+      if(media && prevBtn && nextBtn){
+        var h = media.offsetHeight;
+        prevBtn.style.top = (h / 2) + 'px';
+        nextBtn.style.top = (h / 2) + 'px';
+      }
     }
 
     function update(){
@@ -625,4 +634,3 @@ function initStickyFooter() {
     document.querySelectorAll('.carousel-4col').forEach(init);
   });
 })();
-
