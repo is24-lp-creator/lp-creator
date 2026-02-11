@@ -859,6 +859,7 @@
 }
 
 
+
 /* =========================================================
    Carousel – Shared Styles (2 / 3 / 4 Col)
    ========================================================= */
@@ -886,6 +887,7 @@
 .carousel-3col .swiper-slide,
 .carousel-4col .swiper-slide{
   flex:0 0 auto;
+  min-width:100%; /* prevents flash of multiple items before JS sets widths */
 }
 
 /* Media */
