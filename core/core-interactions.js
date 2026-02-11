@@ -448,13 +448,27 @@ function initStickyFooter() {
     var pagination = root.querySelector('.carousel-2col__pagination');
     var page = 0;
 
-    function perView(){ return window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 669 ? 2 : 1); }
-    function pages(){ return Math.ceil(slides.length / perView()); }
+    function perView(){ 
+      return window.innerWidth >= 1024 ? 3 :
+             window.innerWidth >= 669 ? 2 : 1;
+    }
+
+    function pages(){ 
+      return Math.ceil(slides.length / perView()); 
+    }
 
     function layout(){
       var pv = perView();
       var gap = 24;
-      var w = pv > 1 ? (viewport.clientWidth - gap * (pv - 1)) / pv : viewport.clientWidth;
+      var w;
+
+      if(pv === 3){
+        w = (viewport.clientWidth - gap * 2) / 3;
+      } else if(pv === 2){
+        w = (viewport.clientWidth - gap) / 2;
+      } else {
+        w = viewport.clientWidth;
+      }
 
       slides.forEach(function(s,i){
         s.style.width = w + 'px';
@@ -463,8 +477,17 @@ function initStickyFooter() {
 
       update();
       buildPagination();
-       root.classList.add('carousel-ready');
 
+      // mark ready (removes FOUC)
+      root.classList.add('carousel-ready');
+
+      // center arrows based on actual media height
+      var media = root.querySelector('.carousel-2col__media');
+      if(media && prevBtn && nextBtn){
+        var h = media.offsetHeight;
+        prevBtn.style.top = (h / 2) + 'px';
+        nextBtn.style.top = (h / 2) + 'px';
+      }
     }
 
     function update(){
@@ -472,8 +495,10 @@ function initStickyFooter() {
       var gap = 24;
       var pageWidth;
 
-      if(pv > 1){
-        pageWidth = ((viewport.clientWidth - gap * (pv - 1)) / pv) * pv + gap * (pv - 1);
+      if(pv === 3){
+        pageWidth = ((viewport.clientWidth - gap * 2) / 3) * 3 + gap * 2;
+      } else if(pv === 2){
+        pageWidth = ((viewport.clientWidth - gap) / 2) * 2 + gap;
       } else {
         pageWidth = viewport.clientWidth;
       }
