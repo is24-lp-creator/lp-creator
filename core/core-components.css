@@ -882,6 +882,13 @@
   margin:0;
   will-change:transform;
   transition:transform 0.35s ease;
+  opacity:0; /* hide until JS sets widths */
+}
+
+.carousel-2col.carousel-ready .swiper-wrapper,
+.carousel-3col.carousel-ready .swiper-wrapper,
+.carousel-4col.carousel-ready .swiper-wrapper{
+  opacity:1;
 }
 
 .carousel-2col .swiper-slide,
@@ -983,4 +990,5 @@
 @media(max-width:668px){
   .carousel-2col__overlay{ display:none; }
 }
+
 
