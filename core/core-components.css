@@ -859,6 +859,7 @@
 }
 
 
+
 /* =========================================================
    Carousel – Shared Styles (2 / 3 / 4 Col)
    ========================================================= */
@@ -926,8 +927,7 @@
   top:0;
   left:0;
   right:0;
-  height:0;
-  padding-top:75%; /* match 4:3 media ratio */
+  height:100%;
   pointer-events:none;
 }
 
@@ -944,7 +944,7 @@
   cursor:pointer;
   pointer-events:auto;
   position:absolute;
-  top:50%;
+  top:37.5%; /* half of 75% (4:3 ratio height) */
   transform:translateY(-50%);
 }
 
@@ -989,7 +989,3 @@
 @media(max-width:668px){
   .carousel-2col__overlay{ display:none; }
 }
-
-
-
-
