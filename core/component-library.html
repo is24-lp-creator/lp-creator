@@ -611,11 +611,7 @@ Keine Regeln. Keine Logik.
 </section>
 
 <!-- =========================================================
-     ACCORDION (modern, HTML-only)
-     Zweck:
-     - FAQ / aufklappbare Inhalte
-     - Rein deklarativ (kein Inline-JS, kein Inline-CSS)
-     - Interaktion erfolgt über globales core-interactions.js
+     ACCORDION 
      ========================================================= -->
 
 <section>
@@ -687,11 +683,7 @@ Keine Regeln. Keine Logik.
 </section>
 
 <!-- =========================================================
-     COUNTER ANIMATED (modern, HTML-only)
-     Zweck:
-     - Darstellung animierter Kennzahlen
-     - Rein deklarativ (kein Inline-JS, kein Inline-CSS)
-     - Animation erfolgt über globales core-interactions.js
+     COUNTER ANIMATED
      ========================================================= -->
 
 <section class="counter-animated">
@@ -1373,103 +1365,26 @@ height="48"
   </div>
 </section>
 
-<!-- =========================================================
-     content-cards – Library HTML
-     Versionen:
-     - content-cards-3col
-     - content-cards-2col
-
-     Regeln:
-     - Placeholder-Farbe über Foundations / Utilities
-     - Core-CSS enthält KEINE Farben
-     - GPT ersetzt NUR den Placeholder-DIV durch <img>
-     ========================================================= -->
-
-
-<!-- =========================================================
-     content-cards-3col
-     ========================================================= -->
-<section class="content-cards-3col">
-  <div class="grid grid-flex gutter margin-bottom-l">
-    <div class="grid-item one-whole">
-      <h2 class="font-heading-medium-bold">Modul-Headline</h2>
-    </div>
-  </div>
-<section class="content-cards-3col">
-  <div class="grid grid-flex gutter">
-
-    <div class="grid-item one-third palm-one-whole">
-      <div class="content-cards-3col__card padding-l lp-border-soft">
-
-        <div class="content-cards-3col__media">
-          <img src="https://placehold.co/750x500/E6F3FF/E6F3FF" alt="" />
-        </div>
-
-        <h3 class="font-heading-small-bold margin-bottom-xs">Headline</h3>
-
-        <p class="font-body-large-regular margin-bottom-m">
-          Beispieltext für eine Content-Card. Der Text kann frei formuliert werden.
-        </p>
-
-        <a href="#" class="ai-button button-outline-strong">Mehr erfahren</a>
-      </div>
-    </div>
-
-    <div class="grid-item one-third palm-one-whole">
-      <div class="content-cards-3col__card padding-l lp-border-soft">
-
-        <div class="content-cards-3col__media">
-          <img src="https://placehold.co/750x500/E6F3FF/E6F3FF" alt="" />
-        </div>
-
-        <h3 class="font-heading-small-bold margin-bottom-xs">Headline</h3>
-
-        <p class="font-body-large-regular margin-bottom-m">
-          Beispieltext für eine Content-Card. Der Text kann frei formuliert werden.
-        </p>
-
-        <a href="#" class="ai-button button-outline-strong">Mehr erfahren</a>
-      </div>
-    </div>
-
-    <div class="grid-item one-third palm-one-whole">
-      <div class="content-cards-3col__card padding-l lp-border-soft">
-
-        <div class="content-cards-3col__media">
-          <img src="https://placehold.co/750x500/E6F3FF/E6F3FF" alt="" />
-        </div>
-
-        <h3 class="font-heading-small-bold margin-bottom-xs">Headline</h3>
-
-        <p class="font-body-large-regular margin-bottom-m">
-          Beispieltext für eine Content-Card. Der Text kann frei formuliert werden.
-        </p>
-
-        <a href="#" class="ai-button button-outline-strong">Mehr erfahren</a>
-      </div>
-    </div>
-
-  </div>
-</section>
 
 
 <!-- =========================================================
      content-cards-2col
      ========================================================= -->
 <section class="content-cards-2col">
+
   <div class="grid grid-flex gutter margin-bottom-l">
     <div class="grid-item one-whole">
       <h2 class="font-heading-medium-bold">Modul-Headline</h2>
     </div>
   </div>
-<section class="content-cards-2col">
+
   <div class="grid grid-flex gutter">
 
     <div class="grid-item one-half palm-one-whole">
       <div class="content-cards-2col__card padding-l lp-border-soft">
 
         <div class="content-cards-2col__media">
-          <img src="https://placehold.co/750x500/E6F3FF/E6F3FF" alt="" />
+          <img src="" alt="" />
         </div>
 
         <h3 class="font-heading-small-bold margin-bottom-xs">Headline</h3>
@@ -1479,6 +1394,7 @@ height="48"
         </p>
 
         <a href="#" class="ai-button button-outline-strong">Mehr erfahren</a>
+
       </div>
     </div>
 
@@ -1486,7 +1402,7 @@ height="48"
       <div class="content-cards-2col__card padding-l lp-border-soft">
 
         <div class="content-cards-2col__media">
-          <img src="https://placehold.co/750x500/E6F3FF/E6F3FF" alt="" />
+          <img src="" alt="" />
         </div>
 
         <h3 class="font-heading-small-bold margin-bottom-xs">Headline</h3>
@@ -1496,8 +1412,84 @@ height="48"
         </p>
 
         <a href="#" class="ai-button button-outline-strong">Mehr erfahren</a>
+
       </div>
     </div>
 
   </div>
+
 </section>
+
+
+
+<!-- =========================================================
+     content-cards-3col
+     ========================================================= -->
+<section class="content-cards-3col">
+
+  <div class="grid grid-flex gutter margin-bottom-l">
+    <div class="grid-item one-whole">
+      <h2 class="font-heading-medium-bold">Modul-Headline</h2>
+    </div>
+  </div>
+
+  <div class="grid grid-flex gutter">
+
+    <div class="grid-item one-third palm-one-whole">
+      <div class="content-cards-3col__card padding-l lp-border-soft">
+
+        <div class="content-cards-3col__media">
+          <img src="" alt="" />
+        </div>
+
+        <h3 class="font-heading-small-bold margin-bottom-xs">Headline</h3>
+
+        <p class="font-body-large-regular margin-bottom-m">
+          Beispieltext für eine Content-Card. Der Text kann frei formuliert werden.
+        </p>
+
+        <a href="#" class="ai-button button-outline-strong">Mehr erfahren</a>
+
+      </div>
+    </div>
+
+    <div class="grid-item one-third palm-one-whole">
+      <div class="content-cards-3col__card padding-l lp-border-soft">
+
+        <div class="content-cards-3col__media">
+          <img src="" alt="" />
+        </div>
+
+        <h3 class="font-heading-small-bold margin-bottom-xs">Headline</h3>
+
+        <p class="font-body-large-regular margin-bottom-m">
+          Beispieltext für eine Content-Card. Der Text kann frei formuliert werden.
+        </p>
+
+        <a href="#" class="ai-button button-outline-strong">Mehr erfahren</a>
+
+      </div>
+    </div>
+
+    <div class="grid-item one-third palm-one-whole">
+      <div class="content-cards-3col__card padding-l lp-border-soft">
+
+        <div class="content-cards-3col__media">
+          <img src="" alt="" />
+        </div>
+
+        <h3 class="font-heading-small-bold margin-bottom-xs">Headline</h3>
+
+        <p class="font-body-large-regular margin-bottom-m">
+          Beispieltext für eine Content-Card. Der Text kann frei formuliert werden.
+        </p>
+
+        <a href="#" class="ai-button button-outline-strong">Mehr erfahren</a>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
