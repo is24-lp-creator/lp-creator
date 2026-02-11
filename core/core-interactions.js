@@ -349,6 +349,8 @@ function initStickyFooter() {
       });
       update();
       buildPagination();
+       root.classList.add('carousel-ready');
+
     }
 
     function update(){
@@ -461,6 +463,8 @@ function initStickyFooter() {
 
       update();
       buildPagination();
+       root.classList.add('carousel-ready');
+
     }
 
     function update(){
@@ -563,6 +567,8 @@ function initStickyFooter() {
 
       update();
       buildPagination();
+       root.classList.add('carousel-ready');
+
     }
 
     function update(){
