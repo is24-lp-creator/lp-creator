@@ -360,7 +360,7 @@
 /* =========================================================
    Modul: teaser-split-image-left / teaser-split-image-right
    ========================================================= */
-<style>
+
 .teaser-split{
   overflow-x:clip;
 }
@@ -395,7 +395,6 @@
     order:2;
   }
 }
-</style>
 
 
 
