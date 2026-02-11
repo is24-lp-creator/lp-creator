@@ -253,11 +253,13 @@
 
 .lp-media--16x9::before,
 .lp-media--3x2::before,
+.lp-media--4x3::before,
 .lp-media--1x1::before{
   content:"";
   display:block;
 }
 
+.lp-media--4x3::before{ padding-top:75%; }
 .lp-media--16x9::before{ padding-top:56.25%; }
 .lp-media--3x2::before{ padding-top:66.6667%; }
 .lp-media--1x1::before{ padding-top:100%; }
