@@ -438,6 +438,8 @@ function initStickyFooter() {
   function init(root){
     if (root.dataset.carouselInit) return;
     root.dataset.carouselInit = 'true';
+    if (root.dataset.carouselInit) return;
+    root.dataset.carouselInit = 'true';
     var viewport = root.querySelector('.carousel-2col__swiper');
     var track = root.querySelector('.swiper-wrapper');
     var slides = [].slice.call(root.querySelectorAll('.swiper-slide'));
@@ -446,7 +448,7 @@ function initStickyFooter() {
     var pagination = root.querySelector('.carousel-2col__pagination');
     var page = 0;
 
-    function perView(){ return window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 669 ? 2 : 1); }
+    function perView(){ return window.innerWidth >= 1024 ? 4 : (window.innerWidth >= 669 ? 2 : 1); }
     function pages(){ return Math.ceil(slides.length / perView()); }
 
     function layout(){
@@ -466,7 +468,7 @@ function initStickyFooter() {
     function update(){
       var pv = perView();
       var gap = 24;
-      var pageWidth = pv > 1 ? (w = (viewport.clientWidth - gap * (pv - 1)) ) : viewport.clientWidth;
+      var pageWidth = pv > 1 ? (viewport.clientWidth - gap * (pv - 1)) : viewport.clientWidth;
 
       track.style.transform = 'translateX(' + (-page * pageWidth) + 'px)';
       updateArrows();
@@ -506,9 +508,10 @@ function initStickyFooter() {
   }
 
   window.addEventListener('load', function(){
-    document.querySelectorAll('.carousel-3col').forEach(init);
+    document.querySelectorAll('.carousel-4col').forEach(init);
   });
 })();
+
 
 
 
