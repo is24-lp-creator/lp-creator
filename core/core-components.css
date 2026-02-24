@@ -993,21 +993,13 @@
   background: transparent !important;
 }
 
-/* Allowed badge colors */
+/* Allowed badge colors (Foundation classes only) */
 .action-tiles_rle .action-tiles_rle__badge.lp-color-teal { color: #3DF5DC !important; }
-.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-1 { color: #FF9626 !important; }
-.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-2 { color: #EFF933 !important; }
-.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-3 { color: #24E3FF !important; }
-.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-4 { color: #D5AAFF !important; }
+.action-tiles_rle .action-tiles_rle__badge.lp-color-orange { color: #FF9626 !important; }
+.action-tiles_rle .action-tiles_rle__badge.lp-color-yellow { color: #EFF933 !important; }
+.action-tiles_rle .action-tiles_rle__badge.lp-color-blue { color: #24E3FF !important; }
+.action-tiles_rle .action-tiles_rle__badge.lp-color-purple { color: #D5AAFF !important; }
 .action-tiles_rle .action-tiles_rle__badge.lp-color-charcoal { color: #333333 !important; }
-.action-tiles_rle .action-tiles_rle__badge.lp-color-charcoal .badge-text { color: #FFFFFF !important; }
-
-.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-1 { background: transparent !important; color: #FF9626 !important; }
-.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-2 { background: transparent !important; color: #EFF933 !important; }
-.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-3 { background: transparent !important; color: #24E3FF !important; }
-.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-4 { background: transparent !important; color: #D5AAFF !important; }
-
-.action-tiles_rle .action-tiles_rle__badge.lp-color-charcoal { background: transparent !important; color: #333333 !important; }
 .action-tiles_rle .action-tiles_rle__badge.lp-color-charcoal .badge-text { color: #FFFFFF !important; }
 
 .action-tiles_rle .badge-shape {
