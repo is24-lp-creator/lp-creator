@@ -990,8 +990,17 @@
   z-index: 10;
   pointer-events: none;
   width: 240px;
-  background: transparent;
+  background: transparent !important;
 }
+
+/* Allowed badge colors */
+.action-tiles_rle .action-tiles_rle__badge.lp-color-teal { color: #3DF5DC !important; }
+.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-1 { color: #FF9626 !important; }
+.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-2 { color: #EFF933 !important; }
+.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-3 { color: #24E3FF !important; }
+.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-4 { color: #D5AAFF !important; }
+.action-tiles_rle .action-tiles_rle__badge.lp-color-charcoal { color: #333333 !important; }
+.action-tiles_rle .action-tiles_rle__badge.lp-color-charcoal .badge-text { color: #FFFFFF !important; }
 
 .action-tiles_rle .action-tiles_rle__badge.lp-color-accent-1 { background: transparent !important; color: #FF9626 !important; }
 .action-tiles_rle .action-tiles_rle__badge.lp-color-accent-2 { background: transparent !important; color: #EFF933 !important; }
