@@ -337,3 +337,33 @@ In diesen Fällen ist **ausschließlich** folgende Antwort zu verwenden:
 * Inhalte dürfen nicht verändert werden
 * Modul nur vollständig oder gar nicht verwenden
 
+### 9.9 action-tiles_rle (`action-tiles_rle`)
+
+* Exakt **4 Tiles**
+* Exakt **3 USP-Items**
+* Die Badge-SVG-Form darf **nicht** verändert werden.
+* Die definierte Safe-Zone (**190 × 55 px**, vertikal bei **42%**) darf **nicht** verändert werden.
+* Der Badge darf die Bleed-Fläche überragen (Position darf nicht verändert werden).
+
+**Erlaubte Badge-Farben:**
+
+* `lp-color-teal`
+* `lp-color-accent-1`
+* `lp-color-accent-2`
+* `lp-color-accent-3`
+* `lp-color-accent-4`
+* `lp-color-charcoal`
+
+**Nicht zulässig:**
+
+* Andere Foundation-Farben
+* Freie Hex-Werte
+* Inline-Farbdefinitionen
+
+**Sonderregel:**
+
+* Wird `lp-color-charcoal` verwendet, muss der Badge-Text **weiß** sein.
+
+**Icons:**
+
+* Die Checkmark-Icons der USP-Liste dürfen **nicht ersetzt** oder verändert werden.
