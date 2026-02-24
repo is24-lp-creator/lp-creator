@@ -969,3 +969,157 @@
 @media(max-width:668px){
   .carousel-2col__overlay{ display:none; }
 }
+
+
+
+/* =========================================================
+   action-tiles_rle
+   ========================================================= */
+
+.action-tiles_rle {
+  position: relative;
+  padding: 60px 24px 60px 24px;
+  overflow: visible;
+}
+
+/* Badge (color controlled via lp-color-* class) */
+.action-tiles_rle .action-tiles_rle__badge {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  z-index: 10;
+  pointer-events: none;
+  width: 240px;
+  /* ensure badge container itself does not set a background color from foundation utilities */
+  background: transparent;
+  /* default color for the inline SVG (teal) — will be used by fill="currentColor" */
+  color: #3df5dc;
+}
+
+
+/* Allowed badge colors: teal (default), accent-1..4, charcoal */
+.action-tiles_rle .action-tiles_rle__badge.lp-color-teal { background: transparent !important; color: #3DF5DC !important; }
+.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-1 { background: transparent !important; color: var(--lp-color-accent-1) !important; }
+.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-2 { background: transparent !important; color: var(--lp-color-accent-2) !important; }
+.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-3 { background: transparent !important; color: var(--lp-color-accent-3) !important; }
+.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-4 { background: transparent !important; color: var(--lp-color-accent-4) !important; }
+
+/* Charcoal: force white text */
+.action-tiles_rle .action-tiles_rle__badge.lp-color-charcoal {
+  background: transparent !important;
+  color: #333333 !important;
+}
+.action-tiles_rle .action-tiles_rle__badge.lp-color-charcoal .badge-text {
+  color: #FFFFFF !important;
+}
+
+.action-tiles_rle .badge-shape {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.action-tiles_rle .badge-text {
+  position: absolute;
+  width: 190px;
+  height: 55px;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  /* ensure text is visible independent from badge color */
+  color: #333333;
+
+}
+
+.action-tiles_rle .badge-line-1 {
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 700;
+  margin: 0;
+}
+
+.action-tiles_rle .badge-line-2 {
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Headline */
+.action-tiles_rle .action-tiles_rle__body {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Tiles */
+.action-tiles_rle .action-tiles_rle__tile {
+  display: block;
+  width: 100%;
+  padding: 28px 18px;
+  background: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+/* Hover uses exact brand teal */
+.action-tiles_rle .action-tiles_rle__tile:hover {
+  background-color: #3df5dc;
+}
+
+.action-tiles_rle .action-tiles_rle__tile img {
+  width: 48px !important;
+  height: 48px !important;
+  max-width: 48px !important;
+  max-height: 48px !important;
+  margin: 0 auto 12px auto;
+  display: block;
+}
+
+/* Desktop USP layout */
+.action-tiles_rle .checkmark-list {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 56px;
+}
+
+/* ================= Mobile ================= */
+@media (max-width: 900px) {
+
+  .action-tiles_rle {
+    padding: 64px 16px;
+  }
+
+  .action-tiles_rle .action-tiles_rle__badge {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 200px;
+  }
+
+  .action-tiles_rle .action-tiles_rle__body {
+    margin-top: 20px;
+  }
+
+  .action-tiles_rle .checkmark-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-top: 24px;
+  }
+
+  .action-tiles_rle .checkmark-list__item {
+    margin-bottom: 0;
+  }
+}
