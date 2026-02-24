@@ -368,11 +368,30 @@ Nicht zulässig:
 #### Badge
 
 * Die SVG-Form darf nicht verändert werden.
-* Die Safe-Zone (**190 × 55 px**, vertikal bei **42%**) darf nicht verändert werden.
+* Die definierte Safe-Zone (**190 × 55 px**, vertikal bei **42%**) darf nicht verändert werden.
 * Text darf die Safe-Zone nicht verlassen.
-* Die Badge-Farbe ist fest definiert (**#3DF5DC**).
-* Die Farbe darf nicht verändert werden.
-* Es dürfen keine Foundation-Farbklassen, Hex-Werte oder Inline-Farben am Badge ergänzt werden.
+
+**Badge-Farbsteuerung**
+
+Die Badge-Farbe darf ausschließlich über folgende Foundation-Klassen am Badge-Container gesteuert werden:
+
+* `lp-color-teal` (Default)
+* `lp-color-accent-1`
+* `lp-color-accent-2`
+* `lp-color-accent-3`
+* `lp-color-accent-4`
+* `lp-color-charcoal`
+
+Nicht zulässig:
+
+* Andere Foundation-Farbklassen
+* Freie Hex-Werte
+* Inline-Farbdefinitionen
+* Änderung des SVG-`fill`-Attributs
+
+**Sonderregel:**
+
+* Wird `lp-color-charcoal` verwendet, muss der Badge-Text **weiß** sein.
 
 ---
 
