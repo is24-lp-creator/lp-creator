@@ -376,15 +376,16 @@ Nicht zulässig:
 Die Badge-Farbe darf ausschließlich über folgende Foundation-Klassen am Badge-Container gesteuert werden:
 
 * `lp-color-teal` (Default)
-* `lp-color-accent-1`
-* `lp-color-accent-2`
-* `lp-color-accent-3`
-* `lp-color-accent-4`
+* `lp-color-orange`
+* `lp-color-yellow`
+* `lp-color-blue`
+* `lp-color-purple`
 * `lp-color-charcoal`
 
 Nicht zulässig:
 
 * Andere Foundation-Farbklassen
+* `lp-color-accent-*`
 * Freie Hex-Werte
 * Inline-Farbdefinitionen
 * Änderung des SVG-`fill`-Attributs
@@ -402,12 +403,6 @@ Nicht zulässig:
 * Tile-Texte sind fix und dürfen nicht verändert werden.
 * Keine zusätzliche CTA zulässig.
 
-Nicht zulässig:
-
-* Austausch der Icons
-* Austausch oder Umformulierung der Tile-Texte
-* Änderung der Anzahl
-
 ---
 
 #### USP-Liste (Checkmarks)
@@ -416,12 +411,6 @@ Nicht zulässig:
 * Checkmark-Icons dürfen nicht ersetzt oder entfernt werden.
 * USP-Texte dürfen angepasst werden (nur bei expliziter User-Anweisung).
 * Jeder USP muss **einzeilig** bleiben.
-
-Nicht zulässig:
-
-* Mehrzeilige USP-Texte
-* Austausch der Checkmark-Icons
-* Hinzufügen weiterer USP-Items
 
 ---
 
