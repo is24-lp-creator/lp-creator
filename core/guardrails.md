@@ -339,37 +339,75 @@ In diesen Fällen ist **ausschließlich** folgende Antwort zu verwenden:
 
 ### 9.9 action-tiles_rle (`action-tiles_rle`)
 
+Das Modul **action-tiles_rle** ist strukturell und visuell fixiert.
+
+Der LP Builder darf an diesem Modul **keine strukturellen oder inhaltlichen Veränderungen** vornehmen.
+
+Textliche Anpassungen sind ausschließlich zulässig, wenn der User diese explizit anfordert.  
+Ohne explizite User-Anweisung dürfen keine Texte automatisch verändert, optimiert oder ersetzt werden.
+
+---
+
+#### Struktur (verbindlich)
+
 * Exakt **4 Tiles**
 * Exakt **3 USP-Items**
-* Die Badge-SVG-Form darf **nicht** verändert werden.
-* Die definierte Safe-Zone (**190 × 55 px**, vertikal bei **42%**) darf **nicht** verändert werden.
-* Der Badge darf die Bleed-Fläche überragen (Position darf nicht verändert werden).
+* 1 Badge (SVG-Form)
+* 1 Headline (h2)
 
-**Badge-Farbsteuerung**
+Nicht zulässig:
 
-* Die Badge-Farbe wird ausschließlich über Foundation-Farbklassen am Badge-Container gesteuert.
-* Die SVG nutzt `fill="currentColor"` zur Farbsteuerung.
-* Zulässig sind ausschließlich:
+* Hinzufügen oder Entfernen von Elementen
+* Veränderung der Grid-Struktur
+* Veränderung der Element-Hierarchie
+* Änderung der Heading-Ebene
+* Änderung des Responsive-Verhaltens
 
-  * `lp-color-teal` (Default)
-  * `lp-color-accent-1`
-  * `lp-color-accent-2`
-  * `lp-color-accent-3`
-  * `lp-color-accent-4`
-  * `lp-color-charcoal`
+---
 
-**Nicht zulässig:**
+#### Badge
 
-* Andere Foundation-Farbklassen
-* Freie Hex-Werte
-* Inline-Farbdefinitionen
-* Manuelle Änderung der SVG-Fill-Werte
+* Die SVG-Form darf nicht verändert werden.
+* Die Safe-Zone (**190 × 55 px**, vertikal bei **42%**) darf nicht verändert werden.
+* Text darf die Safe-Zone nicht verlassen.
+* Die Badge-Farbe ist fest definiert (**#3DF5DC**).
+* Die Farbe darf nicht verändert werden.
+* Es dürfen keine Foundation-Farbklassen, Hex-Werte oder Inline-Farben am Badge ergänzt werden.
 
-**Sonderregel:**
+---
 
-* Wird `lp-color-charcoal` verwendet, muss der Badge-Text **weiß** sein.
+#### Tiles
 
-**Icons**
+* Exakt 4 Tiles
+* Icons sind fix und dürfen nicht ersetzt werden.
+* Tile-Texte sind fix und dürfen nicht verändert werden.
+* Keine zusätzliche CTA zulässig.
 
-* Die Checkmark-Icons der USP-Liste dürfen **nicht ersetzt** oder verändert werden.
-* Die Tile-Icons dürfen ausschließlich aus der Icon-Library stammen.
+Nicht zulässig:
+
+* Austausch der Icons
+* Austausch oder Umformulierung der Tile-Texte
+* Änderung der Anzahl
+
+---
+
+#### USP-Liste (Checkmarks)
+
+* Exakt 3 USP-Items
+* Checkmark-Icons dürfen nicht ersetzt oder entfernt werden.
+* USP-Texte dürfen angepasst werden (nur bei expliziter User-Anweisung).
+* Jeder USP muss **einzeilig** bleiben.
+
+Nicht zulässig:
+
+* Mehrzeilige USP-Texte
+* Austausch der Checkmark-Icons
+* Hinzufügen weiterer USP-Items
+
+---
+
+#### Hover
+
+* Hover darf ausschließlich die Hintergrundfarbe der Tiles verändern.
+* Keine Animation von Größe oder Position.
+* Keine Shadow-Animation.
