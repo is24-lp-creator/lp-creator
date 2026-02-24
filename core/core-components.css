@@ -982,7 +982,7 @@
   overflow: visible;
 }
 
-/* Badge (color controlled via lp-color-* class) */
+/* Badge */
 .action-tiles_rle .action-tiles_rle__badge {
   position: absolute;
   top: -40px;
@@ -990,28 +990,19 @@
   z-index: 10;
   pointer-events: none;
   width: 240px;
-  /* ensure badge container itself does not set a background color from foundation utilities */
   background: transparent;
-  /* default color for the inline SVG (teal) — will be used by fill="currentColor" */
-  color: #3df5dc;
 }
-
 
 /* Allowed badge colors: teal (default), accent-1..4, charcoal */
 .action-tiles_rle .action-tiles_rle__badge.lp-color-teal { background: transparent !important; color: #3DF5DC !important; }
-.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-1 { background: transparent !important; color: var(--lp-color-accent-1) !important; }
-.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-2 { background: transparent !important; color: var(--lp-color-accent-2) !important; }
-.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-3 { background: transparent !important; color: var(--lp-color-accent-3) !important; }
-.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-4 { background: transparent !important; color: var(--lp-color-accent-4) !important; }
 
-/* Charcoal: force white text */
-.action-tiles_rle .action-tiles_rle__badge.lp-color-charcoal {
-  background: transparent !important;
-  color: #333333 !important;
-}
-.action-tiles_rle .action-tiles_rle__badge.lp-color-charcoal .badge-text {
-  color: #FFFFFF !important;
-}
+.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-1 { background: transparent !important; color: #FF9626 !important; }
+.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-2 { background: transparent !important; color: #EFF933 !important; }
+.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-3 { background: transparent !important; color: #24E3FF !important; }
+.action-tiles_rle .action-tiles_rle__badge.lp-color-accent-4 { background: transparent !important; color: #D5AAFF !important; }
+
+.action-tiles_rle .action-tiles_rle__badge.lp-color-charcoal { background: transparent !important; color: #333333 !important; }
+.action-tiles_rle .action-tiles_rle__badge.lp-color-charcoal .badge-text { color: #FFFFFF !important; }
 
 .action-tiles_rle .badge-shape {
   width: 100%;
@@ -1034,9 +1025,7 @@
   text-align: center;
   overflow: hidden;
   box-sizing: border-box;
-  /* ensure text is visible independent from badge color */
   color: #333333;
-
 }
 
 .action-tiles_rle .badge-line-1 {
@@ -1070,7 +1059,6 @@
   transition: background-color 0.2s ease;
 }
 
-/* Hover uses exact brand teal */
 .action-tiles_rle .action-tiles_rle__tile:hover {
   background-color: #3df5dc;
 }
