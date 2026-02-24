@@ -345,25 +345,31 @@ In diesen Fällen ist **ausschließlich** folgende Antwort zu verwenden:
 * Die definierte Safe-Zone (**190 × 55 px**, vertikal bei **42%**) darf **nicht** verändert werden.
 * Der Badge darf die Bleed-Fläche überragen (Position darf nicht verändert werden).
 
-**Erlaubte Badge-Farben:**
+**Badge-Farbsteuerung**
 
-* `lp-color-teal`
-* `lp-color-accent-1`
-* `lp-color-accent-2`
-* `lp-color-accent-3`
-* `lp-color-accent-4`
-* `lp-color-charcoal`
+* Die Badge-Farbe wird ausschließlich über Foundation-Farbklassen am Badge-Container gesteuert.
+* Die SVG nutzt `fill="currentColor"` zur Farbsteuerung.
+* Zulässig sind ausschließlich:
+
+  * `lp-color-teal` (Default)
+  * `lp-color-accent-1`
+  * `lp-color-accent-2`
+  * `lp-color-accent-3`
+  * `lp-color-accent-4`
+  * `lp-color-charcoal`
 
 **Nicht zulässig:**
 
-* Andere Foundation-Farben
+* Andere Foundation-Farbklassen
 * Freie Hex-Werte
 * Inline-Farbdefinitionen
+* Manuelle Änderung der SVG-Fill-Werte
 
 **Sonderregel:**
 
 * Wird `lp-color-charcoal` verwendet, muss der Badge-Text **weiß** sein.
 
-**Icons:**
+**Icons**
 
 * Die Checkmark-Icons der USP-Liste dürfen **nicht ersetzt** oder verändert werden.
+* Die Tile-Icons dürfen ausschließlich aus der Icon-Library stammen.
