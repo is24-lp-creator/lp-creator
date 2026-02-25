@@ -1,32 +1,5 @@
-/* =========================================================
-   LP Creator – core-buttons.css (canonical)
+<style>
 
-   Zweck:
-   - Zentrale, AEM-robuste Definition für Buttons & Textlinks
-   - Überschreibt globale AEM / IS24 Link- & Button-Styles gezielt
-
-   Geltungsbereich:
-   - a.ai-button (alle Varianten)
-   - a.ai-textlink
-   - a.teaser-grid__textlink (Chevron-Pattern)
-
-   Regeln:
-   - Darf Typografie enthalten
-   - Darf Farben enthalten
-   - Darf Hover / Focus / Active enthalten
-   - KEIN Modul-spezifisches Layout
-   ========================================================= */
-
-
-/* =========================================================
-   BUTTONS – BASE (Large Variant Default)
-   Padding gemäß UX:
-   16px top/bottom
-   24px left/right
-   Font-size: 16px
-   Line-height: 16px
-   Border: inner (border-box)
-   ========================================================= */
 
 /* Basis immer explizit an <a> binden (AEM-sicher) */
 a.ai-button,
@@ -195,9 +168,10 @@ a.teaser-grid__textlink:focus-visible{
   gap:6px;
 
   color:#333333 !important;
-text-decoration:underline !important;
-text-decoration-color:currentColor;
-text-underline-offset:2px;
+
+  text-decoration:underline !important;
+  text-decoration-color:currentColor;
+  text-underline-offset:2px;
 
   outline:none;
   box-shadow:none;
@@ -208,18 +182,8 @@ text-underline-offset:2px;
 }
 
 
-a.teaser-grid__textlink:hover,
-a.teaser-grid__textlink:active{
-  text-decoration:none !important;
-}
-
-
-a.teaser-grid__textlink:hover span,
-a.teaser-grid__textlink:active span{
-  text-decoration:underline;
-}
-
 .teaser-grid__textlink-icon{
   display:inline-block;
   flex:0 0 auto;
 }
+</style>
