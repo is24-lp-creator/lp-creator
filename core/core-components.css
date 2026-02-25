@@ -1158,3 +1158,24 @@
     margin-bottom: 0;
   }
 }
+<style>
+/* =========================================================
+   Modul: teaser-4col
+   Struktur-Fix für gleichmäßige CTA-Ausrichtung
+   ========================================================= */
+
+.teaser__card{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+
+.teaser__body{
+  display:flex;
+  flex-direction:column;
+}
+
+.teaser__footer{
+  margin-top:auto;
+}
+</style>
