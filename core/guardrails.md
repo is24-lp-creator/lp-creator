@@ -331,11 +331,52 @@ In diesen Fällen ist **ausschließlich** folgende Antwort zu verwenden:
 * Maximal ein Modul
 * Textlängen gemäß Vorgaben
 
-### 9.8 Service Tiles (`servicetiles`)
+## 9.8 Service Tiles (`servicetiles`)
 
-* Exakt 6 Tiles
-* Inhalte dürfen nicht verändert werden
-* Modul nur vollständig oder gar nicht verwenden
+### 9.8.1 Moduldefinition (verbindlich)
+
+* Das Modul besteht aus **exakt 6 Tiles**.
+* Desktop-Layout: `one-third`
+* Mobile-Layout: `palm-one-half`
+* Breakpoint: **668px**
+
+---
+
+### 9.8.2 Badge-Slot (verbindlich)
+
+Jede Tile enthält einen festen Container:
+
+```html
+<div class="servicetiles__badge"></div>
+```
+
+Der Badge-Container ist struktureller Bestandteil des Moduls und darf nicht entfernt oder verschoben werden.
+
+Innerhalb dieses Containers ist optional **genau ein `<img>`-Element** zulässig.
+
+#### Badge-Spezifikation
+
+* Format: **SVG**
+* Canvas: **120 × 48 px**
+* Desktop-Rendering: **120 × 48 px**
+* Mobile-Rendering: **60 × 24 px**
+* Keine zusätzlichen Wrapper
+* Keine Inline-Styles
+
+Nicht zulässig:
+
+* PNG oder JPG
+* Mehrere Badges pro Tile
+* Größenänderungen außerhalb der definierten Desktop-/Mobile-Werte
+
+---
+
+### 9.8.3 Hover-Verhalten (verbindlich)
+
+* Hover darf ausschließlich die Hintergrundfarbe verändern.
+* Hover-Farbe wird ausschließlich über `lp-hover-sand` gesteuert.
+* Keine Animationen von Größe oder Position.
+
 
 ### 9.9 action-tiles_rle (`action-tiles_rle`)
 
