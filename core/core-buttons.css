@@ -1,4 +1,4 @@
-<style>
+
 
 
 /* Basis immer explizit an <a> binden (AEM-sicher) */
@@ -186,4 +186,4 @@ a.teaser-grid__textlink:focus-visible{
   display:inline-block;
   flex:0 0 auto;
 }
-</style>
+
