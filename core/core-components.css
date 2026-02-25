@@ -1158,11 +1158,24 @@
     margin-bottom: 0;
   }
 }
-<style>
+
 /* =========================================================
-   Modul: teaser-4col
+   Modul: teaser-2,-3,-4col
    Struktur-Fix für gleichmäßige CTA-Ausrichtung
    ========================================================= */
+
+.teaser-2col .grid,
+.teaser-3col .grid,
+.teaser-4col .grid{
+  align-items: stretch;
+}
+
+.teaser-2col .grid-item,
+.teaser-3col .grid-item,
+.teaser-4col .grid-item{
+  display: flex;
+  flex-direction: column;
+}
 
 .teaser__card{
   display:flex;
@@ -1170,12 +1183,7 @@
   height:100%;
 }
 
-.teaser__body{
-  display:flex;
-  flex-direction:column;
-}
-
 .teaser__footer{
   margin-top:auto;
 }
-</style>
+
