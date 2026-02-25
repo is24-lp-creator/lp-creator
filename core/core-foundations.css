@@ -45,7 +45,9 @@
 /* ---------- Hover-only (STRICT) ---------- */
 .lp-hover-teal      { background:#55E6CB !important; }
 .lp-hover-charcoal { background:#484848 !important; }
-.lp-hover-sand { background:#FBF8F6 !important; }
+.lp-hover-teal:hover      { background:#55E6CB !important; }
+.lp-hover-charcoal:hover  { background:#484848 !important; }
+.lp-hover-sand:hover      { background:#FBF8F6 !important; }
 
 /* ---------- Borders ---------- */
 .lp-border-soft { border:1px solid #E0E0E0 !important; }
