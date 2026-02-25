@@ -195,7 +195,9 @@ a.teaser-grid__textlink:focus-visible{
   gap:6px;
 
   color:#333333 !important;
-  text-decoration:none !important;
+text-decoration:underline !important;
+text-decoration-color:currentColor;
+text-underline-offset:2px;
 
   outline:none;
   box-shadow:none;
