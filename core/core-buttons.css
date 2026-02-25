@@ -19,7 +19,13 @@
 
 
 /* =========================================================
-   BUTTONS – BASE
+   BUTTONS – BASE (Large Variant Default)
+   Padding gemäß UX:
+   16px top/bottom
+   24px left/right
+   Font-size: 16px
+   Line-height: 16px
+   Border: inner (border-box)
    ========================================================= */
 
 /* Basis immer explizit an <a> binden (AEM-sicher) */
@@ -29,21 +35,25 @@ a.ai-button:visited{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:0 16px;
-  min-height:40px;
+
+  padding:16px 24px;
   border-radius:9999px;
 
   font-size:16px;
-  line-height:1.2;
+  line-height:16px;
   font-weight:700;
 
   border:1px solid transparent;
+  box-sizing:border-box;
+
   cursor:pointer;
   white-space:nowrap;
 
   text-decoration:none !important;
   user-select:none;
   -webkit-tap-highlight-color:transparent;
+
+  transition:background-color .2s ease, border-color .2s ease, color .2s ease;
 }
 
 @media (max-width:668px){
@@ -82,6 +92,7 @@ a.ai-button.button-filled-default{
   border-color:#333333;
 }
 
+
 a.ai-button.button-filled-default:hover,
 a.ai-button.button-filled-default:active{
   background-color:#484848;
@@ -96,6 +107,7 @@ a.ai-button.button-filled-brand{
   color:#333333 !important;
   border-color:#3DF5DC;
 }
+
 
 a.ai-button.button-filled-brand:hover,
 a.ai-button.button-filled-brand:active{
@@ -112,6 +124,7 @@ a.ai-button.button-outline-strong{
   border-color:#333333;
 }
 
+
 a.ai-button.button-outline-strong:hover,
 a.ai-button.button-outline-strong:active{
   background-color:#E8E5E3;
@@ -126,6 +139,7 @@ a.ai-button.button-outline-weak{
   color:#333333 !important;
   border-color:#BDBBB9;
 }
+
 
 a.ai-button.button-outline-weak:hover,
 a.ai-button.button-outline-weak:active{
@@ -150,11 +164,13 @@ a.ai-textlink:visited{
   text-decoration:none;
 }
 
+
 a.ai-textlink:hover,
 a.ai-textlink:active{
   color:#333333 !important;
   text-decoration:underline;
 }
+
 
 a.ai-textlink:focus,
 a.ai-textlink:focus-visible{
@@ -189,10 +205,12 @@ a.teaser-grid__textlink:focus-visible{
   font-weight:700;
 }
 
+
 a.teaser-grid__textlink:hover,
 a.teaser-grid__textlink:active{
   text-decoration:none !important;
 }
+
 
 a.teaser-grid__textlink:hover span,
 a.teaser-grid__textlink:active span{
