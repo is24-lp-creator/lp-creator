@@ -460,3 +460,105 @@ Nicht zulässig:
 * Hover darf ausschließlich die Hintergrundfarbe der Tiles verändern.
 * Keine Animation von Größe oder Position.
 * Keine Shadow-Animation.
+
+### 10.0 pricing-list (`pricing-list`)
+
+Das Modul `pricing-list` ist strukturell und visuell fixiert.
+
+Der LP Builder darf an diesem Modul keine strukturellen Veränderungen vornehmen.
+
+Textliche Anpassungen sind ausschließlich innerhalb der vorgesehenen Text-Slots zulässig.
+
+---
+
+#### Struktur (verbindlich)
+
+* Exakt 3 Pricing-Cards
+* Desktop-Layout: `one-third`
+* Mobile-Layout: `palm-one-whole`
+* Grid-Struktur darf nicht verändert werden
+* Keine zusätzliche Spalte zulässig
+* Keine Entfernung bestehender Spalten zulässig
+* Reihenfolge der Cards darf nicht verändert werden
+* Keine Verschachtelung mit anderen Modulen zulässig
+
+---
+
+#### Inhalte & Elemente
+
+Jede Pricing-Card besteht verbindlich aus:
+
+1. Headline (h3)
+2. Beschreibungstext
+3. Preiszeile
+4. Checkmark-Liste
+5. Exakt einem Button
+
+Nicht zulässig:
+
+* Hinzufügen zusätzlicher Content-Blöcke
+* Entfernen eines dieser Bestandteile
+* Änderung der Heading-Ebene
+* Hinzufügen zusätzlicher Text-Slots
+
+---
+
+#### Medien & Icons (verbindlich)
+
+Das Modul enthält keine Media- oder Icon-Slots.
+
+Nicht zulässig:
+
+* Einfügen von `<img>`-Elementen
+* Einfügen von SVGs
+* Einfügen von Emojis
+* Einfügen dekorativer Grafiken
+* Umwandlung von Textelementen in Icon-Elemente
+
+Die Checkmark-Icons innerhalb der Liste sind struktureller Bestandteil des Moduls und dürfen nicht ersetzt, entfernt oder ergänzt werden.
+
+---
+
+#### Checkmark-Liste
+
+* Liste darf inhaltlich angepasst werden
+* Struktur der Liste darf nicht verändert werden
+* Keine zusätzlichen Icons innerhalb einzelner Listeneinträge
+* Keine Verschachtelung weiterer Listen
+
+---
+
+#### CTA-Regel (verbindlich)
+
+* Exakt 1 Button pro Pricing-Card
+* Keine zusätzlichen Buttons
+* Keine sekundären Textlinks
+* Button-Typ darf nur innerhalb vorhandener Varianten gewechselt werden
+
+---
+
+#### Badge (verbindlich)
+
+* Maximal 1 Badge pro Modul
+* Badge darf auf Card 1, Card 2 oder Card 3 gesetzt werden
+* Badge darf nicht vervielfacht werden
+* Badge-Text darf nicht verändert werden
+* Badge-Position (zentriert oberhalb der Card) darf nicht verändert werden
+* Badge darf nicht entfernt oder verschoben werden, wenn es gesetzt ist
+
+Nicht zulässig:
+
+* Mehrere Badges gleichzeitig
+* Badge auf mehreren Cards gleichzeitig
+* Änderung der Positionierung
+* Änderung der Farbklasse außerhalb der erlaubten Foundation-Klassen
+* Inline-Farbdefinitionen
+
+---
+
+#### Layout & Styling
+
+* Inline-Styles dürfen nicht erweitert oder strukturell verändert werden
+* Bestehende Klassen dürfen nicht entfernt werden
+* Keine zusätzlichen Layout-Wrapper
+* Keine Veränderung von Flex-, Grid- oder Positionierungslogik
