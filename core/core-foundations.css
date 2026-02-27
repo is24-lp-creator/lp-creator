@@ -296,7 +296,7 @@
   height: 80px;
 }
 @media (max-width: 668px){
-  .spacer-xl{
+  .lp-spacer-xl{
     height: 50px;
   }
 }
