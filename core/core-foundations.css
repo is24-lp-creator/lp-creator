@@ -251,7 +251,7 @@
 .lp-media{
   position:relative;
   overflow:hidden;
-  background:#DBDBDB;
+  background:#E3E3E3;
 }
 
 .lp-media--16x9::before,
