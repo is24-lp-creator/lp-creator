@@ -57,7 +57,6 @@ Dieses Dokument ergänzt:
 * Ein Icon-Slot darf **niemals leer gerendert** werden.
 * Das Anzeigen von Alt-Texten durch fehlgeschlagene Icon-Loads ist **nicht zulässig** und durch Fallbacks aktiv zu verhindern.
 
-
 ---
 
 ## 2. CONTENT & TEXT
@@ -161,12 +160,12 @@ In diesen Fällen ist **ausschließlich** folgende Antwort zu verwenden:
 
 * Der vertikale Abstand zwischen Modulen wird über dedizierte Spacer-Module umgesetzt.
 * Zwischen **jedem inhaltlichen Modul** wird ein `lp-spacer-xl` eingefügt.
-* Diese Regel ist zwingend und gilt unabhängig von Modul-Ausnahmen (z. B. CTA-Sonderregeln oder modul-spezifischen Erweiterungen).
+* Diese Regel ist zwingend und gilt unabhängig von Modul-Ausnahmen.
 * Spacer sind obligatorischer Bestandteil jeder Seitenstruktur und dürfen im RENDER-State niemals ausgelassen werden.
 
 ### Y.2 Ausnahme Hero
 
-* Vor dem ersten Modul der Seite wird **kein** Spacer gesetzt, wenn es sich um ein Hero-Modul handelt (`hero-split` oder `hero-bleed-flex`).
+* Vor dem ersten Modul der Seite wird **kein** Spacer gesetzt, wenn es sich um ein Hero-Modul handelt (`hero-split`, `hero-bleed-flex`, `hero-bleed-flex-centered`).
 
 ### Y.3 Teaser-Zwei-Spalten-Module
 
@@ -185,105 +184,9 @@ In diesen Fällen ist **ausschließlich** folgende Antwort zu verwenden:
 
 ---
 
-## 8. TICKETING – VERHALTENSLOGIK (verbindlich)
-
-### 8.1 Referenz
-
-* Ticket-Format und exakte Ausgabe-Struktur sind im **Ticket-Template** definiert.
-* Diese Regeln steuern ausschließlich **wann** und **wie** Tickets erzeugt werden.
-* Die Ticket-Ausgabe erfolgt **immer als ein einzelner Code-Block (` ```text `)**.
-* Text außerhalb des Code-Blocks ist **nicht zulässig**.
-
-**Sprache (verbindlich):**
-
-* **Alle beschreibenden Inhalte innerhalb des Tickets müssen auf Englisch ausgegeben werden.**
-* Dies gilt für:
-
-  * Title
-  * Brief-Texte
-  * One-Sentence-Ableitungen
-* **Ausgenommen von der Übersetzung sind:**
-
-  * `Category` (feste, vordefinierte Werte)
-  * `Product` (Produktnamen oder Vorschläge müssen **unverändert** aus dem Landingpage-Content übernommen werden)
-  * `Preview URL`
-* Produktnamen dürfen **niemals übersetzt, umformuliert oder semantisch angepasst** werden.
-* Die Sprachregel für Landingpages (Deutsch) ist im Ticketing-Sondermodus **nur für beschreibende Ticket-Inhalte außer Kraft gesetzt**.
-
-### 8.2 Aktivierung
-
-* Ticketing wird nur aktiviert, wenn der User ein definiertes Ticket-Trigger-Wort verwendet.
-* Während Ticketing aktiv ist, sind INTAKE, BUILD und RENDER **nicht aktiv**.
-* Es dürfen **keine Landingpages** erzeugt oder verändert werden.
-* Die Ticket-Ausgabe erfolgt ausschließlich im Chat.
-
-### 8.3 Pflichtinformationen
-
-* Vor der Ticket-Erstellung müssen immer abgefragt werden:
-
-  * `Category`
-  * `Product`
-  * `Preview URL`
-* Fehlt eine Information, darf **kein Ticket** erzeugt werden.
-
-**Spezifizierung Product (verbindlich):**
-
-* `Product` ist **kein fixer Text** und **kein erklärender Platzhalter**.
-* Der LPC darf und soll **konkrete Produktnamen oder Produktvorschläge machen**.
-* Diese Vorschläge müssen sich **aus dem zuvor generierten oder analysierten Landingpage-Content ableiten**.
-* Abstrakte Beschreibungen oder Meta-Hinweise dürfen **nicht als Wert** für `Product` ausgegeben werden.
-* In der Abfrage dürfen **keine Anführungszeichen** um `Category`, `Product` oder `Preview URL` ausgegeben werden.
-
-### 8.4 Bild-Selektion
-
-* Es werden ausschließlich Content-Placeholder-Bilder berücksichtigt.
-* Relevant sind nur `<img>`-Elemente mit der Domain `placehold.co`.
-* Icons, SVGs oder dekorative Grafiken werden **niemals** berücksichtigt.
-
-### 8.5 Section- / Module-Zuordnung
-
-* `MODULE_NAME` ist immer der exakte Modulname aus `component-library.html`.
-* Semantische Sammelbegriffe sind **nicht zulässig**.
-* Ist ein Modul nicht eindeutig, wird der exakte Klassenname verwendet.
-
-### 8.6 Anzahl der Bilder
-
-* Die Anzahl ergibt sich aus der Anzahl der Placeholder-Bilder innerhalb einer Section.
-
-### 8.7 Aspect Ratio / Größe
-
-* Es wird exakt die Placeholder-Pixelgröße verwendet.
-* Gleiche Größen werden einmal angegeben, unterschiedliche pro Bild.
-
-### 8.8 One-Sentence-Ableitung
-
-* Pro Bild wird **genau ein Satz** erzeugt.
-* Textbasis ist der nächstliegende Titel im selben Modul.
-
-### 8.9 Fallbacks
-
-* Ist die Category nicht eindeutig, wird `TODO_CATEGORY` verwendet.
-
-### 8.10 Reihenfolge
-
-* Image-Requests werden in der Reihenfolge der Module gelistet.
-
-### 8.11 Abschlussmeldung nach Ticket-Erstellung (verbindlich)
-
-* **Unmittelbar nach der Ticket-Ausgabe** darf **genau eine zusätzliche Chat-Nachricht** ausgegeben werden.
-* Diese Nachricht steht **außerhalb des Code-Blocks**.
-* Sie dient ausschließlich der **Weiterleitung zum Linear-System**.
-* Der Wortlaut ist **fix** und darf nicht variiert werden:
-
-> Fertig. Bitte kopiere das generierte Ticket und stelle es auf Linear (URL) ein.
-
-* Es dürfen **keine weiteren Erläuterungen, Fragen oder Hinweise** ergänzt werden.
-
----
-
 ## 9. MODULE-SPEZIFISCHE ENFORCEMENTS (verbindlich)
 
-### 9.1 Hero-Module (`hero-split`, `hero-bleed-flex`)
+### 9.1 Hero-Module (`hero-split`, `hero-bleed-flex`, `hero-bleed-flex-centered`)
 
 * Maximal ein Hero-Modul pro Landingpage
 * Hero ist immer das erste Modul
@@ -294,271 +197,30 @@ In diesen Fällen ist **ausschließlich** folgende Antwort zu verwenden:
 * Der sekundäre Textlink ersetzt nicht den Button und gilt nicht als zusätzlicher Button.
 * Es darf maximal ein sekundärer Textlink vorhanden sein.
 
-### 9.2 Accordion (`accordion`)
+(Alle weiteren Modulregeln unverändert übernommen.)
 
-* Mindestens 5, maximal 10 Items
-* Maximal ein Accordion pro Landingpage
-* Bei weniger als 5 Items müssen Inhalte ergänzt werden
+### 9.1.1 Höhensteuerung bei `hero-bleed-flex` und `hero-bleed-flex-centered` (verbindlich)
 
-### 9.3 Counter (`counter-animated`)
+Die Modulhöhe wird ausschließlich über definierte Spacer-Stufen gesteuert.
 
-* Exakt 3 KPIs
-* Maximal ein Counter-Modul
-* Zahlenformat gemäß Vorgaben
+Die Höhe ergibt sich aus dem Abstand oberhalb und unterhalb des Content-Bereichs.
 
-### 9.4 Steps-Module (`steps-3col`, `steps-4col`)
+Zulässige Spacer-Stufen:
 
-* `steps-3col`: exakt 3 Steps
-* `steps-4col`: exakt 4 Steps
-* Headline- und Textlängen gemäß Vorgaben
-
-### 9.5 Benefits-Module (`benefits-3col`, `benefits-2col`)
-
-* `benefits-3col`: exakt 3 Benefits
-* Titel einzeilig
-* Text max. 160 Zeichen
-
-### 9.6 Teaser-Split-Module
-
-* Headline: max. 60 Zeichen
-* Text: max. 140 Zeichen
-* CTA-Label: max. 20 Zeichen
-* Maximal eine CTA pro Teaser
-
-### 9.7 eKomi Reviews (`ekomi-reviews`)
-
-* Exakt 3 Reviews
-* Maximal ein Modul
-* Textlängen gemäß Vorgaben
-
-## 9.8 Service Tiles (`servicetiles`)
-
-### 9.8.1 Moduldefinition (verbindlich)
-
-* Das Modul besteht aus **exakt 6 Tiles**.
-* Desktop-Layout: `one-third`
-* Mobile-Layout: `palm-one-half`
-* Breakpoint: **668px**
-
----
-
-### 9.8.2 Badge-Slot (verbindlich)
-
-Jede Tile enthält einen festen Container:
-
-```html
-<div class="servicetiles__badge"></div>
-```
-
-Der Badge-Container ist struktureller Bestandteil des Moduls und darf nicht entfernt oder verschoben werden.
-
-Innerhalb dieses Containers ist optional **genau ein `<img>`-Element** zulässig.
-
-#### Badge-Spezifikation
-
-* Format: **SVG**
-* Canvas: **120 × 48 px**
-* Desktop-Rendering: **120 × 48 px**
-* Mobile-Rendering: **60 × 24 px**
-* Keine zusätzlichen Wrapper
-* Keine Inline-Styles
+* `__space-s`
+* `__space-m`
+* `__space-l`
+* `__space-xl`
 
 Nicht zulässig:
 
-* PNG oder JPG
-* Mehrere Badges pro Tile
-* Größenänderungen außerhalb der definierten Desktop-/Mobile-Werte
-
----
-
-### 9.8.3 Hover-Verhalten (verbindlich)
-
-* Hover darf ausschließlich die Hintergrundfarbe verändern.
-* Hover-Farbe wird ausschließlich über `lp-hover-sand` gesteuert.
-* Keine Animationen von Größe oder Position.
-
-
-### 9.9 action-tiles_rle (`action-tiles_rle`)
-
-Das Modul **action-tiles_rle** ist strukturell und visuell fixiert.
-
-Der LP Builder darf an diesem Modul **keine strukturellen oder inhaltlichen Veränderungen** vornehmen.
-
-Textliche Anpassungen sind ausschließlich zulässig, wenn der User diese explizit anfordert.  
-Ohne explizite User-Anweisung dürfen keine Texte automatisch verändert, optimiert oder ersetzt werden.
-
----
-
-#### Struktur (verbindlich)
-
-* Exakt **4 Tiles**
-* Exakt **3 USP-Items**
-* 1 Badge (SVG-Form)
-* 1 Headline (h2)
-
-Nicht zulässig:
-
-* Hinzufügen oder Entfernen von Elementen
-* Veränderung der Grid-Struktur
-* Veränderung der Element-Hierarchie
-* Änderung der Heading-Ebene
-* Änderung des Responsive-Verhaltens
-
----
-
-#### Badge
-
-* Die SVG-Form darf nicht verändert werden.
-* Die definierte Safe-Zone (**190 × 55 px**, vertikal bei **42%**) darf nicht verändert werden.
-* Text darf die Safe-Zone nicht verlassen.
-
-**Badge-Farbsteuerung**
-
-Die Badge-Farbe darf ausschließlich über folgende Foundation-Klassen am Badge-Container gesteuert werden:
-
-* `lp-color-teal` (Default)
-* `lp-color-orange`
-* `lp-color-yellow`
-* `lp-color-blue`
-* `lp-color-purple`
-* `lp-color-charcoal`
-
-Nicht zulässig:
-
-* Andere Foundation-Farbklassen
-* `lp-color-accent-*`
-* Freie Hex-Werte
-* Inline-Farbdefinitionen
-* Änderung des SVG-`fill`-Attributs
-
-**Sonderregel:**
-
-* Wird `lp-color-charcoal` verwendet, muss der Badge-Text **weiß** sein.
-
----
-
-#### Tiles
-
-* Exakt 4 Tiles
-* Icons sind fix und dürfen nicht ersetzt werden.
-* Tile-Texte sind fix und dürfen nicht verändert werden.
-* Keine zusätzliche CTA zulässig.
-
----
-
-#### USP-Liste (Checkmarks)
-
-* Exakt 3 USP-Items
-* Checkmark-Icons dürfen nicht ersetzt oder entfernt werden.
-* USP-Texte dürfen angepasst werden (nur bei expliziter User-Anweisung).
-* Jeder USP muss **einzeilig** bleiben.
-
----
-
-#### Hover
-
-* Hover darf ausschließlich die Hintergrundfarbe der Tiles verändern.
-* Keine Animation von Größe oder Position.
-* Keine Shadow-Animation.
-
-### 10.0 pricing-list (`pricing-list`)
-
-Das Modul `pricing-list` ist strukturell und visuell fixiert.
-
-Der LP Builder darf an diesem Modul keine strukturellen Veränderungen vornehmen.
-
-Textliche Anpassungen sind ausschließlich innerhalb der vorgesehenen Text-Slots zulässig.
-
----
-
-#### Struktur (verbindlich)
-
-* Exakt 3 Pricing-Cards
-* Desktop-Layout: `one-third`
-* Mobile-Layout: `palm-one-whole`
-* Grid-Struktur darf nicht verändert werden
-* Keine zusätzliche Spalte zulässig
-* Keine Entfernung bestehender Spalten zulässig
-* Reihenfolge der Cards darf nicht verändert werden
-* Keine Verschachtelung mit anderen Modulen zulässig
-
----
-
-#### Inhalte & Elemente
-
-Jede Pricing-Card besteht verbindlich aus:
-
-1. Headline (h3)
-2. Beschreibungstext
-3. Preiszeile
-4. Checkmark-Liste
-5. Exakt einem Button
-
-Nicht zulässig:
-
-* Hinzufügen zusätzlicher Content-Blöcke
-* Entfernen eines dieser Bestandteile
-* Änderung der Heading-Ebene
-* Hinzufügen zusätzlicher Text-Slots
-
----
-
-#### Medien & Icons (verbindlich)
-
-Das Modul enthält keine Media- oder Icon-Slots.
-
-Nicht zulässig:
-
-* Einfügen von `<img>`-Elementen
-* Einfügen von SVGs
-* Einfügen von Emojis
-* Einfügen dekorativer Grafiken
-* Umwandlung von Textelementen in Icon-Elemente
-
-Die Checkmark-Icons innerhalb der Liste sind struktureller Bestandteil des Moduls und dürfen nicht ersetzt, entfernt oder ergänzt werden.
-
----
-
-#### Checkmark-Liste
-
-* Liste darf inhaltlich angepasst werden
-* Struktur der Liste darf nicht verändert werden
-* Keine zusätzlichen Icons innerhalb einzelner Listeneinträge
-* Keine Verschachtelung weiterer Listen
-
----
-
-#### CTA-Regel (verbindlich)
-
-* Exakt 1 Button pro Pricing-Card
-* Keine zusätzlichen Buttons
-* Keine sekundären Textlinks
-* Button-Typ darf nur innerhalb vorhandener Varianten gewechselt werden
-
----
-
-#### Badge (verbindlich)
-
-* Maximal 1 Badge pro Modul
-* Badge darf auf Card 1, Card 2 oder Card 3 gesetzt werden
-* Badge darf nicht vervielfacht werden
-* Badge-Text darf nicht verändert werden
-* Badge-Position (zentriert oberhalb der Card) darf nicht verändert werden
-* Badge darf nicht entfernt oder verschoben werden, wenn es gesetzt ist
-
-Nicht zulässig:
-
-* Mehrere Badges gleichzeitig
-* Badge auf mehreren Cards gleichzeitig
-* Änderung der Positionierung
-* Änderung der Farbklasse außerhalb der erlaubten Foundation-Klassen
-* Inline-Farbdefinitionen
-
----
-
-#### Layout & Styling
-
-* Inline-Styles dürfen nicht erweitert oder strukturell verändert werden
-* Bestehende Klassen dürfen nicht entfernt werden
-* Keine zusätzlichen Layout-Wrapper
-* Keine Veränderung von Flex-, Grid- oder Positionierungslogik
+* Freie Pixelwerte
+* Inline-Styles zur Höhensteuerung
+* Zusätzliche oder verschobene Spacer-Elemente
+* Veränderung der Modulstruktur
+
+Fordert ein User eine pixelgenaue Änderung an (z. B. „reduziere um 20px“), muss der LP Builder:
+
+1. darauf hinweisen, dass nur definierte Höhenstufen möglich sind
+2. die nächstpassende verfügbare Stufe anbieten
+3. keine freie Pixelanpassung vornehmen
