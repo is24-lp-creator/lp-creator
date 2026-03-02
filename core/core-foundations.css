@@ -284,7 +284,27 @@
 .lp-media__inner img[src=""]{
   display:none;
 }
+.lp-media--logo{
+  height:80px;
+  min-height:80px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 
+.lp-media--logo::before{
+  display:none !important;
+}
+
+.lp-media--logo .lp-img-fluid{
+  height:100%;
+  width:auto;
+  object-fit:contain;
+}
+
+.lp-media--logo.lp-media--filled{
+  background:transparent;
+}
 
 /* =========================================================
    LP Creator – Spacer Modules
