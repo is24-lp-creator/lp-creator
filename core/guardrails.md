@@ -88,7 +88,7 @@ Dieses Dokument ergänzt:
 * Button-Typen dürfen nur innerhalb der vorgesehenen Varianten gewechselt werden.
 * Neue Button-Typen, Stilvarianten oder Kombinationen sind **nicht zulässig**.
 * Zusätzliche Buttons dürfen **nicht** hinzugefügt werden.
-* Ein sekundärer Textlink gemäß Modulregel 9.1 gilt nicht als zusätzlicher Button und ist ausschließlich im `hero-bleed` Modul zulässig.
+* Ein sekundärer Textlink gemäß Modulregel 9.1 gilt nicht als zusätzlicher Button und ist ausschließlich im `hero-bleed-flex` Modul zulässig.
 
 ---
 
@@ -166,7 +166,7 @@ In diesen Fällen ist **ausschließlich** folgende Antwort zu verwenden:
 
 ### Y.2 Ausnahme Hero
 
-* Vor dem ersten Modul der Seite wird **kein** Spacer gesetzt, wenn es sich um ein Hero-Modul handelt (`hero-split` oder `hero-bleed`).
+* Vor dem ersten Modul der Seite wird **kein** Spacer gesetzt, wenn es sich um ein Hero-Modul handelt (`hero-split` oder `hero-bleed-flex`).
 
 ### Y.3 Teaser-Zwei-Spalten-Module
 
@@ -283,14 +283,14 @@ In diesen Fällen ist **ausschließlich** folgende Antwort zu verwenden:
 
 ## 9. MODULE-SPEZIFISCHE ENFORCEMENTS (verbindlich)
 
-### 9.1 Hero-Module (`hero-split`, `hero-bleed`)
+### 9.1 Hero-Module (`hero-split`, `hero-bleed-flex`)
 
 * Maximal ein Hero-Modul pro Landingpage
 * Hero ist immer das erste Modul
 * Headline: max. 80 Zeichen
 * Subline: max. 200 Zeichen
 * CTA-Label: max. 30 Zeichen
-* Optional ist genau ein sekundärer Textlink mit Chevron unterhalb des primären Buttons zulässig (nur bei `hero-bleed`).
+* Optional ist genau ein sekundärer Textlink mit Chevron unterhalb des primären Buttons zulässig (nur bei `hero-bleed-flex`).
 * Der sekundäre Textlink ersetzt nicht den Button und gilt nicht als zusätzlicher Button.
 * Es darf maximal ein sekundärer Textlink vorhanden sein.
 
