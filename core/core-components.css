@@ -1,20 +1,86 @@
 /* =========================================================
-   LP Creator – core-components.css (canonical, commented)
-
-   Enthält ausschließlich Modul-CSS für bestehende Module
-   gemäß Module Editability Matrix.
-
-   Regeln (verbindlich):
-   - Keine Typografie
-   - Keine Farben
-   - Kein eigenes Grid (außer bei expliziten Sondermodulen)
-   - Nur notwendiges Modul-CSS
+   Modul: hero-bleed (new version with height-control)
    ========================================================= */
 
+.hero-bleed-flex,
+.hero-bleed-flex-centered{
+  position:relative;
+}
+
+.hero-bleed-flex__image,
+.hero-bleed-flex-centered__image{
+  position:absolute;
+  inset:0;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  overflow:hidden;
+  z-index:0;
+}
+
+.hero-bleed-flex__image img,
+.hero-bleed-flex-centered__image img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.hero-bleed-flex__inner,
+.hero-bleed-flex-centered__inner{
+  position:relative;
+  z-index:1;
+}
+
+/* Spacer Heights Desktop */
+.hero-bleed-flex__space-s,
+.hero-bleed-flex-centered__space-s{ height:50px; }
+
+.hero-bleed-flex__space-m,
+.hero-bleed-flex-centered__space-m{ height:100px; }
+
+.hero-bleed-flex__space-l,
+.hero-bleed-flex-centered__space-l{ height:150px; }
+
+.hero-bleed-flex__space-xl,
+.hero-bleed-flex-centered__space-xl{ height:200px; }
+
+/* Spacer Heights Mobile */
+@media (max-width:668px){
+  .hero-bleed-flex__space-s,
+  .hero-bleed-flex-centered__space-s{ height:30px; }
+
+  .hero-bleed-flex__space-m,
+  .hero-bleed-flex-centered__space-m{ height:60px; }
+
+  .hero-bleed-flex__space-l,
+  .hero-bleed-flex-centered__space-l{ height:90px; }
+
+  .hero-bleed-flex__space-xl,
+  .hero-bleed-flex-centered__space-xl{ height:120px; }
+}
+
+/* Centered Variant Layout */
+.hero-bleed-flex-centered__content{
+  display:grid;
+  justify-items:center;
+  width:48%;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+
+@media (max-width:668px){
+  .hero-bleed-flex-centered__content{
+    width:100%;
+    text-align:left;
+    justify-items:start;
+  }
+}
 
 /* =========================================================
-   Modul: hero-bleed
-   Typ: Hero Sondermodul (Bleed / Overlay)
+   Modul: hero-bleed (old version without height-control)
    ========================================================= */
 
 .hero-bleed{
@@ -88,9 +154,7 @@
 
 
 /* =========================================================
-   Modul: hero-bleed-centered
-   Typ: Hero Sondermodul (Bleed / Overlay – zentriert)
-
+   Modul: hero-bleed-centered (old version without height-control)
    ========================================================= */
 
 .hero-bleed-centered{
