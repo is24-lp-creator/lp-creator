@@ -147,7 +147,7 @@ BUILD entscheidet:
 
 ### STANDARD-BLUEPRINT
 
-1. Hero (`hero-split` oder `hero-bleed`)
+1. Hero (`hero-split`)
 2. Benefits (z. B. `benefits-3col`)
 3. Teaser (`teaser-split-image-right`)
 4. Teaser (`teaser-split-image-left`)
