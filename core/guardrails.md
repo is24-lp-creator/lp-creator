@@ -262,7 +262,9 @@ Step-Headline:
 
 Step-Text:
 - max. 90 Zeichen
-- max. 2 Zeilen
+- max. 2 Zeilen (`steps-4col`)
+- exakt 3 Zeilen (`steps-3col`)
+- Texte innerhalb eines Moduls sollten visuell ähnlich lang sein
 
 ## 10.5 Benefits-Module (`benefits-3col`, `benefits-2col`)
 
