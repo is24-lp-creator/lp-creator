@@ -254,7 +254,15 @@ Nicht zulässig:
 
 - `steps-3col`: exakt 3 Steps
 - `steps-4col`: exakt 4 Steps
-- Headline- und Textlängen gemäß Vorgaben
+
+Step-Headline:
+- `steps-3col`: max. 32 Zeichen
+- `steps-4col`: max. 16 Zeichen
+- max. 1 Zeile
+
+Step-Text:
+- max. 90 Zeichen
+- max. 2 Zeilen
 
 ## 10.5 Benefits-Module (`benefits-3col`, `benefits-2col`)
 
