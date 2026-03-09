@@ -1251,3 +1251,36 @@
   margin-top:auto;
 }
 
+
+/* =========================================================
+   Modul: seo-module
+   ========================================================= */
+
+   .seo-module{
+    max-width:720px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  
+  /* Force video aspect ratio for images inside SEO module */
+  .seo-module .lp-media--4x3::before{
+    padding-top:56.25%;
+  }
+  
+  /* List styling */
+  .seo-module ul{
+    list-style:disc;
+    
+    list-style-position:outside;
+  }
+  
+  .seo-module ol{
+    
+    list-style-position:outside;
+  }
+  
+  .seo-module ul li:nth-child(n),
+  .seo-module ol li:nth-child(n){
+    margin-left:1.5em;
+  }
+
