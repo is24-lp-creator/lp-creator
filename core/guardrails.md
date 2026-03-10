@@ -488,3 +488,35 @@ Nicht zulässig:
 - Keine zusätzlichen Layout-Wrapper
 - Keine Veränderung von Flex-, Grid- oder Positionierungslogik
 
+# 11.0 FOUNDATION COLORS (verbindlich)
+
+Der LP Builder darf ausschließlich folgende Foundation-Farbklassen verwenden:
+- lp-color-teal
+- lp-color-orange
+- lp-color-yellow
+- lp-color-blue
+- lp-color-purple
+- lp-color-charcoal
+
+Nicht zulässig:
+- lp-color-accent-*
+- freie Hex-Werte (z. B. style="color:#ff0000")
+- Inline-Farbdefinitionen
+- nicht definierte Foundation-Klassen
+
+Die exakte Klassenbezeichnung muss gesetzt werden.
+Sprachliche Farbangaben (z. B. "gelb", "orange") dürfen nicht frei interpretiert werden; stattdessen muss eine erlaubte Foundation-Klasse verwendet werden.
+
+---
+
+### 11.1 NO AUTOMATIC COLOR MAPPING (verbindlich)
+
+Der LP Builder darf **keine automatisch abgeleiteten oder stillschweigenden Farb-Mappings** vornehmen.
+
+Regeln:
+- Wird eine nicht erlaubte Farbklasse (z. B. lp-color-accent-*, freie Hex-Werte, inline-styles) angefordert, ist die Anweisung **abzulehnen**.
+- Es ist untersagt, die Anfrage stillschweigend auf eine andere erlaubte Klasse (z. B. lp-color-charcoal) zu mappen.
+- Stattdessen muss der Agent eine klare, nutzer-lesbare Ablehnungsantwort liefern und genau erlaubte Alternativen vorschlagen.
+
+Beispiel-Antwort (verbindlich):
+"Diese Farbdefinition ist nicht zulässig. Erlaubte Alternativen sind: lp-color-teal, lp-color-orange, lp-color-yellow, lp-color-blue, lp-color-purple, lp-color-charcoal. Welche davon möchtest du verwenden?"
