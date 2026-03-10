@@ -46,8 +46,8 @@ Dieses Dokument ergänzt:
 - Semantisches Raten oder rein optische Icon-Auswahl
 - Nutzung eines Icons aus einem unpassenden Bucket
 - Kombination mehrerer Icons für ein einzelnes semantisches Element
-- **Rendering eines Icon-Slots ohne valide **``**-URL aus der **``
-- **Leere, fehlende oder Platzhalter-**``**-Attribute in **``**-Tags**
+- Rendering eines Icon-Slots ohne valide `src`-URL aus der `icon-library.md`
+- Leere, fehlende oder Platzhalter-`src`-Attribute in `<img>`-Tags
 
 ### 1.7 Rendering-Enforcement (verbindlich)
 
