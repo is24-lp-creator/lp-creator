@@ -488,3 +488,20 @@ Nicht zulässig:
 - Keine zusätzlichen Layout-Wrapper
 - Keine Veränderung von Flex-, Grid- oder Positionierungslogik
 
+# 11.0 FOUNDATION COLORS (verbindlich)
+
+Der LP Builder darf ausschließlich folgende Foundation-Farbklassen verwenden:
+- lp-color-teal
+- lp-color-orange
+- lp-color-yellow
+- lp-color-blue
+- lp-color-purple
+- lp-color-charcoal
+
+Nicht zulässig:
+- lp-color-accent-*
+- freie Hex-Werte (z. B. style="color:#ff0000")
+- Inline-Farbdefinitionen
+- nicht definierte Foundation-Klassen
+
+Die exakte Klassenbezeichnung muss gesetzt werden. Sprachliche Farbangaben (z. B. "gelb", "orange") dürfen nicht frei interpretiert werden; stattdessen muss eine erlaubte Foundation-Klasse verwendet werden.
