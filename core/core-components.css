@@ -1284,3 +1284,94 @@
     margin-left:1.5em;
   }
 
+  /* =========================================================
+   Modul: video--youtube
+   ========================================================= */
+
+   .video-module__inner {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.video-module__media {
+  cursor: pointer;
+}
+
+.video-module__media:hover .video-module__play {
+  transform: scale(1.1);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+}
+
+/* make sure the media inner is the positioning context */
+.video-module__media .lp-media__inner {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+/* poster must absolutely cover the 16:9 container */
+.video-module__poster {
+  position: absolute;
+z-index:4;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* center the circular play button inside the same positioned container */
+.video-module__play {
+  width: 96px;
+  height: 96px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  z-index: 5;
+  padding: 0;
+  background: var(--lp-teal, #2FEEDA);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* svg sizing inside button */
+.video-module__play svg {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+/* iframe fills same slot and has black bg while loading */
+.video-module__player {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  z-index: 3;
+background:#000;
+}
+
+/* hide poster + button when playing */
+.video-module.is-playing .video-module__poster { display: none; }
+.video-module.is-playing .video-module__play { display: none; }
+
+.video-module__notice{
+  margin-top:8px;
+  font-size:12px;
+  line-height:1.4;
+  color:#6b7280;
+text-align: center;
+}
+
+/* responsive tweaks */
+@media (max-width: 668px) {
+  .video-module__play { width: 72px; height: 72px; }
+}

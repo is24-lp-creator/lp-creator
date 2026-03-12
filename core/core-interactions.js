@@ -703,3 +703,33 @@ function initStickyFooter() {
     document.querySelectorAll('.carousel-4col').forEach(init);
   });
 })();
+
+
+/* =========================================
+  Video Youtube
+   ========================================= */
+
+   document.querySelectorAll('.video--youtube .video-module__media')
+   .forEach(function(media){
+   
+     media.addEventListener('click', function(){
+   
+       const wrapper = media.closest('.video--youtube');
+       const player = wrapper.querySelector('.video-module__player');
+       const btn = wrapper.querySelector('.video-module__play');
+       const videoId = btn.getAttribute('data-video-id');
+   
+       if (!videoId || wrapper.classList.contains('is-playing')) return;
+   
+       player.src =
+         "https://www.youtube-nocookie.com/embed/" +
+         videoId +
+         "?autoplay=1&rel=0&modestbranding=1&playsinline=1";
+   
+       player.hidden = false;
+   
+       wrapper.classList.add('is-playing');
+   
+     });
+   
+   });
