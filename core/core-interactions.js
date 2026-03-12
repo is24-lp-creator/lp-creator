@@ -709,27 +709,33 @@ function initStickyFooter() {
   Video Youtube
    ========================================= */
 
-   document.querySelectorAll('.video--youtube .video-module__media')
-   .forEach(function(media){
-   
-     media.addEventListener('click', function(){
-   
-       const wrapper = media.closest('.video--youtube');
-       const player = wrapper.querySelector('.video-module__player');
-       const btn = wrapper.querySelector('.video-module__play');
-       const videoId = btn.getAttribute('data-video-id');
-   
-       if (!videoId || wrapper.classList.contains('is-playing')) return;
-   
-       player.src =
-         "https://www.youtube-nocookie.com/embed/" +
-         videoId +
-         "?autoplay=1&rel=0&modestbranding=1&playsinline=1";
-   
-       player.hidden = false;
-   
-       wrapper.classList.add('is-playing');
-   
-     });
-   
-   });
+  (function initVideoYoutube() {
+    // Use delegated click handling so the module also works
+    // when AEM injects/re-renders markup after initial JS execution.
+    document.addEventListener('click', function (event) {
+      var media = event.target.closest('.video--youtube .video-module__media');
+      if (!media) return;
+
+      var wrapper = media.closest('.video--youtube');
+      if (!wrapper || wrapper.classList.contains('is-playing')) return;
+
+      var player = wrapper.querySelector('.video-module__player');
+      var btn = wrapper.querySelector('.video-module__play');
+      if (!player || !btn) return;
+
+      var videoId =
+        btn.getAttribute('data-video-id') ||
+        media.getAttribute('data-video-id') ||
+        wrapper.getAttribute('data-video-id');
+
+      if (!videoId) return;
+
+      player.src =
+        "https://www.youtube-nocookie.com/embed/" +
+        videoId +
+        "?autoplay=1&rel=0&modestbranding=1&playsinline=1";
+
+      player.hidden = false;
+      wrapper.classList.add('is-playing');
+    });
+  })();
