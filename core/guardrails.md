@@ -1,61 +1,61 @@
-# GUARDRAILS – LP CREATOR
+# GUARDRAILS - LP CREATOR
 
-Zweck dieses Dokuments ist es, **verbindliche Verhaltens- und Inhaltsregeln** für den LP Creator festzulegen.
+The purpose of this document is to define **binding behavior and content rules** for the LP Creator.
 
-Die Guardrails definieren **wie** Inhalte ausgewählt, kombiniert, interpretiert und ausgegeben werden.
+The guardrails define **how** content is selected, combined, interpreted, and output.
 
-Dieses Dokument ergänzt:
+This document complements:
 
-- den **Systemprompt** (Ablauf, States, Dialoglogik)
-- die **SSOT-Dateien** (z. B. `component-library.html`, `icon-library.md`)
+- the **system prompt** (flow, states, dialog logic)
+- the **SSOT files** (e.g., `component-library.html`, `icon-library.md`)
 
-**Bei Regelkonflikten gilt:**
+**In case of rule conflicts:**
 
-> Der **Inhalt** ist anzupassen, **nicht** die Struktur.
+> Adapt the **content**, **not** the structure.
 
 ---
 
-# 1. ICONS – VERHALTENSLOGIK (verbindlich)
+# 1. ICONS - BEHAVIOR LOGIC (binding)
 
-### 1.1 Quelle
+### 1.1 Source
 
-- Icons dürfen **ausschließlich** aus der `icon-library.md` verwendet werden.
-- Externe Icons, Emojis oder SVGs sind **nicht erlaubt**.
+- Icons may be used **only** from `icon-library.md`.
+- External icons, emojis, or SVGs are **not allowed**.
 
-### 1.2 Platzierung
+### 1.2 Placement
 
-- Icons dürfen nur dort eingesetzt werden, wo ein Modul explizit einen **Icon- oder Media-Slot** vorsieht.
-- Pro semantischem Element (z. B. Benefit, USP, Listeneintrag) ist **maximal ein Icon** erlaubt.
+- Icons may only be used where a module explicitly provides an **icon or media slot**.
+- A maximum of **one icon** is allowed per semantic element (e.g., benefit, USP, list item).
 
-### 1.3 Auswahlprinzip
+### 1.3 Selection principle
 
-- Die Icon-Auswahl erfolgt **ausschließlich bucket-basiert**.
-- Der Textinhalt bestimmt den passenden Bucket, **nicht** das Icon.
+- Icon selection is **strictly bucket-based**.
+- The text content determines the matching bucket, **not** the icon.
 
 ### 1.4 Fallback
 
-- Ist kein Bucket eindeutig zuordenbar, **muss** ein Icon aus dem Bucket `general-positive` verwendet werden.
+- If no bucket can be assigned clearly, an icon from the `general-positive` bucket **must** be used.
 
-### 1.5 Verbindliche Anwendung
+### 1.5 Mandatory use
 
-- Besitzt ein Modul einen Icon-Slot, **muss** aktiv ein passendes Icon aus der Icon-Library gewählt werden.
-- Platzhalter-, Default- oder Beispiel-Icons dürfen **nicht** beibehalten werden.
+- If a module has an icon slot, a suitable icon from the icon library **must** be actively selected.
+- Placeholder, default, or example icons must **not** be kept.
 
-### 1.6 Verbotene Nutzung
+### 1.6 Prohibited use
 
-- Semantisches Raten oder rein optische Icon-Auswahl
-- Nutzung eines Icons aus einem unpassenden Bucket
-- Kombination mehrerer Icons für ein einzelnes semantisches Element
-- Rendering eines Icon-Slots ohne valide `src`-URL aus der `icon-library.md`
-- Leere, fehlende oder Platzhalter-`src`-Attribute in `<img>`-Tags
+- Semantic guessing or purely visual icon selection
+- Using an icon from a non-matching bucket
+- Combining multiple icons for a single semantic element
+- Rendering an icon slot without a valid `src` URL from `icon-library.md` is not allowed.
+- Empty, missing, or placeholder `src` attributes in `<img>` tags are not allowed.
 
-### 1.7 Rendering-Enforcement (verbindlich)
+### 1.7 Rendering enforcement (binding)
 
-- Jeder Icon-Slot **muss** ein `<img>`-Element mit **gesetzter, valider **``**-URL** enthalten.
-- Die `src`-URL **muss exakt** aus der `icon-library.md` stammen.
-- Ist keine eindeutige Bucket-Zuordnung möglich, **muss verpflichtend** ein Fallback-Icon aus dem Bucket `general-positive` verwendet werden.
-- Ein Icon-Slot darf **niemals leer gerendert** werden.
-- Das Anzeigen von Alt-Texten durch fehlgeschlagene Icon-Loads ist **nicht zulässig** und durch Fallbacks aktiv zu verhindern.
+- Every icon slot **must** contain an `<img>` element with a **set, valid `src` URL**.
+- The `src` URL **must exactly** come from `icon-library.md`.
+- If no clear bucket assignment is possible, a fallback icon from `general-positive` **must** be used.
+- An icon slot must **never be rendered empty**.
+- Displaying alt text because icon loading failed is **not permitted** and must be actively prevented through fallbacks.
 
 ---
 
@@ -63,434 +63,484 @@ Dieses Dokument ergänzt:
 
 ### 2.1 Headlines
 
-- Headline-Texte dürfen ersetzt werden.
-- Die Heading-Ebene (`h1`, `h2`, `h3` …) darf **nicht** geändert werden.
-- Typografische Varianten dürfen nur innerhalb der vorgesehenen Klassen gewechselt werden.
-- Neue Typografie-Klassen oder Kombinationen sind **nicht zulässig**.
+- Headline text may be replaced.
+- The heading level (`h1`, `h2`, `h3`, ...) must **not** be changed.
+- Typographic variants may only be changed within the provided classes.
+- New typography classes or class combinations are **not allowed**.
 
 ### 2.2 Preheadlines / Eyebrows
 
-- Preheadlines dürfen vollständig entfernt werden.
-- Zusätzliche Preheadlines dürfen **nicht** ergänzt werden, wenn ein Modul keinen Slot besitzt.
+- Preheadlines may be removed completely.
+- Additional preheadlines must **not** be added if a module has no slot for them.
 
-### 2.3 Fließtexte
+### 2.3 Body copy
 
-- Texte dürfen ersetzt, gekürzt oder erweitert werden.
-- Zusätzliche Textblöcke außerhalb der vorgesehenen Slots sind **nicht erlaubt**.
+- Text may be replaced, shortened, or expanded.
+- Additional text blocks outside defined slots are **not allowed**.
 
 ---
 
 # 3. BUTTONS & CTAS
 
-- Pro Modul ist **maximal ein Button** erlaubt.
-- Ein vorhandener Button darf vollständig entfernt werden.
-- Button-Typen dürfen nur innerhalb der vorgesehenen Varianten gewechselt werden.
-- Neue Button-Typen, Stilvarianten oder Kombinationen sind **nicht zulässig**.
-- Zusätzliche Buttons dürfen **nicht** hinzugefügt werden.
-- Ein sekundärer Textlink gemäß Modulregel 10.1 gilt nicht als zusätzlicher Button und ist ausschließlich im `hero-bleed-flex` Modul zulässig.
+- A maximum of **one button per module** is allowed.
+- An existing button may be removed completely.
+- Button types may only be changed within the available variants.
+- New button types, style variants, or combinations are **not allowed**.
+- Additional buttons must **not** be added.
+- A secondary text link according to module rule 10.1 does not count as an additional button and is only allowed in `hero-bleed-flex`.
 
 ---
 
-# 4. MEDIEN & GRAFISCHE ELEMENTE (ohne Icons)
+# 4. MEDIA & GRAPHIC ELEMENTS (excluding icons)
 
-- Visuelle Elemente (z. B. Bilder, Logos, Grafiken) sind nur dort erlaubt, wo ein Modul einen **Media-Slot** vorsieht.
-- Das Einfügen visueller Elemente in Text-, Content- oder Headline-Bereiche ist **verboten**.
-- Media-Slots dürfen **nicht** entfernt, dupliziert, verschoben oder umfunktioniert werden.
-- Bild-URLs dürfen nur geändert werden, wenn der User **explizit** eine konkrete URL vorgibt.
-
----
-
-# 5. LAYOUT & AUSRICHTUNG
-
-- Die Ausrichtung von Content-Blöcken darf **nicht** verändert werden.
-- Neue Layout-Wrapper oder Container dürfen **nicht** eingeführt werden.
-- Grid-, Spacing- oder Positionslogik darf **nicht** verändert werden.
+- Visual elements (e.g., images, logos, graphics) are only allowed where a module provides a **media slot**.
+- Inserting visual elements into text, content, or headline areas is **forbidden**.
+- Media slots must **not** be removed, duplicated, moved, or repurposed.
+- Image URLs may only be changed if the user **explicitly** provides a concrete URL.
 
 ---
 
-# 6. MODULANZAHL & KOMBINATIONEN
+# 5. LAYOUT & ALIGNMENT
 
-- Module dürfen nur so oft verwendet werden, wie es das Modul oder der Systemprompt erlaubt.
-- Module dürfen **nicht** kombiniert, verschachtelt oder strukturell vermischt werden.
+- The alignment of content blocks must **not** be changed.
+- New layout wrappers or containers must **not** be introduced.
+- Grid, spacing, or positioning logic must **not** be changed.
 
 ---
 
-# 7. STANDARDREAKTION BEI NICHT ZULÄSSIGEN ANFRAGEN (verbindlich)
+# 6. MODULE COUNT & COMBINATIONS
 
-Wenn eine Nutzeranfrage nicht zulässig ist, darf **keine technische oder interne Begründung** ausgegeben werden.
+- Modules may only be used as often as allowed by the module itself or by the system prompt.
+- Modules must **not** be combined, nested, or structurally mixed.
 
-In diesen Fällen ist **ausschließlich** folgende Antwort zu verwenden:
+---
 
-> Diese Umsetzung ist aktuell nicht zulässig.
+# 7. STANDARD RESPONSE FOR NON-PERMITTED REQUESTS (binding)
+
+If a user request is not permitted, **no technical or internal explanation** may be output.
+
+In these cases, use **only** the following response:
+
+> This implementation is currently not permitted.
 >
-> Grund dafür ist, dass der LP Creator ausschließlich innerhalb definierter Marken- und Systemvorgaben arbeitet, um:
+> The reason is that the LP Creator only operates within defined brand and system constraints to:
 >
-> - Konsistenz sicherzustellen
-> - Qualität zu gewährleisten
-> - technische Kompatibilität zu garantieren
+> - ensure consistency
+> - ensure quality
+> - guarantee technical compatibility
 >
-> Du kannst neue Module oder Sonderlösungen bei Dominik Böhme via Slack anfragen. Alternativ unterstütze ich dich gern dabei, eine passende Lösung mit den bestehenden Modulen zu finden.
+> You can request new modules or custom solutions from Dominik Böhme via Slack. Alternatively, I can gladly help you find a suitable solution using the existing modules.
 
 ---
 
-# 8. SYSTEM-PROZESS (verbindlich)
+# 8. SYSTEM PROCESS (binding)
 
-### 8.1 INTAKE – Ziel
+### 8.1 INTAKE - Goal
 
-- Erkennung der User-Intention
-- Festlegung des Modus (NEW oder OPTIMIZE)
-- Sammlung aller notwendigen Informationen
-- Übergang zu BUILD, sobald eine konsistente Landingpage ableitbar ist
+- Identify user intent
+- Determine mode (NEW or OPTIMIZE)
+- Collect all required information
+- Transition to BUILD as soon as a consistent landing page can be derived
 
-### 8.2 BUILD – Zweck & Charakter
+### 8.2 BUILD - Purpose & Nature
 
-- BUILD ist ein **rein interner Entscheidungs-State** ohne Ausgabe.
-- Ziel ist die Zusammenstellung einer konsistenten Landingpage-Struktur.
-- BUILD bereitet unmittelbar den RENDER-State vor.
+- BUILD is a **purely internal decision state** without output.
+- The goal is to assemble a consistent landing-page structure.
+- BUILD prepares the RENDER state directly.
 
-### 8.3 RENDER – Zweck
+### 8.3 RENDER - Purpose
 
-- RENDER gibt die vollständige Landingpage als HTML auf Basis der BUILD-Entscheidungen aus.
-
----
-
-# 9. PAGE COMPOSITION – SPACER (verbindlich)
-
-### 9.1 Grundregel
-
-- Der vertikale Abstand zwischen Modulen wird über dedizierte Spacer-Module umgesetzt.
-- Zwischen **jedem inhaltlichen Modul** wird ein `lp-spacer-xl` eingefügt.
-- Diese Regel ist zwingend und gilt unabhängig von Modul-Ausnahmen (z. B. CTA-Sonderregeln oder modul-spezifischen Erweiterungen).
-- Spacer sind obligatorischer Bestandteil jeder Seitenstruktur und dürfen im RENDER-State niemals ausgelassen werden.
-
-### 9.2 Ausnahme Hero
-
-- Vor dem ersten Modul der Seite wird **kein** Spacer gesetzt, wenn es sich um ein Hero-Modul handelt (`hero-split`, `hero-bleed-flex`, `hero-bleed-flex-centered`).
-
-### 9.3 Teaser-Zwei-Spalten-Module
-
-- Für aufeinanderfolgende Teaser-Module der Typen `teaser-split-image-right` und `teaser-split-image-left` gilt:
-  - `lp-spacer-xl` **vor** dem ersten Teaser-Modul
-  - `lp-spacer-l` **zwischen** direkt aufeinanderfolgenden Teaser-Modulen
-  - `lp-spacer-xl` **nach** dem letzten Teaser-Modul
-
-### 9.4 Umsetzung
-
-- Spacer sind eigenständige Module (`<section class="lp-spacer-xl">` oder `<section class="lp-spacer-l">`).
-- Spacer enthalten **keinen Inhalt**.
-- Spacer gelten als reguläre Module und werden im RENDER-State an der korrekten Position ausgegeben.
+- RENDER outputs the full landing page as HTML based on BUILD decisions.
 
 ---
 
-# 10. MODULE-SPEZIFISCHE ENFORCEMENTS (verbindlich)
+# 9. PAGE COMPOSITION - SPACERS (binding)
 
-## 10.1 Hero-Module (`hero-split`, `hero-bleed-flex`, `hero-bleed-flex-centered`)
+### 9.1 Core rule
 
-- Maximal ein Hero-Modul pro Landingpage
-- Hero ist immer das erste Modul
-- Headline: max. 80 Zeichen
-- Subline: max. 200 Zeichen
-- CTA-Label: max. 30 Zeichen
-- Optional ist genau ein sekundärer Textlink mit Chevron unterhalb des primären Buttons zulässig (nur bei `hero-bleed-flex`).
-- Der sekundäre Textlink ersetzt nicht den Button und gilt nicht als zusätzlicher Button.
-- Es darf maximal ein sekundärer Textlink vorhanden sein.
+- Vertical spacing between modules is implemented through dedicated spacer modules.
+- An `lp-spacer-xl` must be inserted between **every content module**.
+- This rule is mandatory and applies regardless of module exceptions (e.g., CTA special rules or module-specific extensions).
+- Spacers are a mandatory part of every page structure and must never be omitted in the RENDER state.
 
-### 10.1.1 Höhensteuerung bei `hero-bleed-flex` und `hero-bleed-flex-centered` (verbindlich)
+### 9.2 Hero exception
 
-Die Modulhöhe wird ausschließlich über definierte Spacer-Stufen gesteuert.
+- No spacer is added before the first module on the page if it is a hero module (`hero-split`, `hero-bleed-flex`, `hero-bleed-flex-centered`).
 
-Die Höhe ergibt sich aus dem Abstand oberhalb und unterhalb des Content-Bereichs.
+### 9.3 Two-column teaser modules
 
-Zulässige Spacer-Stufen:
+- For consecutive teaser modules of type `teaser-split-image-right` and `teaser-split-image-left`:
+  - `lp-spacer-xl` **before** the first teaser module
+  - `lp-spacer-l` **between** directly consecutive teaser modules
+  - `lp-spacer-xl` **after** the last teaser module
+
+### 9.4 Implementation
+
+- Spacers are standalone modules (`<section class="lp-spacer-xl">` or `<section class="lp-spacer-l">`).
+- Spacers contain **no content**.
+- Spacers are treated as regular modules and are output at the correct position in the RENDER state.
+
+---
+
+# 10. MODULE-SPECIFIC ENFORCEMENTS (binding)
+
+## 10.1 Hero modules (`hero-split`, `hero-bleed-flex`, `hero-bleed-flex-centered`)
+
+- Maximum of one hero module per landing page
+- Hero is always the first module
+- Headline: max. 80 characters
+- Subline: max. 200 characters
+- CTA label: max. 30 characters
+- Optionally, exactly one secondary text link with chevron below the primary button is allowed (only in `hero-bleed-flex`).
+- The secondary text link does not replace the button and does not count as an additional button.
+- At most one secondary text link may exist.
+
+### 10.1.1 Height control in `hero-bleed-flex` and `hero-bleed-flex-centered` (binding)
+
+Module height is controlled exclusively through defined spacer levels.
+
+Height is derived from the spacing above and below the content area.
+
+Allowed spacer levels:
 
 - `__space-s`
 - `__space-m`
 - `__space-l`
 - `__space-xl`
 
-Nicht zulässig:
+Not allowed:
 
-- Freie Pixelwerte
-- Inline-Styles zur Höhensteuerung
-- Zusätzliche oder verschobene Spacer-Elemente
-- Veränderung der Modulstruktur
+- Arbitrary pixel values
+- Inline styles for height control
+- Additional or moved spacer elements
+- Changes to module structure
 
-Fordert ein User eine pixelgenaue Änderung an (z. B. „reduziere um 20px“), muss der LP Builder:
+If a user requests an exact pixel change (e.g., "reduce by 20px"), the LP Builder must:
 
-1. darauf hinweisen, dass nur definierte Höhenstufen möglich sind
-2. die nächstpassende verfügbare Stufe anbieten
-3. keine freie Pixelanpassung vornehmen
+1. point out that only defined height levels are possible
+2. offer the closest available level
+3. not perform arbitrary pixel adjustments
 
-Zusätzlich gilt verbindlich:
+Additionally, the following is mandatory:
 
-- Spacer-Elemente dürfen **nicht entfernt** werden.
-- Die Höhe darf ausschließlich durch **Austausch der vorhandenen Spacer-Klasse** erfolgen.
-- Der Klassentausch muss **immer symmetrisch oben und unten** durchgeführt werden.
-- Es ist nicht zulässig, nur einen der beiden Spacer (oben oder unten) zu verändern.
+- Spacer elements must **not be removed**.
+- Height changes may only happen by **replacing the existing spacer class**.
+- Class replacement must **always be symmetrical, top and bottom**.
+- It is not allowed to modify only one spacer (top or bottom).
 
-Beispiel:
+Example:
 
-`__space-m` → `__space-s` (oben und unten)
+`__space-m` -> `__space-s` (top and bottom)
 
-Nicht zulässig:
+Not allowed:
 
-- Entfernen eines Spacer-Elements
-- Austausch nur auf einer Seite
-- Kombination unterschiedlicher Spacer-Stufen innerhalb desselben Hero-Moduls
+- Removing a spacer element
+- Replacing the class on only one side
+- Combining different spacer levels within the same hero module
 
 ## 10.2 Accordion (`accordion`)
 
-- Mindestens 5, maximal 10 Items
-- Maximal ein Accordion pro Landingpage
-- Bei weniger als 5 Items müssen Inhalte ergänzt werden
+- Minimum 5, maximum 10 items
+- Maximum one accordion per landing page
+- If fewer than 5 items are provided, content must be added
 
 ## 10.3 Counter (`counter-animated`)
 
-- Exakt 3 KPIs
-- Maximal ein Counter-Modul
-- Zahlenformat gemäß Vorgaben
+- Exactly 3 KPIs
+- Maximum one counter module
+- Number formatting according to specifications
 
-## 10.4 Steps-Module (`steps-3col`, `steps-4col`)
+## 10.4 Steps modules (`steps-3col`, `steps-4col`)
 
-- `steps-3col`: exakt 3 Steps
-- `steps-4col`: exakt 4 Steps
+- `steps-3col`: exactly 3 steps
+- `steps-4col`: exactly 4 steps
 
-Step-Headline:
-- `steps-3col`: max. 32 Zeichen
-- `steps-4col`: max. 16 Zeichen
-- max. 1 Zeile
+Step headline:
+- `steps-3col`: max. 32 characters
+- `steps-4col`: max. 16 characters
+- max. 1 line
 
-Step-Text:
-- max. 90 Zeichen
-- max. 2 Zeilen (`steps-4col`)
-- exakt 3 Zeilen (`steps-3col`)
-- Texte innerhalb eines Moduls sollten visuell ähnlich lang sein
+Step text:
+- max. 90 characters
+- max. 2 lines (`steps-4col`)
+- exactly 3 lines (`steps-3col`)
+- Texts within one module should be visually similar in length
 
-## 10.5 Benefits-Module (`benefits-3col`, `benefits-2col`)
+## 10.5 Benefits modules (`benefits-3col`, `benefits-2col`)
 
-- `benefits-3col`: exakt 3 Benefits
-- Titel einzeilig
-- Text max. 160 Zeichen
+- `benefits-3col`: exactly 3 benefits
+- Title must be one line
+- Text max. 160 characters
 
-## 10.6 Teaser-Split-Module
+## 10.6 Teaser split modules
 
-- Headline: max. 60 Zeichen
-- Text: max. 140 Zeichen
-- CTA-Label: max. 20 Zeichen
-- Maximal eine CTA pro Teaser
+- Headline: max. 60 characters
+- Text: max. 140 characters
+- CTA label: max. 20 characters
+- Maximum one CTA per teaser
 
-## 10.7 eKomi Reviews (`ekomi-reviews`)
+## 10.7 eKomi reviews (`ekomi-reviews`)
 
-- Exakt 3 Reviews
-- Maximal ein Modul
-- Textlängen gemäß Vorgaben
+- Exactly 3 reviews
+- Maximum one module
+- Text lengths according to specification
 
-## 10.8 Service Tiles (`servicetiles`)
+## 10.8 Service tiles (`servicetiles`)
 
-### 10.8.1 Moduldefinition (verbindlich)
+### 10.8.1 Module definition (binding)
 
-- Das Modul besteht aus **exakt 6 Tiles**.
-- Desktop-Layout: `one-third`
-- Mobile-Layout: `palm-one-half`
+- The module consists of **exactly 6 tiles**.
+- Desktop layout: `one-third`
+- Mobile layout: `palm-one-half`
 - Breakpoint: **668px**
 
-### 10.8.2 Badge-Slot (verbindlich)
+### 10.8.2 Badge slot (binding)
 
-Jede Tile enthält einen festen Container:
+Each tile includes a fixed container:
 
 ```html
 <div class="servicetiles__badge"></div>
 ```
 
-Der Badge-Container ist struktureller Bestandteil des Moduls und darf nicht entfernt oder verschoben werden.
+The badge container is a structural part of the module and must not be removed or moved.
 
-Innerhalb dieses Containers ist optional **genau ein **``**-Element** zulässig.
+Inside this container, optionally **exactly one `<img>` element** is allowed.
 
-#### Badge-Spezifikation
+#### Badge specification
 
 - Format: **SVG**
-- Canvas: **120 × 48 px**
-- Desktop-Rendering: **120 × 48 px**
-- Mobile-Rendering: **60 × 24 px**
-- Keine zusätzlichen Wrapper
-- Keine Inline-Styles
+- Canvas: **120 x 48 px**
+- Desktop rendering: **120 x 48 px**
+- Mobile rendering: **60 x 24 px**
+- No additional wrappers
+- No inline styles
 
-Nicht zulässig:
+Not allowed:
 
-- PNG oder JPG
-- Mehrere Badges pro Tile
-- Größenänderungen außerhalb der definierten Desktop-/Mobile-Werte
+- PNG or JPG
+- Multiple badges per tile
+- Size changes outside the defined desktop/mobile values
 
-### 10.8.3 Hover-Verhalten (verbindlich)
+### 10.8.3 Hover behavior (binding)
 
-- Hover darf ausschließlich die Hintergrundfarbe verändern.
-- Hover-Farbe wird ausschließlich über `lp-hover-sand` gesteuert.
-- Keine Animationen von Größe oder Position.
+- Hover may only change the background color.
+- Hover color is controlled exclusively via `lp-hover-sand`.
+- No size or position animations.
 
-## 10.9 action-tiles\_rle (`action-tiles_rle`)
+## 10.9 action-tiles_rle (`action-tiles_rle`)
 
-Das Modul **action-tiles\_rle** ist strukturell und visuell fixiert.
+The **action-tiles_rle** module is structurally and visually fixed.
 
-Der LP Builder darf an diesem Modul **keine strukturellen oder inhaltlichen Veränderungen** vornehmen.
+The LP Builder must make **no structural or content changes** to this module.
 
-Textliche Anpassungen sind ausschließlich zulässig, wenn der User diese explizit anfordert.\
-Ohne explizite User-Anweisung dürfen keine Texte automatisch verändert, optimiert oder ersetzt werden.
+Text adjustments are only permitted if explicitly requested by the user.
+Without explicit user instruction, texts must not be automatically changed, optimized, or replaced.
 
-#### Struktur (verbindlich)
+#### Structure (binding)
 
-- Exakt **4 Tiles**
-- Exakt **3 USP-Items**
-- 1 Badge (SVG-Form)
-- 1 Headline (h2)
+- Exactly **4 tiles**
+- Exactly **3 USP items**
+- 1 badge (SVG shape)
+- 1 headline (`h2`)
 
-Nicht zulässig:
+Not allowed:
 
-- Hinzufügen oder Entfernen von Elementen
-- Veränderung der Grid-Struktur
-- Veränderung der Element-Hierarchie
-- Änderung der Heading-Ebene
-- Änderung des Responsive-Verhaltens
+- Adding or removing elements
+- Changing the grid structure
+- Changing the element hierarchy
+- Changing the heading level
+- Changing responsive behavior
 
 #### Badge
 
-- Die SVG-Form darf nicht verändert werden.
-- Die definierte Safe-Zone (**190 × 55 px**, vertikal bei **42%**) darf nicht verändert werden.
-- Text darf die Safe-Zone nicht verlassen.
+- The SVG shape must not be changed.
+- The defined safe zone (**190 x 55 px**, vertical at **42%**) must not be changed.
+- Text must not leave the safe zone.
 
-**Badge-Farbsteuerung**
+**Badge color control**
 
-Die Badge-Farbe darf ausschließlich über folgende Foundation-Klassen am Badge-Container gesteuert werden:
+Badge color may only be controlled via the following foundation classes on the badge container:
 
-- `lp-color-teal` (Default)
+- `lp-color-teal` (default)
 - `lp-color-orange`
 - `lp-color-yellow`
 - `lp-color-blue`
 - `lp-color-purple`
 - `lp-color-charcoal`
 
-Nicht zulässig:
+Not allowed:
 
-- Andere Foundation-Farbklassen
+- Other foundation color classes
 - `lp-color-accent-*`
-- Freie Hex-Werte
-- Inline-Farbdefinitionen
-- Änderung des SVG-`fill`-Attributs
+- Arbitrary hex values
+- Inline color definitions
+- Changes to SVG `fill` attributes
 
-**Sonderregel:**
+**Special rule:**
 
-- Wird `lp-color-charcoal` verwendet, muss der Badge-Text **weiß** sein.
+- If `lp-color-charcoal` is used, badge text must be **white**.
 
 #### Tiles
 
-- Exakt 4 Tiles
-- Icons sind fix und dürfen nicht ersetzt werden.
-- Tile-Texte sind fix und dürfen nicht verändert werden.
-- Keine zusätzliche CTA zulässig.
+- Exactly 4 tiles
+- Icons are fixed and must not be replaced.
+- Tile texts are fixed and must not be changed.
+- No additional CTA is allowed.
 
-#### USP-Liste (Checkmarks)
+#### USP list (checkmarks)
 
-- Exakt 3 USP-Items
-- Checkmark-Icons dürfen nicht ersetzt oder entfernt werden.
-- USP-Texte dürfen angepasst werden (nur bei expliziter User-Anweisung).
-- Jeder USP muss **einzeilig** bleiben.
+- Exactly 3 USP items
+- Checkmark icons must not be replaced or removed.
+- USP texts may be adjusted (only with explicit user instruction).
+- Every USP must remain **single-line**.
 
 #### Hover
 
-- Hover darf ausschließlich die Hintergrundfarbe der Tiles verändern.
-- Keine Animation von Größe oder Position.
-- Keine Shadow-Animation.
+- Hover may only change tile background color.
+- No size or position animation.
+- No shadow animation.
 
 ## 10.10 pricing-list (`pricing-list`)
 
-Das Modul `pricing-list` ist strukturell und visuell fixiert.
+The `pricing-list` module is structurally and visually fixed.
 
-Der LP Builder darf an diesem Modul keine strukturellen Veränderungen vornehmen.
+The LP Builder must make no structural changes to this module.
 
-Textliche Anpassungen sind ausschließlich innerhalb der vorgesehenen Text-Slots zulässig.
+Text adjustments are only allowed within the provided text slots.
 
-#### Struktur (verbindlich)
+#### Structure (binding)
 
-- Exakt 3 Pricing-Cards
-- Desktop-Layout: `one-third`
-- Mobile-Layout: `palm-one-whole`
-- Grid-Struktur darf nicht verändert werden
-- Keine zusätzliche Spalte zulässig
-- Keine Entfernung bestehender Spalten zulässig
-- Reihenfolge der Cards darf nicht verändert werden
-- Keine Verschachtelung mit anderen Modulen zulässig
+- Exactly 3 pricing cards
+- Desktop layout: `one-third`
+- Mobile layout: `palm-one-whole`
+- Grid structure must not be changed
+- No additional column allowed
+- Existing columns must not be removed
+- Card order must not be changed
+- No nesting with other modules allowed
 
-#### Inhalte & Elemente
+#### Content & elements
 
-Jede Pricing-Card besteht verbindlich aus:
+Each pricing card must contain:
 
-1. Headline (h3)
-2. Beschreibungstext
-3. Preiszeile
-4. Checkmark-Liste
-5. Exakt einem Button
+1. Headline (`h3`)
+2. Description text
+3. Price row
+4. Checkmark list
+5. Exactly one button
 
-Nicht zulässig:
+Not allowed:
 
-- Hinzufügen zusätzlicher Content-Blöcke
-- Entfernen eines dieser Bestandteile
-- Änderung der Heading-Ebene
-- Hinzufügen zusätzlicher Text-Slots
+- Adding additional content blocks
+- Removing any of these elements
+- Changing heading level
+- Adding additional text slots
 
-#### Medien & Icons (verbindlich)
+#### Media & icons (binding)
 
-Das Modul enthält keine Media- oder Icon-Slots.
+The module contains no media or icon slots.
 
-Nicht zulässig:
+Not allowed:
 
-- Einfügen von `<img>`-Elementen
-- Einfügen von SVGs
-- Einfügen von Emojis
-- Einfügen dekorativer Grafiken
-- Umwandlung von Textelementen in Icon-Elemente
+- Inserting `<img>` elements
+- Inserting SVGs
+- Inserting emojis
+- Inserting decorative graphics
+- Converting text elements into icon elements
 
-Die Checkmark-Icons innerhalb der Liste sind struktureller Bestandteil des Moduls und dürfen nicht ersetzt, entfernt oder ergänzt werden.
+The checkmark icons inside the list are a structural part of the module and must not be replaced, removed, or supplemented.
 
-#### Checkmark-Liste
+#### Checkmark list
 
-- Liste darf inhaltlich angepasst werden
-- Struktur der Liste darf nicht verändert werden
-- Keine zusätzlichen Icons innerhalb einzelner Listeneinträge
-- Keine Verschachtelung weiterer Listen
+- List content may be adjusted
+- List structure must not be changed
+- No additional icons inside individual list items
+- No nested lists
 
-#### CTA-Regel (verbindlich)
+#### CTA rule (binding)
 
-- Exakt 1 Button pro Pricing-Card
-- Keine zusätzlichen Buttons
-- Keine sekundären Textlinks
-- Button-Typ darf nur innerhalb vorhandener Varianten gewechselt werden
+- Exactly 1 button per pricing card
+- No additional buttons
+- No secondary text links
+- Button type may only be switched within existing variants
 
-#### Badge (verbindlich)
+#### Badge (binding)
 
-- Maximal 1 Badge pro Modul
-- Badge darf auf Card 1, Card 2 oder Card 3 gesetzt werden
-- Badge darf nicht vervielfacht werden
-- Badge-Text darf nicht verändert werden
-- Badge-Position (zentriert oberhalb der Card) darf nicht verändert werden
-- Badge darf nicht entfernt oder verschoben werden, wenn es gesetzt ist
+- Maximum 1 badge per module
+- Badge may be set on card 1, card 2, or card 3
+- Badge must not be duplicated
+- Badge text must not be changed
+- Badge position (centered above the card) must not be changed
+- Badge must not be removed or moved once set
 
-Nicht zulässig:
+Not allowed:
 
-- Mehrere Badges gleichzeitig
-- Badge auf mehreren Cards gleichzeitig
-- Änderung der Positionierung
-- Änderung der Farbklasse außerhalb der erlaubten Foundation-Klassen
-- Inline-Farbdefinitionen
+- Multiple badges at the same time
+- Badge on multiple cards at the same time
+- Positioning changes
+- Color class changes outside allowed foundation classes
+- Inline color definitions
 
-#### Layout & Styling
+#### Layout & styling
 
-- Inline-Styles dürfen nicht erweitert oder strukturell verändert werden
-- Bestehende Klassen dürfen nicht entfernt werden
-- Keine zusätzlichen Layout-Wrapper
-- Keine Veränderung von Flex-, Grid- oder Positionierungslogik
+- Inline styles must not be expanded or structurally modified
+- Existing classes must not be removed
+- No additional layout wrappers
+- No changes to flex, grid, or positioning logic
 
-# 11.0 FOUNDATION COLORS (verbindlich)
+## 10.11 SEO module (`seo-module`)
 
-Der LP Builder darf ausschließlich folgende Foundation-Farbklassen verwenden:
+The SEO module provides longform, crawlable content and an FAQ accordion for users and search engines. It must be rendered as a single, sequential content block (one column) to preserve semantic order, accessibility, and SEO integrity.
+
+#### Structural constraints (strict - do not alter)
+- No two-column layout (explicit): The SEO module must not be converted to a two-column structure by adding grid classes, flex columns, or CSS that renders content side-by-side.
+- No module splitting: The SEO module must be a single, self-contained module; it cannot be split into multiple sections to emulate columns.
+- No unapproved color classes.
+- Allowed presentational classes: typography and spacing utilities already defined in the core foundations (e.g., `font-heading-medium-bold`, `font-body-large-regular`, `margin-bottom-l`, `lp-media`, `lp-img-fluid`, `lp-radius-24`).
+
+#### Content & allowed elements (binding)
+
+- Only elements that already exist in the example module may be used.
+- The user may add images to the SEO module, but there must be no image by default. If an image is added, it must be styled as in the example module.
+- There should never be a heading (h2, h3) directly before the accordion element. 
+- The module does not need to include all elements from the example module.
+- It may include as few or as many of the allowed elements as needed.
+- No additional element types may be introduced.
+
+Not allowed:
+
+- Icons of any kind
+- New or modified layout structures (e.g., columns)
+- Background colors or additional background fills
+- Text size changes
+
+#### Placement (binding)
+
+- The `seo-module` may only be placed as the final module of the landing page.
+- Placement in any other position is not allowed.
+- There may only be one `seo-module` on the landing page.
+
+## 10.12 Callout modules (`callout--base`, `callout--illu`, `callout--expert`)
+
+The callout module family is structurally fixed regarding icon/image usage.
+
+#### Icon and image rule (binding)
+
+- Existing icon/image assets in callout modules must not be replaced with other icons or images.
+- No additional icon or image may be added to any callout module.
+- Existing icon/image elements must not be duplicated, moved, or converted into different media types.
+
+Not allowed:
+
+- Replacing an existing callout icon with another icon
+- Replacing an existing callout icon with an image
+- Replacing an existing callout image with another image or icon
+- Adding new `<img>`, SVG, emoji, or decorative media elements to callout modules
+
+# 11. FOUNDATION COLORS (binding)
+
+The LP Builder may only use the following foundation color classes:
+
 - lp-color-teal
 - lp-color-orange
 - lp-color-yellow
@@ -498,25 +548,27 @@ Der LP Builder darf ausschließlich folgende Foundation-Farbklassen verwenden:
 - lp-color-purple
 - lp-color-charcoal
 
-Nicht zulässig:
+Not allowed:
+
 - lp-color-accent-*
-- freie Hex-Werte (z. B. style="color:#ff0000")
-- Inline-Farbdefinitionen
-- nicht definierte Foundation-Klassen
+- free hex values (e.g. style="color:#ff0000")
+- inline color definitions
+- undefined foundation classes
 
-Die exakte Klassenbezeichnung muss gesetzt werden.
-Sprachliche Farbangaben (z. B. "gelb", "orange") dürfen nicht frei interpretiert werden; stattdessen muss eine erlaubte Foundation-Klasse verwendet werden.
+The exact class name must always be used.
 
----
+### 11.1 NO AUTOMATIC COLOR MAPPING (binding)
 
-### 11.1 NO AUTOMATIC COLOR MAPPING (verbindlich)
+The LP Builder must not perform automatic or silent color mapping.
 
-Der LP Builder darf **keine automatisch abgeleiteten oder stillschweigenden Farb-Mappings** vornehmen.
+Rules:
 
-Regeln:
-- Wird eine nicht erlaubte Farbklasse (z. B. lp-color-accent-*, freie Hex-Werte, inline-styles) angefordert, ist die Anweisung **abzulehnen**.
-- Es ist untersagt, die Anfrage stillschweigend auf eine andere erlaubte Klasse (z. B. lp-color-charcoal) zu mappen.
-- Stattdessen muss der Agent eine klare, nutzer-lesbare Ablehnungsantwort liefern und genau erlaubte Alternativen vorschlagen.
+- If a non-permitted color is requested (e.g. lp-color-accent-*, hex values, inline styles), the request must be rejected.
+- The system must not silently map the request to another permitted class.
+- The agent must instead respond with a rejection and list the allowed classes.
 
-Beispiel-Antwort (verbindlich):
-"Diese Farbdefinition ist nicht zulässig. Erlaubte Alternativen sind: lp-color-teal, lp-color-orange, lp-color-yellow, lp-color-blue, lp-color-purple, lp-color-charcoal. Welche davon möchtest du verwenden?"
+Example response:
+
+"This color selection is not permitted. Allowed alternatives are:
+lp-color-teal, lp-color-orange, lp-color-yellow, lp-color-blue,
+lp-color-purple, lp-color-charcoal."
