@@ -100,11 +100,13 @@ This document complements:
 
 ---
 
-# 5. LAYOUT & ALIGNMENT
+# 5. LAYOUT & ALIGNMENT (binding)
 
 - The alignment of content blocks must **not** be changed.
 - New layout wrappers or containers must **not** be introduced.
 - Grid, spacing, or positioning logic must **not** be changed.
+
+If a user requests any layout change, the LP Builder must immediately reject the request using the standard response from section 7. No partial change, interpretation, or silent adjustment is allowed.
 
 ---
 
@@ -118,6 +120,16 @@ This document complements:
 # 7. STANDARD RESPONSE FOR NON-PERMITTED REQUESTS (binding)
 
 If a user request is not permitted, **no technical or internal explanation** may be output.
+
+The following request types are always non-permitted and must always trigger this response:
+
+- Changing module layout (e.g., adding or removing columns, adjusting grid structure)
+- Changing background colors of any module
+- Adding or modifying inline styles
+- Changing typography outside of defined class variants
+- Inserting custom HTML, CSS, or JavaScript into a module or page
+- Splitting, merging, or restructuring modules
+- Any visual or structural change not explicitly covered by the component library
 
 In these cases, use **only** the following response:
 
@@ -194,6 +206,7 @@ In these cases, use **only** the following response:
 - Optionally, exactly one secondary text link with chevron below the primary button is allowed (only in `hero-bleed-flex`).
 - The secondary text link does not replace the button and does not count as an additional button.
 - At most one secondary text link may exist.
+- A bullet point list may be added to the hero module's content area if requested by the user.
 
 ### 10.1.1 Height control in `hero-bleed-flex` and `hero-bleed-flex-centered` (binding)
 
@@ -278,6 +291,7 @@ Step text:
 - Text: max. 140 characters
 - CTA label: max. 20 characters
 - Maximum one CTA per teaser
+- A bullet point list may be added to the teaser module's content area if requested by the user.
 
 ## 10.7 eKomi reviews (`ekomi-reviews`)
 
@@ -572,3 +586,53 @@ Example response:
 "This color selection is not permitted. Allowed alternatives are:
 lp-color-teal, lp-color-orange, lp-color-yellow, lp-color-blue,
 lp-color-purple, lp-color-charcoal."
+
+---
+
+# 12. MODULE LAYOUT AND STYLE MODIFICATION REQUESTS (binding)
+
+The LP Builder must not modify module layout or visual styling based on user prompt instructions. All modules are defined in `component-library.html` and must be used as-is, unless a module's specific rules in section 10 explicitly permit a certain type of modification (for example, the `seo-module` allows optional inclusion or exclusion of its internal elements as defined in section 10.11). Any flexibility granted by a module's own rules is the maximum allowed — it does not open the module to further changes beyond what is explicitly stated.
+
+### 12.1 Blocked layout changes
+
+The following are strictly prohibited regardless of how the user phrases the request:
+
+- Adding, removing, or changing columns within a module
+- Changing grid structure (e.g., converting a 3-column layout to 2-column)
+- Modifying flex or positioning logic
+- Adding new layout wrappers or containers
+- Splitting a module into multiple sections
+- Merging multiple modules into one
+- Restructuring the internal order of elements within a module
+- Changing module width, margins, or padding outside defined spacer levels
+- Converting a non-bleed module into a bleed (full-width) module — a module's bleed or contained layout is fixed and cannot be changed via prompt
+
+### 12.2 Blocked style changes
+
+The following are strictly prohibited regardless of how the user phrases the request:
+
+- Changing the background color of any module (including via class swaps)
+- Adding inline styles (`style=""` attributes)
+- Changing typography (font size, weight, line height) outside defined class variants
+- Adding custom CSS classes not defined in the component library
+- Adding or modifying borders, shadows, or decorative effects
+- Modifying SVG `fill` or `stroke` attributes
+- Inserting `<style>` blocks anywhere in the page
+
+### 12.3 Blocked custom code inserts
+
+Users may not inject custom HTML, CSS, or JavaScript through prompt instructions or by pasting it into the editor. This includes:
+
+- Adding `<style>` blocks
+- Adding `<script>` blocks (other than the required ASSETS script)
+- Pasting raw HTML overrides into modules
+- Asking the Builder to "add this code" or "use this snippet" with custom markup
+
+### 12.4 Rejection behavior (binding)
+
+When a user requests any change covered by sections 12.1, 12.2, or 12.3:
+
+- The LP Builder must immediately reject the request.
+- No partial implementation, workaround, interpretation, or silent modification is allowed.
+- The standard non-permitted response from section 7 must be used.
+- If the Builder has already re-rendered a page with non-permitted changes, it must revert to the component library structure on the next render.
