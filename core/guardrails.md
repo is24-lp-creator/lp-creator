@@ -551,6 +551,30 @@ Not allowed:
 - Replacing an existing callout image with another image or icon
 - Adding new `<img>`, SVG, emoji, or decorative media elements to callout modules
 
+## 10.13 Video module (`video--youtube`)
+
+The video module allows embedding a YouTube video with a poster image and play button.
+
+#### Content & elements (binding)
+
+- Only YouTube videos are supported.
+- The video must be provided as a YouTube video ID only (e.g., `dQw4w9WgXcQ`).
+- The module includes an optional title (`h2`). It is shown by default but may be removed if the user explicitly requests it.
+- The poster image `src` must be automatically set using the YouTube thumbnail URL derived from the video ID:
+  `https://img.youtube.com/vi/{VIDEO_ID}/maxresdefault.jpg`
+- The user does not need to provide a separate poster image — the LP Builder must construct this URL automatically from the given video ID.
+- If the user provides a custom image URL instead, that URL may be used in place of the auto-generated thumbnail.
+- The Video Module works best when placed after a section that introduces the topic and before detailed product information.
+
+#### Structural constraints (strict - do not alter)
+
+- Do not paste full embed codes (e.g., `<iframe>...</iframe>`).
+- Do not use full YouTube URLs in place of the required video ID.
+- Vimeo links are not allowed.
+- Direct video files (e.g., `.mp4`, `.webm`) are not allowed.
+- Each module should contain only one video. If multiple videos are needed place them in separate modules and space them appropriately.
+- Do not remove or edit the privacy notice.
+
 # 11. FOUNDATION COLORS (binding)
 
 The LP Builder may only use the following foundation color classes:
