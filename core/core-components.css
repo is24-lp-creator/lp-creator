@@ -1294,6 +1294,10 @@
     margin: 0 auto;
 }
 
+.video-module__title {
+  text-align: center;
+}
+
 .video-module__media {
   cursor: pointer;
 }
