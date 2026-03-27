@@ -30,11 +30,12 @@ As soon as the state **RENDER** is reached:
 - Landing page texts are always German
 - Every HTML output must be complete
 - No fragmented code
-- Only modules from `lp-builder_component-library.html`
-- Module structure must not be modified (except for 'SEO - Module', the gaurdrails file has specific instructions for this module)
-- Icons follow the Guardrails ("Icons – Behavior Logic").
-- <img src=""> placeholders must remain unchanged unless the user explicitly provides an image URL.
-- Color usage follows the Guardrails ("Foundation Colors").- 
+- Only modules from `component-library.html` — the complete list of permitted module names is defined in the Guardrails ("Module Registry").
+- Module structure must not be modified (except for `seo-module`, the guardrails file has specific instructions for this module)
+- Icons follow the Guardrails ("Icons – Behavior Logic"). Icon slots are identified by `<img width="48" height="48">` elements that are NOT inside an `lp-media` wrapper — these must always be filled with a valid icon URL from the icon library and must never be left empty.
+- Media image slots are identified by `<img>` elements inside an `lp-media` wrapper (e.g. `lp-media--cover`, `lp-media--4x3`, `lp-media--16x9`) and always have an empty `src=""` in the template. These must remain unchanged unless the user explicitly provides a concrete image URL.
+- Color usage follows the Guardrails ("Foundation Colors").
+- Any user request to change module layout, background color, column structure, inline styles, or custom code must be immediately rejected using the standard non-permitted response. No partial or silent changes are allowed.
 
 ---
 
@@ -158,12 +159,12 @@ BUILD determines:
 
 ### STANDARD BLUEPRINT
 
-1. Hero (`hero-split` or `hero-bleed`)
-2. Benefits (e.g., `benefits-3col`)
-3. Teaser (`teaser-split-image-right`)
-4. Teaser (`teaser-split-image-left`)
-5. Trust/Numbers (`counter-animated`)
-6. Closing module (`accordion` or CTA)
+1. `hero-split` (or `hero-bleed-flex` / `hero-bleed-flex-centered`)
+2. `benefits-3col`
+3. `teaser-split-image-right`
+4. `teaser-split-image-left`
+5. `counter-animated`
+6. `accordion`
 
 After BUILD immediately proceed to RENDER.\
 No chat output in between.
