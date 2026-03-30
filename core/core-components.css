@@ -1168,6 +1168,13 @@
   text-align: center;
   text-decoration: none;
   transition: background-color 0.2s ease;
+  position: relative;
+}
+
+
+.action-tiles_rle .action-tiles_rle__link {
+  position: absolute;
+  inset: 0;
 }
 
 .action-tiles_rle .action-tiles_rle__tile:hover {
