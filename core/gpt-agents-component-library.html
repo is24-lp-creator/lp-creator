@@ -213,7 +213,7 @@
 
     .library-panel {
       display: none;
-      gap: var(--space-24);
+      margin-bottom: 0;
     }
 
     .library-panel__meta {
@@ -291,6 +291,79 @@
       color: var(--text-soft);
       font-size: 15px;
       line-height: 1.6;
+    }
+
+    .lp-spacer-label__space {
+      height: 0;
+    }
+
+    .lp-spacer-label__space--bottom {
+      height: 50px;
+    }
+
+    .library-panel > section:not(.lp-spacer-label) {
+      margin-bottom: 50px;
+    }
+
+    .lp-module-label {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 36px;
+      padding: 6px 10px;
+      border: 1px solid #d9d9d9;
+      border-radius: 8px;
+      background: #ffffff;
+      color: #6a6a69;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .lp-module-label__name {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .lp-module-label__copy {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #9b9b9b;
+      cursor: pointer;
+      appearance: none;
+    }
+
+    .lp-module-label__copy svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+    }
+
+    .lp-module-label__copy:hover,
+    .lp-module-label__copy:focus-visible {
+      color: #333333;
+      outline: none;
+    }
+
+    .lp-module-label__feedback {
+      display: inline-block;
+      margin-left: 8px;
+      color: #6a6a69;
+      font-size: 14px;
+      line-height: 1.2;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      vertical-align: middle;
+    }
+
+    .lp-module-label.is-copied + .lp-module-label__feedback {
+      opacity: 1;
     }
 
     .library-module-grid {
@@ -533,7 +606,7 @@
     #sidebar-email-footer:checked ~ .library-layout [data-panel="email-footer"],
     #sidebar-email-headings:checked ~ .library-layout [data-panel="email-headings"],
     #sidebar-email-buttons:checked ~ .library-layout [data-panel="email-buttons"] {
-      display: grid;
+      display: block;
     }
 
     @media (max-width: 960px) {
@@ -677,69 +750,1790 @@
           </section>
 
           <section class="library-panel" data-panel="lp-heros">
-            <span class="library-panel__meta">Landing Page Builder / Heros</span>
-            <h2 class="library-panel__title">Heros</h2>
-            <p class="library-panel__copy">Die GitHub-Version der Library nutzt jetzt wieder ein vollstaendiges HTML-Geruest ohne AEM-spezifische Breakout- oder Wrapper-Logik.</p>
-            <section class="library-empty"><div class="library-empty__content"><p class="library-empty__eyebrow">Leere Kategorie</p><h3 class="library-empty__title">Noch keine Module angelegt</h3><p class="library-empty__text">Hier koennen wir als Naechstes das erste Modulraster fuer diese Kategorie einsetzen.</p></div></section>
-          </section>
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="hero-bleed-flex">
+                <span class="lp-module-label__name">hero-bleed-flex</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
 
-          <section class="library-panel" data-panel="lp-teaser">
-            <span class="library-panel__meta">Landing Page Builder / Teaser</span>
-            <h2 class="library-panel__title">Teaser</h2>
-            <p class="library-panel__copy">Beispielhaft sind hier zwei LP-Teaser-Module als Vorschaukarten eingesetzt. So koennen wir testen, wie die neue Sidebar-Struktur mit echten Inhalten wirkt.</p>
-            <section class="library-module-grid">
-              <article class="library-module-card">
-                <span class="library-module-card__label">teaser-2col</span>
-                <div class="library-module-card__preview">
-                  <div class="library-module-card__split">
-                    <div class="library-module-card__copy">
-                      <p class="library-module-card__eyebrow">Teaser Modul</p>
-                      <h3 class="library-module-card__headline">Headline-medium-bold</h3>
-                      <p class="library-module-card__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                      <span class="library-module-card__button">Lorem ipsum</span>
-                    </div>
-                    <div class="library-module-card__image" aria-hidden="true"></div>
+            <section>
+              <div class="hero-bleed-flex">
+                <div class="hero-bleed-flex__image lp-media lp-media--cover" aria-hidden="true">
+                  <div class="lp-media__inner">
+                    <img src="" alt="" class="lp-img-fluid" loading="eager" />
                   </div>
                 </div>
-              </article>
 
-              <article class="library-module-card">
-                <span class="library-module-card__label">teaser-3col</span>
-                <div class="library-module-card__preview">
-                  <div class="library-module-card__columns">
-                    <div class="library-module-card__mini">
-                      <div class="library-module-card__thumb" aria-hidden="true"></div>
-                      <div class="library-module-card__line library-module-card__line--short" aria-hidden="true"></div>
-                      <div class="library-module-card__line library-module-card__line--long" aria-hidden="true"></div>
-                      <div class="library-module-card__line library-module-card__line--medium" aria-hidden="true"></div>
-                    </div>
-                    <div class="library-module-card__mini">
-                      <div class="library-module-card__thumb library-module-card__image--soft" aria-hidden="true"></div>
-                      <div class="library-module-card__line library-module-card__line--short" aria-hidden="true"></div>
-                      <div class="library-module-card__line library-module-card__line--long" aria-hidden="true"></div>
-                      <div class="library-module-card__line library-module-card__line--medium" aria-hidden="true"></div>
+                <div class="hero-bleed-flex__inner">
+                  <div class="hero-bleed-flex__space-m"></div>
+
+                  <div class="hero-bleed-flex__content">
+                    <div class="grid grid-flex gutter">
+                      <div class="grid-item one-half palm-one-whole">
+                        <div class="lp-radius-24 lp-color-white padding-l">
+                          <h1 class="font-heading-large-bold margin-bottom-s">Headline-large-bold</h1>
+                          <p class="font-body-large-regular margin-bottom-m">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                          </p>
+                          <a class="ai-button button-filled-brand">Lorem ipsum</a>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="library-module-card__footer-link">Lorem ipsum</div>
+
+                  <div class="hero-bleed-flex__space-m"></div>
                 </div>
-              </article>
+              </div>
+            </section>
+
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="hero-bleed-flex-centered">
+                <span class="lp-module-label__name">hero-bleed-flex-centered</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section>
+              <div class="hero-bleed-flex-centered">
+                <div class="hero-bleed-flex-centered__image lp-media lp-media--cover" aria-hidden="true">
+                  <div class="lp-media__inner">
+                    <img src="" alt="" class="lp-img-fluid" loading="eager" />
+                  </div>
+                </div>
+
+                <div class="hero-bleed-flex-centered__inner">
+                  <div class="hero-bleed-flex-centered__space-m"></div>
+
+                  <div class="hero-bleed-flex-centered__content">
+                    <div class="grid grid-flex gutter">
+                      <div class="grid-item one-whole">
+                        <div class="lp-radius-24 lp-color-white padding-l">
+                          <h1 class="font-heading-large-bold margin-bottom-s">Headline-large-bold</h1>
+                          <p class="font-body-large-regular margin-bottom-m">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                          </p>
+                          <a class="ai-button button-filled-brand">Lorem ipsum</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="hero-bleed-flex-centered__space-m"></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="hero-split">
+                <span class="lp-module-label__name">hero-split</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section>
+              <div class="hero-split">
+                <div class="hero-split__visual lp-media lp-media--cover" aria-hidden="true">
+                  <div class="lp-media__inner">
+                    <img src="" alt="" class="lp-img-fluid" loading="eager" />
+                  </div>
+                </div>
+
+                <div class="hero-split__inner">
+                  <div class="hero-split__text">
+                    <h1 class="font-heading-large-bold">Headline-large-bold</h1>
+
+                    <p class="font-body-large-regular margin-bottom-m">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+
+                    <a class="ai-button button-filled-brand">Lorem ipsum</a>
+                  </div>
+
+                  <div class="hero-split__spacer" aria-hidden="true"></div>
+                </div>
+              </div>
             </section>
           </section>
 
-          <section class="library-panel" data-panel="lp-steps"><span class="library-panel__meta">Landing Page Builder / Steps</span><h2 class="library-panel__title">Steps</h2><p class="library-panel__copy">Kategorie vorbereitet, Inhalte folgen spaeter.</p><section class="library-empty"><div class="library-empty__content"><p class="library-empty__eyebrow">Leere Kategorie</p><h3 class="library-empty__title">Noch keine Module angelegt</h3><p class="library-empty__text">Der Bereich ist absichtlich noch leer.</p></div></section></section>
-          <section class="library-panel" data-panel="lp-accordion"><span class="library-panel__meta">Landing Page Builder / Accordion</span><h2 class="library-panel__title">Accordion</h2><p class="library-panel__copy">Kategorie vorbereitet, Inhalte folgen spaeter.</p><section class="library-empty"><div class="library-empty__content"><p class="library-empty__eyebrow">Leere Kategorie</p><h3 class="library-empty__title">Noch keine Module angelegt</h3><p class="library-empty__text">Der Bereich ist absichtlich noch leer.</p></div></section></section>
-          <section class="library-panel" data-panel="lp-counter"><span class="library-panel__meta">Landing Page Builder / Counter</span><h2 class="library-panel__title">Counter</h2><p class="library-panel__copy">Kategorie vorbereitet, Inhalte folgen spaeter.</p><section class="library-empty"><div class="library-empty__content"><p class="library-empty__eyebrow">Leere Kategorie</p><h3 class="library-empty__title">Noch keine Module angelegt</h3><p class="library-empty__text">Der Bereich ist absichtlich noch leer.</p></div></section></section>
-          <section class="library-panel" data-panel="lp-callouts"><span class="library-panel__meta">Landing Page Builder / Callouts</span><h2 class="library-panel__title">Callouts</h2><p class="library-panel__copy">Kategorie vorbereitet, Inhalte folgen spaeter.</p><section class="library-empty"><div class="library-empty__content"><p class="library-empty__eyebrow">Leere Kategorie</p><h3 class="library-empty__title">Noch keine Module angelegt</h3><p class="library-empty__text">Der Bereich ist absichtlich noch leer.</p></div></section></section>
-          <section class="library-panel" data-panel="lp-benefits"><span class="library-panel__meta">Landing Page Builder / Benefits</span><h2 class="library-panel__title">Benefits</h2><p class="library-panel__copy">Kategorie vorbereitet, Inhalte folgen spaeter.</p><section class="library-empty"><div class="library-empty__content"><p class="library-empty__eyebrow">Leere Kategorie</p><h3 class="library-empty__title">Noch keine Module angelegt</h3><p class="library-empty__text">Der Bereich ist absichtlich noch leer.</p></div></section></section>
-          <section class="library-panel" data-panel="lp-reviews"><span class="library-panel__meta">Landing Page Builder / Reviews</span><h2 class="library-panel__title">Reviews</h2><p class="library-panel__copy">Kategorie vorbereitet, Inhalte folgen spaeter.</p><section class="library-empty"><div class="library-empty__content"><p class="library-empty__eyebrow">Leere Kategorie</p><h3 class="library-empty__title">Noch keine Module angelegt</h3><p class="library-empty__text">Der Bereich ist absichtlich noch leer.</p></div></section></section>
-          <section class="library-panel" data-panel="lp-service-tiles"><span class="library-panel__meta">Landing Page Builder / Service Tiles</span><h2 class="library-panel__title">Service Tiles</h2><p class="library-panel__copy">Kategorie vorbereitet, Inhalte folgen spaeter.</p><section class="library-empty"><div class="library-empty__content"><p class="library-empty__eyebrow">Leere Kategorie</p><h3 class="library-empty__title">Noch keine Module angelegt</h3><p class="library-empty__text">Der Bereich ist absichtlich noch leer.</p></div></section></section>
-          <section class="library-panel" data-panel="lp-checkmark-list"><span class="library-panel__meta">Landing Page Builder / Checkmark List</span><h2 class="library-panel__title">Checkmark List</h2><p class="library-panel__copy">Kategorie vorbereitet, Inhalte folgen spaeter.</p><section class="library-empty"><div class="library-empty__content"><p class="library-empty__eyebrow">Leere Kategorie</p><h3 class="library-empty__title">Noch keine Module angelegt</h3><p class="library-empty__text">Der Bereich ist absichtlich noch leer.</p></div></section></section>
-          <section class="library-panel" data-panel="lp-sticky-footer"><span class="library-panel__meta">Landing Page Builder / Sticky Footer</span><h2 class="library-panel__title">Sticky Footer</h2><p class="library-panel__copy">Kategorie vorbereitet, Inhalte folgen spaeter.</p><section class="library-empty"><div class="library-empty__content"><p class="library-empty__eyebrow">Leere Kategorie</p><h3 class="library-empty__title">Noch keine Module angelegt</h3><p class="library-empty__text">Der Bereich ist absichtlich noch leer.</p></div></section></section>
-          <section class="library-panel" data-panel="lp-content-cards"><span class="library-panel__meta">Landing Page Builder / Content Cards</span><h2 class="library-panel__title">Content Cards</h2><p class="library-panel__copy">Kategorie vorbereitet, Inhalte folgen spaeter.</p><section class="library-empty"><div class="library-empty__content"><p class="library-empty__eyebrow">Leere Kategorie</p><h3 class="library-empty__title">Noch keine Module angelegt</h3><p class="library-empty__text">Der Bereich ist absichtlich noch leer.</p></div></section></section>
-          <section class="library-panel" data-panel="lp-action-tiles"><span class="library-panel__meta">Landing Page Builder / Action Tiles</span><h2 class="library-panel__title">Action Tiles</h2><p class="library-panel__copy">Kategorie vorbereitet, Inhalte folgen spaeter.</p><section class="library-empty"><div class="library-empty__content"><p class="library-empty__eyebrow">Leere Kategorie</p><h3 class="library-empty__title">Noch keine Module angelegt</h3><p class="library-empty__text">Der Bereich ist absichtlich noch leer.</p></div></section></section>
-          <section class="library-panel" data-panel="lp-video"><span class="library-panel__meta">Landing Page Builder / Video</span><h2 class="library-panel__title">Video</h2><p class="library-panel__copy">Kategorie vorbereitet, Inhalte folgen spaeter.</p><section class="library-empty"><div class="library-empty__content"><p class="library-empty__eyebrow">Leere Kategorie</p><h3 class="library-empty__title">Noch keine Module angelegt</h3><p class="library-empty__text">Der Bereich ist absichtlich noch leer.</p></div></section></section>
-          <section class="library-panel" data-panel="lp-headings"><span class="library-panel__meta">Landing Page Builder / Headings</span><h2 class="library-panel__title">Headings</h2><p class="library-panel__copy">Kategorie vorbereitet, Inhalte folgen spaeter.</p><section class="library-empty"><div class="library-empty__content"><p class="library-empty__eyebrow">Leere Kategorie</p><h3 class="library-empty__title">Noch keine Module angelegt</h3><p class="library-empty__text">Der Bereich ist absichtlich noch leer.</p></div></section></section>
-          <section class="library-panel" data-panel="lp-buttons"><span class="library-panel__meta">Landing Page Builder / Buttons</span><h2 class="library-panel__title">Buttons</h2><p class="library-panel__copy">Kategorie vorbereitet, Inhalte folgen spaeter.</p><section class="library-empty"><div class="library-empty__content"><p class="library-empty__eyebrow">Leere Kategorie</p><h3 class="library-empty__title">Noch keine Module angelegt</h3><p class="library-empty__text">Der Bereich ist absichtlich noch leer.</p></div></section></section>
+          <section class="library-panel" data-panel="lp-teaser">
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="teaser-2col">
+                <span class="lp-module-label__name">teaser-2col</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section>
+              <div class="teaser teaser-2col">
+                <div class="grid grid-flex gutter margin-bottom-l">
+                  <div class="grid-item one-whole">
+                    <h2 class="font-heading-medium-bold">Headline-medium-bold</h2>
+                  </div>
+                </div>
+
+                <div class="grid grid-flex gutter">
+                  <article class="grid-item one-half palm-one-whole margin-bottom-l">
+                    <div class="teaser__card">
+                      <div class="teaser__body">
+                        <div class="lp-media lp-media--4x3 lp-radius-24 margin-bottom-m">
+                          <div class="lp-media__inner">
+                            <img src="" alt="" class="lp-img-fluid" loading="lazy" />
+                          </div>
+                        </div>
+
+                        <h3 class="font-heading-small-bold margin-bottom-s">Headline-small-bold</h3>
+
+                        <p class="font-body-large-regular margin-bottom-s">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                      </div>
+
+                      <div class="teaser__footer">
+                        <a class="teaser-grid__textlink">
+                          <img
+                            src="https://www.immobilienscout24.de/content/dam/claude-lp-creator/assets/Chevron.svg"
+                            alt=""
+                            class="teaser-grid__textlink-icon"
+                            width="16"
+                            height="16"
+                            loading="lazy"
+                          />
+                          <span class="font-body-large-bold">Lorem ipsum</span>
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="grid-item one-half palm-one-whole margin-bottom-l">
+                    <div class="teaser__card">
+                      <div class="teaser__body">
+                        <div class="lp-media lp-media--4x3 lp-radius-24 margin-bottom-m">
+                          <div class="lp-media__inner">
+                            <img src="" alt="" class="lp-img-fluid" loading="lazy" />
+                          </div>
+                        </div>
+
+                        <h3 class="font-heading-small-bold margin-bottom-s">Headline-small-bold</h3>
+
+                        <p class="font-body-large-regular margin-bottom-s">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                      </div>
+
+                      <div class="teaser__footer">
+                        <a class="teaser-grid__textlink">
+                          <img
+                            src="https://www.immobilienscout24.de/content/dam/claude-lp-creator/assets/Chevron.svg"
+                            alt=""
+                            class="teaser-grid__textlink-icon"
+                            width="16"
+                            height="16"
+                            loading="lazy"
+                          />
+                          <span class="font-body-large-bold">Lorem ipsum</span>
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="teaser-3col">
+                <span class="lp-module-label__name">teaser-3col</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section>
+              <div class="teaser teaser-3col">
+                <div class="grid grid-flex gutter margin-bottom-l">
+                  <div class="grid-item one-whole">
+                    <h2 class="font-heading-medium-bold">Headline-medium-bold</h2>
+                  </div>
+                </div>
+
+                <div class="grid grid-flex gutter">
+                  <article class="grid-item one-third palm-one-whole margin-bottom-l">
+                    <div class="teaser__card">
+                      <div class="teaser__body">
+                        <div class="lp-media lp-media--4x3 lp-radius-24 margin-bottom-m">
+                          <div class="lp-media__inner">
+                            <img src="" alt="" class="lp-img-fluid" loading="lazy" />
+                          </div>
+                        </div>
+
+                        <h3 class="font-heading-small-bold margin-bottom-s">Headline-small-bold</h3>
+
+                        <p class="font-body-large-regular margin-bottom-s">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                      </div>
+
+                      <div class="teaser__footer">
+                        <a class="teaser-grid__textlink">
+                          <img
+                            src="https://www.immobilienscout24.de/content/dam/claude-lp-creator/assets/Chevron.svg"
+                            alt=""
+                            class="teaser-grid__textlink-icon"
+                            width="16"
+                            height="16"
+                            loading="lazy"
+                          />
+                          <span class="font-body-large-bold">Lorem ipsum</span>
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="grid-item one-third palm-one-whole margin-bottom-l">
+                    <div class="teaser__card">
+                      <div class="teaser__body">
+                        <div class="lp-media lp-media--4x3 lp-radius-24 margin-bottom-m">
+                          <div class="lp-media__inner">
+                            <img src="" alt="" class="lp-img-fluid" loading="lazy" />
+                          </div>
+                        </div>
+
+                        <h3 class="font-heading-small-bold margin-bottom-s">Headline-small-bold</h3>
+
+                        <p class="font-body-large-regular margin-bottom-s">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                      </div>
+
+                      <div class="teaser__footer">
+                        <a class="teaser-grid__textlink">
+                          <img
+                            src="https://www.immobilienscout24.de/content/dam/claude-lp-creator/assets/Chevron.svg"
+                            alt=""
+                            class="teaser-grid__textlink-icon"
+                            width="16"
+                            height="16"
+                            loading="lazy"
+                          />
+                          <span class="font-body-large-bold">Lorem ipsum</span>
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="grid-item one-third palm-one-whole margin-bottom-l">
+                    <div class="teaser__card">
+                      <div class="teaser__body">
+                        <div class="lp-media lp-media--4x3 lp-radius-24 margin-bottom-m">
+                          <div class="lp-media__inner">
+                            <img src="" alt="" class="lp-img-fluid" loading="lazy" />
+                          </div>
+                        </div>
+
+                        <h3 class="font-heading-small-bold margin-bottom-s">Headline-small-bold</h3>
+
+                        <p class="font-body-large-regular margin-bottom-s">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                      </div>
+
+                      <div class="teaser__footer">
+                        <a class="teaser-grid__textlink">
+                          <img
+                            src="https://www.immobilienscout24.de/content/dam/claude-lp-creator/assets/Chevron.svg"
+                            alt=""
+                            class="teaser-grid__textlink-icon"
+                            width="16"
+                            height="16"
+                            loading="lazy"
+                          />
+                          <span class="font-body-large-bold">Lorem ipsum</span>
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="teaser-4col">
+                <span class="lp-module-label__name">teaser-4col</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section>
+              <div class="teaser teaser-4col">
+                <div class="grid grid-flex gutter margin-bottom-l">
+                  <div class="grid-item one-whole">
+                    <h2 class="font-heading-medium-bold">Headline-medium-bold</h2>
+                  </div>
+                </div>
+
+                <div class="grid grid-flex gutter">
+                  <article class="grid-item one-fourth palm-one-whole margin-bottom-l">
+                    <div class="teaser__card">
+                      <div class="teaser__body">
+                        <div class="lp-media lp-media--4x3 lp-radius-24 margin-bottom-m">
+                          <div class="lp-media__inner">
+                            <img src="" alt="" class="lp-img-fluid" loading="lazy" />
+                          </div>
+                        </div>
+
+                        <h3 class="font-heading-small-bold margin-bottom-s">Headline-small-bold</h3>
+
+                        <p class="font-body-large-regular margin-bottom-s">
+                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                        </p>
+                      </div>
+
+                      <div class="teaser__footer">
+                        <a class="teaser-grid__textlink">
+                          <img
+                            src="https://www.immobilienscout24.de/content/dam/claude-lp-creator/assets/Chevron.svg"
+                            alt=""
+                            class="teaser-grid__textlink-icon"
+                            width="16"
+                            height="16"
+                            loading="lazy"
+                          />
+                          <span class="font-body-large-bold">Lorem ipsum</span>
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="grid-item one-fourth palm-one-whole margin-bottom-l">
+                    <div class="teaser__card">
+                      <div class="teaser__body">
+                        <div class="lp-media lp-media--4x3 lp-radius-24 margin-bottom-m">
+                          <div class="lp-media__inner">
+                            <img src="" alt="" class="lp-img-fluid" loading="lazy" />
+                          </div>
+                        </div>
+
+                        <h3 class="font-heading-small-bold margin-bottom-s">Headline-small-bold</h3>
+
+                        <p class="font-body-large-regular margin-bottom-s">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                      </div>
+
+                      <div class="teaser__footer">
+                        <a class="teaser-grid__textlink">
+                          <img
+                            src="https://www.immobilienscout24.de/content/dam/claude-lp-creator/assets/Chevron.svg"
+                            alt=""
+                            class="teaser-grid__textlink-icon"
+                            width="16"
+                            height="16"
+                            loading="lazy"
+                          />
+                          <span class="font-body-large-bold">Lorem ipsum</span>
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="grid-item one-fourth palm-one-whole margin-bottom-l">
+                    <div class="teaser__card">
+                      <div class="teaser__body">
+                        <div class="lp-media lp-media--4x3 lp-radius-24 margin-bottom-m">
+                          <div class="lp-media__inner">
+                            <img src="" alt="" class="lp-img-fluid" loading="lazy" />
+                          </div>
+                        </div>
+
+                        <h3 class="font-heading-small-bold margin-bottom-s">Headline-small-bold</h3>
+
+                        <p class="font-body-large-regular margin-bottom-s">
+                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                        </p>
+                      </div>
+
+                      <div class="teaser__footer">
+                        <a class="teaser-grid__textlink">
+                          <img
+                            src="https://www.immobilienscout24.de/content/dam/claude-lp-creator/assets/Chevron.svg"
+                            alt=""
+                            class="teaser-grid__textlink-icon"
+                            width="16"
+                            height="16"
+                            loading="lazy"
+                          />
+                          <span class="font-body-large-bold">Lorem ipsum</span>
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="grid-item one-fourth palm-one-whole margin-bottom-l">
+                    <div class="teaser__card">
+                      <div class="teaser__body">
+                        <div class="lp-media lp-media--4x3 lp-radius-24 margin-bottom-m">
+                          <div class="lp-media__inner">
+                            <img src="" alt="" class="lp-img-fluid" loading="lazy" />
+                          </div>
+                        </div>
+
+                        <h3 class="font-heading-small-bold margin-bottom-s">Headline-small-bold</h3>
+
+                        <p class="font-body-large-regular margin-bottom-s">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                      </div>
+
+                      <div class="teaser__footer">
+                        <a class="teaser-grid__textlink">
+                          <img
+                            src="https://www.immobilienscout24.de/content/dam/claude-lp-creator/assets/Chevron.svg"
+                            alt=""
+                            class="teaser-grid__textlink-icon"
+                            width="16"
+                            height="16"
+                            loading="lazy"
+                          />
+                          <span class="font-body-large-bold">Lorem ipsum</span>
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="teaser-split-image-right">
+                <span class="lp-module-label__name">teaser-split-image-right</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section>
+              <div class="teaser-split teaser-split-image-right">
+                <div class="grid grid-flex gutter teaser-split__grid">
+                  <div class="grid-item one-half palm-one-whole teaser-split__content-col">
+                    <div class="teaser-split__content">
+                      <p class="font-body-large-regular margin-bottom-xs">Lorem ipsum</p>
+                      <h2 class="font-heading-medium-bold margin-bottom-s">Headline-medium-bold</h2>
+
+                      <p class="font-body-large-regular margin-bottom-m">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      </p>
+
+                      <div class="teaser-split__cta">
+                        <a class="ai-button button-outline-weak">Lorem ipsum</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="grid-item one-half palm-one-whole teaser-split__media-col">
+                    <div class="lp-media lp-media--4x3 lp-radius-24 teaser-split__media">
+                      <div class="lp-media__inner">
+                        <img src="" alt="" class="lp-img-fluid" loading="lazy" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="teaser-split-image-left">
+                <span class="lp-module-label__name">teaser-split-image-left</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section>
+              <div class="teaser-split teaser-split-image-left">
+                <div class="grid grid-flex gutter teaser-split__grid">
+                  <div class="grid-item one-half palm-one-whole teaser-split__media-col">
+                    <div class="lp-media lp-media--4x3 lp-radius-24 teaser-split__media">
+                      <div class="lp-media__inner">
+                        <img src="" alt="" class="lp-img-fluid" loading="lazy" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="grid-item one-half palm-one-whole teaser-split__content-col">
+                    <div class="teaser-split__content">
+                      <p class="font-body-large-regular margin-bottom-xs">Lorem ipsum</p>
+                      <h2 class="font-heading-medium-bold margin-bottom-s">Headline-medium-bold</h2>
+
+                      <p class="font-body-large-regular margin-bottom-m">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      </p>
+
+                      <div class="teaser-split__cta">
+                        <a class="ai-button button-outline-weak">Lorem ipsum</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section class="library-panel" data-panel="lp-steps">
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="steps-3col">
+                <span class="lp-module-label__name">steps-3col</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section>
+              <div class="steps-3col">
+                <h2 class="margin-bottom-xxl font-heading-medium-bold">Headline-medium-bold</h2>
+
+                <div class="steps-3col__steps grid grid-flex gutter">
+                  <div class="grid-item one-third palm-one-whole margin-bottom-m">
+                    <div class="steps-3col__step">
+                      <div class="steps-3col__step-header">
+                        <div class="steps-3col__step-number lp-border-soft">1</div>
+                        <h3 class="steps-3col__step-title font-heading-small-bold">Headline-small-bold</h3>
+                        <div class="steps-3col__step-line"></div>
+                      </div>
+                      <p class="steps-3col__step-text font-body-large-regular">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="grid-item one-third palm-one-whole margin-bottom-m">
+                    <div class="steps-3col__step">
+                      <div class="steps-3col__step-header">
+                        <div class="steps-3col__step-number lp-border-soft">2</div>
+                        <h3 class="steps-3col__step-title font-heading-small-bold">Headline-small-bold</h3>
+                        <div class="steps-3col__step-line"></div>
+                      </div>
+                      <p class="steps-3col__step-text font-body-large-regular">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="grid-item one-third palm-one-whole margin-bottom-m">
+                    <div class="steps-3col__step">
+                      <div class="steps-3col__step-header">
+                        <div class="steps-3col__step-number lp-border-soft">3</div>
+                        <h3 class="steps-3col__step-title font-heading-small-bold">Headline-small-bold</h3>
+                        <div class="steps-3col__step-line"></div>
+                      </div>
+                      <p class="steps-3col__step-text font-body-large-regular">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="steps-4col">
+                <span class="lp-module-label__name">steps-4col</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section>
+              <div class="steps-4col">
+                <h2 class="margin-bottom-xxl font-heading-medium-bold">Headline-medium-bold</h2>
+
+                <div class="steps-4col__steps grid grid-flex gutter">
+                  <div class="grid-item one-fourth palm-one-whole margin-bottom-m">
+                    <div class="steps-4col__step">
+                      <div class="steps-4col__step-header">
+                        <div class="steps-4col__step-number lp-border-soft">1</div>
+                        <h3 class="steps-4col__step-title font-heading-small-bold">Headline-small</h3>
+                        <div class="steps-4col__step-line"></div>
+                      </div>
+                      <p class="steps-4col__step-text font-body-large-regular">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut labore et dolore magna aliqua.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="grid-item one-fourth palm-one-whole margin-bottom-m">
+                    <div class="steps-4col__step">
+                      <div class="steps-4col__step-header">
+                        <div class="steps-4col__step-number lp-border-soft">2</div>
+                        <h3 class="steps-4col__step-title font-heading-small-bold">Headline-small</h3>
+                        <div class="steps-4col__step-line"></div>
+                      </div>
+                      <p class="steps-4col__step-text font-body-large-regular">
+                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut labore et dolore magna aliqua.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="grid-item one-fourth palm-one-whole margin-bottom-m">
+                    <div class="steps-4col__step">
+                      <div class="steps-4col__step-header">
+                        <div class="steps-4col__step-number lp-border-soft">3</div>
+                        <h3 class="steps-4col__step-title font-heading-small-bold">Headline-small</h3>
+                        <div class="steps-4col__step-line"></div>
+                      </div>
+                      <p class="steps-4col__step-text font-body-large-regular">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut labore et dolore magna aliqua.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="grid-item one-fourth palm-one-whole margin-bottom-m">
+                    <div class="steps-4col__step">
+                      <div class="steps-4col__step-header">
+                        <div class="steps-4col__step-number lp-border-soft">4</div>
+                        <h3 class="steps-4col__step-title font-heading-small-bold">Headline-small</h3>
+                        <div class="steps-4col__step-line"></div>
+                      </div>
+                      <p class="steps-4col__step-text font-body-large-regular">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut labore et dolore magna aliqua.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section class="library-panel" data-panel="lp-accordion">
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="accordion">
+                <span class="lp-module-label__name">accordion</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section>
+              <div class="accordion">
+                <h2 class="accordion__headline font-heading-medium-bold margin-bottom-m">
+                  Headline-medium-bold
+                </h2>
+
+                <div class="accordion__item">
+                  <button class="accordion__trigger" type="button" aria-expanded="false">
+                    <span class="accordion__question font-body-large-regular">
+                      Frage 1 – Lorem ipsum dolor sit amet?
+                    </span>
+                    <span class="accordion__chevron" aria-hidden="true"></span>
+                  </button>
+
+                  <div class="accordion__panel">
+                    <p class="font-body-large-regular">
+                      Antwort 1 – Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="accordion__item">
+                  <button class="accordion__trigger" type="button" aria-expanded="false">
+                    <span class="accordion__question font-body-large-regular">
+                      Frage 2 – Lorem ipsum dolor sit amet?
+                    </span>
+                    <span class="accordion__chevron" aria-hidden="true"></span>
+                  </button>
+
+                  <div class="accordion__panel">
+                    <p class="font-body-large-regular">
+                      Antwort 2 – Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="accordion__item">
+                  <button class="accordion__trigger" type="button" aria-expanded="false">
+                    <span class="accordion__question font-body-large-regular">
+                      Frage 3 – Lorem ipsum dolor sit amet?
+                    </span>
+                    <span class="accordion__chevron" aria-hidden="true"></span>
+                  </button>
+
+                  <div class="accordion__panel">
+                    <p class="font-body-large-regular">
+                      Antwort 3 – Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section class="library-panel" data-panel="lp-counter">
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="counter-animated">
+                <span class="lp-module-label__name">counter-animated</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section class="counter-animated">
+              <div class="grid grid-flex gutter">
+                <div class="counter-animated__item grid-item one-third palm-one-whole">
+                  <div class="font-heading-xlarge-bold">98,5&nbsp;%</div>
+                  <div class="counter-animated__label font-heading-small-bold margin-bottom-l">Headline-small-bold</div>
+                  <p class="font-body-large-regular">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+                </div>
+
+                <div class="counter-animated__item grid-item one-third palm-one-whole">
+                  <div class="font-heading-xlarge-bold">100.000+</div>
+                  <div class="counter-animated__label font-heading-small-bold margin-bottom-l">Headline-small-bold</div>
+                  <p class="font-body-large-regular">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+                </div>
+
+                <div class="counter-animated__item grid-item one-third palm-one-whole">
+                  <div class="font-heading-xlarge-bold">200+</div>
+                  <div class="counter-animated__label font-heading-small-bold margin-bottom-l">Headline-small-bold</div>
+                  <p class="font-body-large-regular">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </section>
+          <section class="library-panel" data-panel="lp-callouts">
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="callout-base">
+                <span class="lp-module-label__name">callout-base</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section>
+              <div class="callout callout--base lp-radius-24 lp-color-grey-light">
+                <div class="callout__content">
+                  <h2 class="font-heading-medium-bold margin-bottom-xs">Headline-medium-bold</h2>
+                  <p class="font-body-large-regular margin-bottom-m">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+                  <a class="ai-button button-outline-strong">Lorem ipsum</a>
+                </div>
+              </div>
+            </section>
+
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="callout-illu">
+                <span class="lp-module-label__name">callout-illu</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section>
+              <div class="callout callout--illu lp-radius-24 lp-color-grey-light">
+                <div class="callout__layout">
+                  <div class="callout__media" aria-hidden="true">
+                    <img src="https://www.immobilienscout24.de/content/dam/claude-lp-creator/assets/news.png" alt="" class="callout__illu" loading="lazy" />
+                  </div>
+
+                  <div class="callout__content">
+                    <h2 class="font-heading-medium-bold margin-bottom-xs">Headline-medium-bold</h2>
+                    <p class="font-body-large-regular margin-bottom-m">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                    <a class="ai-button button-outline-strong">Lorem ipsum</a>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="callout-expert">
+                <span class="lp-module-label__name">callout-expert</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section>
+              <div class="callout callout--expert lp-radius-24 lp-color-grey-light">
+                <div class="callout__layout">
+                  <div class="callout__media" aria-hidden="true">
+                    <img src="https://www.immobilienscout24.de/content/dam/claude-lp-creator/assets/star.png" alt="" class="callout__illu" loading="lazy" />
+                  </div>
+
+                  <div class="callout__content">
+                    <h2 class="font-heading-medium-bold margin-bottom-xs">Headline-medium-bold</h2>
+
+                    <p class="font-body-large-regular margin-bottom-m">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+
+                    <div class="callout__expert">
+                      <img
+                        src="https://www.immobilienscout24.de/content/dam/claude-lp-creator/assets/avatar_man.png"
+                        alt=""
+                        class="callout__avatar"
+                        loading="lazy"
+                        width="48"
+                        height="48"
+                      />
+
+                      <div class="callout__expert-text">
+                        <div class="font-body-large-bold">Body-large-bold</div>
+                        <div class="font-body-medium-regular">Body-medium-regular</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section class="library-panel" data-panel="lp-benefits">
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="benefits-3col">
+                <span class="lp-module-label__name">benefits-3col</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section>
+              <div class="benefits-3col">
+                <h2 class="font-heading-medium-bold margin-bottom-xl">Headline-medium-bold</h2>
+
+                <div class="grid grid-flex gutter">
+                  <div class="grid-item one-third palm-one-whole margin-bottom-l">
+                    <div class="margin-bottom-s">
+                      <img src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcL2YyXC8zMzQ3OVwvZGU3ZDkwZWU3Njg4ODMwNTNmZDNiMGMwYjIwNDFmZWEtMTYxNDk0Mzc3My5zdmcifQ:scout24:wYJeApH9M4PG6F9Nlj_8WB_HDkIsDZKse8xAvzgvyVc?width=48" alt="" width="48" height="48" loading="lazy" />
+                    </div>
+                    <h3 class="font-heading-small-bold margin-bottom-xs">Headline-small-bold</h3>
+                    <p class="font-body-large-regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </div>
+
+                  <div class="grid-item one-third palm-one-whole margin-bottom-l">
+                    <div class="margin-bottom-s">
+                      <img src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcL2YyXC8zMzQ3OVwvZGU3ZDkwZWU3Njg4ODMwNTNmZDNiMGMwYjIwNDFmZWEtMTYxNDk0Mzc3My5zdmcifQ:scout24:wYJeApH9M4PG6F9Nlj_8WB_HDkIsDZKse8xAvzgvyVc?width=48" alt="" width="48" height="48" loading="lazy" />
+                    </div>
+                    <h3 class="font-heading-small-bold margin-bottom-xs">Headline-small-bold</h3>
+                    <p class="font-body-large-regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </div>
+
+                  <div class="grid-item one-third palm-one-whole margin-bottom-l">
+                    <div class="margin-bottom-s">
+                      <img src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcL2YyXC8zMzQ3OVwvZGU3ZDkwZWU3Njg4ODMwNTNmZDNiMGMwYjIwNDFmZWEtMTYxNDk0Mzc3My5zdmcifQ:scout24:wYJeApH9M4PG6F9Nlj_8WB_HDkIsDZKse8xAvzgvyVc?width=48" alt="" width="48" height="48" loading="lazy" />
+                    </div>
+                    <h3 class="font-heading-small-bold margin-bottom-xs">Headline-small-bold</h3>
+                    <p class="font-body-large-regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="benefits-2col">
+                <span class="lp-module-label__name">benefits-2col</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section>
+              <div class="benefits-2col">
+                <h2 class="font-heading-medium-bold margin-bottom-xl">Headline-medium-bold</h2>
+
+                <div class="grid grid-flex gutter">
+                  <div class="grid-item one-half palm-one-whole margin-bottom-s palm-margin-bottom-xl">
+                    <div class="lp-flex lp-align-start lp-gap-16">
+                      <img class="lp-shrink-0" src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcL2YyXC8zMzQ3OVwvZGU3ZDkwZWU3Njg4ODMwNTNmZDNiMGMwYjIwNDFmZWEtMTYxNDk0Mzc3My5zdmcifQ:scout24:wYJeApH9M4PG6F9Nlj_8WB_HDkIsDZKse8xAvzgvyVc?width=48" alt="" width="48" height="48" loading="lazy" />
+                      <div>
+                        <h3 class="font-heading-small-bold margin-bottom-xs">Headline-small-bold</h3>
+                        <p class="font-body-large-regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="grid-item one-half palm-one-whole margin-bottom-s palm-margin-bottom-xl">
+                    <div class="lp-flex lp-align-start lp-gap-16">
+                      <img class="lp-shrink-0" src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcL2YyXC8zMzQ3OVwvZGU3ZDkwZWU3Njg4ODMwNTNmZDNiMGMwYjIwNDFmZWEtMTYxNDk0Mzc3My5zdmcifQ:scout24:wYJeApH9M4PG6F9Nlj_8WB_HDkIsDZKse8xAvzgvyVc?width=48" alt="" width="48" height="48" loading="lazy" />
+                      <div>
+                        <h3 class="font-heading-small-bold margin-bottom-xs">Headline-small-bold</h3>
+                        <p class="font-body-large-regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="grid-item one-half palm-one-whole margin-bottom-xl">
+                    <div class="lp-flex lp-align-start lp-gap-16">
+                      <img class="lp-shrink-0" src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcL2YyXC8zMzQ3OVwvZGU3ZDkwZWU3Njg4ODMwNTNmZDNiMGMwYjIwNDFmZWEtMTYxNDk0Mzc3My5zdmcifQ:scout24:wYJeApH9M4PG6F9Nlj_8WB_HDkIsDZKse8xAvzgvyVc?width=48" alt="" width="48" height="48" loading="lazy" />
+                      <div>
+                        <h3 class="font-heading-small-bold margin-bottom-xs">Headline-small-bold</h3>
+                        <p class="font-body-large-regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="grid-item one-half palm-one-whole margin-bottom-xl">
+                    <div class="lp-flex lp-align-start lp-gap-16">
+                      <img class="lp-shrink-0" src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcL2YyXC8zMzQ3OVwvZGU3ZDkwZWU3Njg4ODMwNTNmZDNiMGMwYjIwNDFmZWEtMTYxNDk0Mzc3My5zdmcifQ:scout24:wYJeApH9M4PG6F9Nlj_8WB_HDkIsDZKse8xAvzgvyVc?width=48" alt="" width="48" height="48" loading="lazy" />
+                      <div>
+                        <h3 class="font-heading-small-bold margin-bottom-xs">Headline-small-bold</h3>
+                        <p class="font-body-large-regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section class="library-panel" data-panel="lp-reviews">
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="ekomi-reviews">
+                <span class="lp-module-label__name">ekomi-reviews</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section>
+              <div class="ekomi-reviews">
+                <div class="ekomi-reviews__badge-wrapper margin-bottom-m">
+                  <img
+                    src="https://www.static-immobilienscout24.de/fro/eKomi-siegel/_/eKomi_silber.png"
+                    alt="eKomi Siegel Silber"
+                    class="ekomi-reviews__badge"
+                    loading="lazy"
+                  />
+                </div>
+
+                <h2 class="ekomi-reviews__headline font-heading-medium-bold margin-bottom-m">
+                  Blindtext-Headline für Bewertungen
+                </h2>
+
+                <p class="ekomi-reviews__intro font-body-large-regular margin-bottom-xl">
+                  Dies ist ein Blindtext als Platzhalter für eine kurze Einleitung zu den Bewertungen.
+                </p>
+
+                <div class="ekomi-reviews__list grid grid-flex gutter">
+                  <article class="ekomi-reviews__item grid-item one-third palm-one-whole">
+                    <header class="ekomi-reviews__meta margin-bottom-m">
+                      <div class="ekomi-reviews__avatar" aria-hidden="true">
+                        <img
+                          src="https://www.static-immobilienscout24.de/statpic/user-icon/9387b2a53e21db4ffcd0d4d175a80a02_User.svg"
+                          alt=""
+                          class="ekomi-reviews__avatar-icon"
+                          width="24"
+                          height="24"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div class="ekomi-reviews__date font-body-small-regular">
+                        22.11.2025 um 18:16 Uhr
+                      </div>
+                    </header>
+
+                    <p class="ekomi-reviews__text font-body-large-regular margin-bottom-m">
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                    </p>
+
+                    <div class="ekomi-reviews__rating">
+                      <div class="ekomi-reviews__stars" aria-hidden="true">
+                        <img src="https://www.static-immobilienscout24.de/fro/ekomi-stars/_/star-full.png" alt="" class="ekomi-reviews__star" loading="lazy" />
+                        <img src="https://www.static-immobilienscout24.de/fro/ekomi-stars/_/star-full.png" alt="" class="ekomi-reviews__star" loading="lazy" />
+                        <img src="https://www.static-immobilienscout24.de/fro/ekomi-stars/_/star-full.png" alt="" class="ekomi-reviews__star" loading="lazy" />
+                        <img src="https://www.static-immobilienscout24.de/fro/ekomi-stars/_/star-full.png" alt="" class="ekomi-reviews__star" loading="lazy" />
+                        <img src="https://www.static-immobilienscout24.de/fro/ekomi-stars/_/star-full.png" alt="" class="ekomi-reviews__star" loading="lazy" />
+                      </div>
+                      <div class="ekomi-reviews__score font-body-small-regular">
+                        5 / 5
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="ekomi-reviews__item grid-item one-third palm-one-whole">
+                    <header class="ekomi-reviews__meta margin-bottom-m">
+                      <div class="ekomi-reviews__avatar" aria-hidden="true">
+                        <img
+                          src="https://www.static-immobilienscout24.de/statpic/user-icon/9387b2a53e21db4ffcd0d4d175a80a02_User.svg"
+                          alt=""
+                          class="ekomi-reviews__avatar-icon"
+                          width="24"
+                          height="24"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div class="ekomi-reviews__date font-body-small-regular">
+                        21.11.2025 um 09:42 Uhr
+                      </div>
+                    </header>
+
+                    <p class="ekomi-reviews__text font-body-large-regular margin-bottom-m">
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.
+                    </p>
+
+                    <div class="ekomi-reviews__rating">
+                      <div class="ekomi-reviews__stars" aria-hidden="true">
+                        <img src="https://www.static-immobilienscout24.de/fro/ekomi-stars/_/star-full.png" alt="" class="ekomi-reviews__star" loading="lazy" />
+                        <img src="https://www.static-immobilienscout24.de/fro/ekomi-stars/_/star-full.png" alt="" class="ekomi-reviews__star" loading="lazy" />
+                        <img src="https://www.static-immobilienscout24.de/fro/ekomi-stars/_/star-full.png" alt="" class="ekomi-reviews__star" loading="lazy" />
+                        <img src="https://www.static-immobilienscout24.de/fro/ekomi-stars/_/star-full.png" alt="" class="ekomi-reviews__star" loading="lazy" />
+                        <img src="https://www.static-immobilienscout24.de/fro/ekomi-stars/_/star-half.png" alt="" class="ekomi-reviews__star" loading="lazy" />
+                      </div>
+                      <div class="ekomi-reviews__score font-body-small-regular">
+                        4,5 / 5
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="ekomi-reviews__item grid-item one-third palm-one-whole">
+                    <header class="ekomi-reviews__meta margin-bottom-m">
+                      <div class="ekomi-reviews__avatar" aria-hidden="true">
+                        <img
+                          src="https://www.static-immobilienscout24.de/statpic/user-icon/9387b2a53e21db4ffcd0d4d175a80a02_User.svg"
+                          alt=""
+                          class="ekomi-reviews__avatar-icon"
+                          width="24"
+                          height="24"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div class="ekomi-reviews__date font-body-small-regular">
+                        18.11.2025 um 14:03 Uhr
+                      </div>
+                    </header>
+
+                    <p class="ekomi-reviews__text font-body-large-regular margin-bottom-m">
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                    </p>
+
+                    <div class="ekomi-reviews__rating">
+                      <div class="ekomi-reviews__stars" aria-hidden="true">
+                        <img src="https://www.static-immobilienscout24.de/fro/ekomi-stars/_/star-full.png" alt="" class="ekomi-reviews__star" loading="lazy" />
+                        <img src="https://www.static-immobilienscout24.de/fro/ekomi-stars/_/star-full.png" alt="" class="ekomi-reviews__star" loading="lazy" />
+                        <img src="https://www.static-immobilienscout24.de/fro/ekomi-stars/_/star-full.png" alt="" class="ekomi-reviews__star" loading="lazy" />
+                        <img src="https://www.static-immobilienscout24.de/fro/ekomi-stars/_/star-full.png" alt="" class="ekomi-reviews__star" loading="lazy" />
+                        <img src="https://www.static-immobilienscout24.de/fro/ekomi-stars/_/star-full.png" alt="" class="ekomi-reviews__star" loading="lazy" />
+                      </div>
+                      <div class="ekomi-reviews__score font-body-small-regular">
+                        5 / 5
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section class="library-panel" data-panel="lp-service-tiles">
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="service-tiles">
+                <span class="lp-module-label__name">service-tiles</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section>
+              <div class="grid grid-flex gutter">
+                <div class="grid-item one-third palm-one-half">
+                  <a class="servicetiles__link lp-textlink-reset lp-hover-sand">
+                    <div class="servicetiles__card lp-border-soft lp-radius-8">
+                      <div class="servicetiles__badge">
+                        <img src="https://www.immobilienscout24.de/content/dam/lp-creator/assets/badge_plus.svg" alt="" />
+                      </div>
+                      <div class="servicetiles__header">
+                        <img
+                          class="servicetiles__icon servicetiles__icon--desktop"
+                          src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcL2IyXC8zNDg4NFwvZjU3NjZjOTY0YWZiMTVhZWYxNDg5OWEzOGRkZWFkNTctMTYyNzQ4NjI3OS5zdmcifQ:scout24:b81XJ0CmV5b0tsZXEnNY1i2wXRA6rKb-7J9pwwXH1hE"
+                          alt="MieterPlus Icon"
+                        />
+                        <img
+                          class="servicetiles__icon servicetiles__icon--mobile"
+                          src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcLzYyXC8zMzA5NlwvMWY2ZmY3YWZhY2Q5NDkxOGQzN2Y4YjhhNmE1ZGMxYTEtMTYyMDM3MDE0MS5zdmcifQ:scout24:SY_LHj8e9vwkyVok14pB3q8lsbPnbIzBNsAxWXbeIMQ"
+                          alt=""
+                        />
+                      </div>
+
+                      <h3 class="font-heading-xsmall-bold margin-top-s">
+                        MieterPlus
+                      </h3>
+                      <p class="font-body-medium-regular lp-text-grey-muted">
+                        Schneller in dein Traumzuhause
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="grid-item one-third palm-one-half">
+                  <a class="servicetiles__link lp-textlink-reset lp-hover-sand">
+                    <div class="servicetiles__card lp-border-soft lp-radius-8">
+                      <div class="servicetiles__badge"></div>
+
+                      <div class="servicetiles__header">
+                        <img
+                          class="servicetiles__icon servicetiles__icon--desktop"
+                          src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcL2IyXC8zNDg4NFwvZjU3NjZjOTY0YWZiMTVhZWYxNDg5OWEzOGRkZWFkNTctMTYyNzQ4NjI3OS5zdmcifQ:scout24:b81XJ0CmV5b0tsZXEnNY1i2wXRA6rKb-7J9pwwXH1hE"
+                          alt="KäuferPlus Icon"
+                        />
+                        <img
+                          class="servicetiles__icon servicetiles__icon--mobile"
+                          src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcLzYyXC8zMzA5NlwvMWY2ZmY3YWZhY2Q5NDkxOGQzN2Y4YjhhNmE1ZGMxYTEtMTYyMDM3MDE0MS5zdmcifQ:scout24:SY_LHj8e9vwkyVok14pB3q8lsbPnbIzBNsAxWXbeIMQ"
+                          alt=""
+                        />
+                      </div>
+
+                      <h3 class="font-heading-xsmall-bold margin-top-s">
+                        KäuferPlus
+                      </h3>
+                      <p class="font-body-medium-regular lp-text-grey-muted">
+                        Das Plus an Informationen
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="grid-item one-third palm-one-half">
+                  <a class="servicetiles__link lp-textlink-reset lp-hover-sand">
+                    <div class="servicetiles__card lp-border-soft lp-radius-8">
+                      <div class="servicetiles__badge"></div>
+                      <div class="servicetiles__header">
+                        <img
+                          class="servicetiles__icon servicetiles__icon--desktop"
+                          src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic2NvdXQyNFwvZmlsZVwvdmtRamRDMkxucmV3b3gybVNUTGMuc3ZnIn0:scout24:_RdSSpNL6v86coN0kZOo3GVid5JZZAPDGQp1J7i5uMA"
+                          alt="Suche speichern Icon"
+                        />
+                        <img
+                          class="servicetiles__icon servicetiles__icon--mobile"
+                          src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcLzYyXC8zMzA5NlwvMWY2ZmY3YWZhY2Q5NDkxOGQzN2Y4YjhhNmE1ZGMxYTEtMTYyMDM3MDE0MS5zdmcifQ:scout24:SY_LHj8e9vwkyVok14pB3q8lsbPnbIzBNsAxWXbeIMQ"
+                          alt=""
+                        />
+                      </div>
+
+                      <h3 class="font-heading-xsmall-bold margin-top-s">
+                        Suche speichern
+                      </h3>
+                      <p class="font-body-medium-regular lp-text-grey-muted">
+                        Neue Immobilien direkt im Postfach
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="grid-item one-third palm-one-half">
+                  <a class="servicetiles__link lp-textlink-reset lp-hover-sand">
+                    <div class="servicetiles__card lp-border-soft lp-radius-8">
+                      <div class="servicetiles__badge"></div>
+                      <div class="servicetiles__header">
+                        <img
+                          class="servicetiles__icon servicetiles__icon--desktop"
+                          src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic2NvdXQyNFwvZmlsZVwvOFNCZUNobXlTS0NLR0hEcjJQdFcuc3ZnIn0:scout24:uHH1xcnDx3ccK0gV9rltw7P2-Br1rUptDUI9WG4FM_o"
+                          alt="SCHUFA-BonitätsCheck Icon"
+                        />
+                        <img
+                          class="servicetiles__icon servicetiles__icon--mobile"
+                          src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcLzYyXC8zMzA5NlwvMWY2ZmY3YWZhY2Q5NDkxOGQzN2Y4YjhhNmE1ZGMxYTEtMTYyMDM3MDE0MS5zdmcifQ:scout24:SY_LHj8e9vwkyVok14pB3q8lsbPnbIzBNsAxWXbeIMQ"
+                          alt=""
+                        />
+                      </div>
+
+                      <h3 class="font-heading-xsmall-bold margin-top-s">
+                        SCHUFA-BonitätsCheck
+                      </h3>
+                      <p class="font-body-medium-regular lp-text-grey-muted">
+                        In 3 Minuten online erhalten
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="grid-item one-third palm-one-half">
+                  <a class="servicetiles__link lp-textlink-reset lp-hover-sand">
+                    <div class="servicetiles__card lp-border-soft lp-radius-8">
+                      <div class="servicetiles__badge"></div>
+                      <div class="servicetiles__header">
+                        <img
+                          class="servicetiles__icon servicetiles__icon--desktop"
+                          src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcLzU2XC8zMzI5NVwvNTBmZjJlMmQwNzQ5ZmZhZmQwY2ZlODdlOTlhNjBkMGUtMTYxNDk0MzYyNy5zdmcifQ:scout24:9yq1ne2hzy9YAe5ajgPrkE60Yalkm31YwkmWSP-wv7s"
+                          alt="Finanzieren Icon"
+                        />
+                        <img
+                          class="servicetiles__icon servicetiles__icon--mobile"
+                          src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcLzYyXC8zMzA5NlwvMWY2ZmY3YWZhY2Q5NDkxOGQzN2Y4YjhhNmE1ZGMxYTEtMTYyMDM3MDE0MS5zdmcifQ:scout24:SY_LHj8e9vwkyVok14pB3q8lsbPnbIzBNsAxWXbeIMQ"
+                          alt=""
+                        />
+                      </div>
+
+                      <h3 class="font-heading-xsmall-bold margin-top-s">
+                        Finanzieren
+                      </h3>
+                      <p class="font-body-medium-regular lp-text-grey-muted">
+                        Zinsen &amp; Raten
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="grid-item one-third palm-one-half">
+                  <a class="servicetiles__link lp-textlink-reset lp-hover-sand">
+                    <div class="servicetiles__card lp-border-soft lp-radius-8">
+                      <div class="servicetiles__badge"></div>
+                      <div class="servicetiles__header">
+                        <img
+                          class="servicetiles__icon servicetiles__icon--desktop"
+                          src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcL2I3XC8zMzMzM1wvMTQ3NzFjYzZjMmM1YTNlMjNlYWY0MDcyYWM0NzY2OTgtMTYxNDk0MzYyNy5zdmcifQ:scout24:uCMT8y4NdKzAZCcKpXV4xs63YJzxy-vgMxO9HYZnF9w"
+                          alt="Umziehen Icon"
+                        />
+                        <img
+                          class="servicetiles__icon servicetiles__icon--mobile"
+                          src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcLzYyXC8zMzA5NlwvMWY2ZmY3YWZhY2Q5NDkxOGQzN2Y4YjhhNmE1ZGMxYTEtMTYyMDM3MDE0MS5zdmcifQ:scout24:SY_LHj8e9vwkyVok14pB3q8lsbPnbIzBNsAxWXbeIMQ"
+                          alt=""
+                        />
+                      </div>
+
+                      <h3 class="font-heading-xsmall-bold margin-top-s">
+                        Umziehen
+                      </h3>
+                      <p class="font-body-medium-regular lp-text-grey-muted">
+                        Kostenlose Angebote für deinen Umzug
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section class="library-panel" data-panel="lp-checkmark-list">
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="checkmark-list">
+                <span class="lp-module-label__name">checkmark-list</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section>
+              <ul class="checkmark-list">
+                <li class="checkmark-list__item">
+                  <span class="checkmark-list__icon" aria-hidden="true"></span>
+                  <p class="checkmark-list__text font-body-large-regular">
+                    Blindtext Checkmark 1 – kurzer Vorteilstext in einem Satz.
+                  </p>
+                </li>
+
+                <li class="checkmark-list__item">
+                  <span class="checkmark-list__icon" aria-hidden="true"></span>
+                  <p class="checkmark-list__text font-body-large-regular">
+                    Blindtext Checkmark 2 – weiterer Nutzen für eine Zielgruppe.
+                  </p>
+                </li>
+
+                <li class="checkmark-list__item">
+                  <span class="checkmark-list__icon" aria-hidden="true"></span>
+                  <p class="checkmark-list__text font-body-large-regular">
+                    Blindtext Checkmark 3 – dritter Vorteil, der Vertrauen schafft.
+                  </p>
+                </li>
+              </ul>
+            </section>
+          </section>
+          <section class="library-panel" data-panel="lp-sticky-footer">
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="sticky-footer">
+                <span class="lp-module-label__name">sticky-footer</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section>
+              <div class="lp-sticky-footer">
+                <div class="grid grid-flex gutter">
+                  <div class="grid-item one-whole palm-one-whole">
+                    <div class="lp-sticky-footer__inner">
+                      <a class="ai-button button-filled-brand">Jetzt Halteverbot sichern</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section class="library-panel" data-panel="lp-content-cards">
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="content-cards-2col">
+                <span class="lp-module-label__name">content-cards-2col</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section class="content-cards-2col">
+              <div class="grid grid-flex gutter margin-bottom-l">
+                <div class="grid-item one-whole">
+                  <h2 class="font-heading-medium-bold">Modul-Headline</h2>
+                </div>
+              </div>
+
+              <div class="grid grid-flex gutter">
+                <div class="grid-item one-half palm-one-whole">
+                  <div class="content-cards-2col__card padding-l lp-border-soft">
+                    <div class="content-cards-2col__media">
+                      <img src="" alt="" />
+                    </div>
+
+                    <h3 class="font-heading-small-bold margin-bottom-xs">Headline</h3>
+
+                    <p class="font-body-large-regular margin-bottom-m">
+                      Beispieltext für eine Content-Card. Der Text kann frei formuliert werden.
+                    </p>
+
+                    <a class="ai-button button-outline-strong">Mehr erfahren</a>
+                  </div>
+                </div>
+
+                <div class="grid-item one-half palm-one-whole">
+                  <div class="content-cards-2col__card padding-l lp-border-soft">
+                    <div class="content-cards-2col__media">
+                      <img src="" alt="" />
+                    </div>
+
+                    <h3 class="font-heading-small-bold margin-bottom-xs">Headline</h3>
+
+                    <p class="font-body-large-regular margin-bottom-m">
+                      Beispieltext für eine Content-Card. Der Text kann frei formuliert werden.
+                    </p>
+
+                    <a class="ai-button button-outline-strong">Mehr erfahren</a>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="content-cards-3col">
+                <span class="lp-module-label__name">content-cards-3col</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section class="content-cards-3col">
+              <div class="grid grid-flex gutter margin-bottom-l">
+                <div class="grid-item one-whole">
+                  <h2 class="font-heading-medium-bold">Modul-Headline</h2>
+                </div>
+              </div>
+
+              <div class="grid grid-flex gutter">
+                <div class="grid-item one-third palm-one-whole">
+                  <div class="content-cards-3col__card padding-l lp-border-soft">
+                    <div class="content-cards-3col__media">
+                      <img src="" alt="" />
+                    </div>
+
+                    <h3 class="font-heading-small-bold margin-bottom-xs">Headline</h3>
+
+                    <p class="font-body-large-regular margin-bottom-m">
+                      Beispieltext für eine Content-Card. Der Text kann frei formuliert werden.
+                    </p>
+
+                    <a class="ai-button button-outline-strong">Mehr erfahren</a>
+                  </div>
+                </div>
+
+                <div class="grid-item one-third palm-one-whole">
+                  <div class="content-cards-3col__card padding-l lp-border-soft">
+                    <div class="content-cards-3col__media">
+                      <img src="" alt="" />
+                    </div>
+
+                    <h3 class="font-heading-small-bold margin-bottom-xs">Headline</h3>
+
+                    <p class="font-body-large-regular margin-bottom-m">
+                      Beispieltext für eine Content-Card. Der Text kann frei formuliert werden.
+                    </p>
+
+                    <a class="ai-button button-outline-strong">Mehr erfahren</a>
+                  </div>
+                </div>
+
+                <div class="grid-item one-third palm-one-whole">
+                  <div class="content-cards-3col__card padding-l lp-border-soft">
+                    <div class="content-cards-3col__media">
+                      <img src="" alt="" />
+                    </div>
+
+                    <h3 class="font-heading-small-bold margin-bottom-xs">Headline</h3>
+
+                    <p class="font-body-large-regular margin-bottom-m">
+                      Beispieltext für eine Content-Card. Der Text kann frei formuliert werden.
+                    </p>
+
+                    <a class="ai-button button-outline-strong">Mehr erfahren</a>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section class="library-panel" data-panel="lp-action-tiles">
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="action-tiles_rle">
+                <span class="lp-module-label__name">action-tiles_rle</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section class="lp-full-bleed lp-full-bleed--bg-grey-light" aria-label="Immobilienbewertung">
+              <div class="lp-full-bleed__inner">
+                <div class="action-tiles_rle">
+                  <div class="action-tiles_rle__badge lp-color-teal" aria-hidden="true">
+                    <svg viewBox="0 0 171 72" xmlns="http://www.w3.org/2000/svg" class="badge-shape">
+                      <path d="m170.02.119995.02-.11001575c-85.02 9.02000075-163.43999 0-163.43999 0l3.96999 18.65002075-10.57 2.72 7.67001 26.62s19.92999 4.12 51.85999 5.84l3.83 18.01 96.18-22.44 11-49.41-.53.109985z" fill="currentColor"/>
+                    </svg>
+                    <div class="badge-text">
+                      <span class="badge-line-1">Umfassende<br>Marktwert-Analyse</span>
+                      <span class="badge-line-2">in 3 Minuten</span>
+                    </div>
+                  </div>
+
+                  <div class="action-tiles_rle__body">
+                    <h2 class="font-heading-medium-bold">Schnell und bequem zur Immobilienbewertung</h2>
+                  </div>
+
+                  <div class="action-tiles_rle__tiles">
+                    <div class="grid gutter">
+                      <div class="grid-item one-fourth palm-one-half">
+                        <div class="action-tiles_rle__tile lp-radius-12 lp-border-soft lp-elevation-10">
+                          <a class="action-tiles_rle__link"></a>
+                          <img src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcLzZmXC8zMzM1NFwvMTkzY2RhNzg5NTQyNTRkZGRhMmIyMTVjMDczM2M2ZGMtMTYxNDk0MzYyNy5zdmcifQ:scout24:kDtH0v0n0KgT1CMV3Qe1RLP9CnaxbuAY7Q8mnpiHAtg" alt="Haus" loading="lazy" class="lp-img-fluid" />
+                          <p class="font-body-large-regular"><strong>Haus</strong></p>
+                        </div>
+                      </div>
+
+                      <div class="grid-item one-fourth palm-one-half">
+                        <div class="action-tiles_rle__tile lp-radius-12 lp-border-soft lp-elevation-10">
+                          <a class="action-tiles_rle__link"></a>
+                          <img src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcLzFiXC8zNTc1M1wvNWFkNzBhMWFjOGU1YmI0MGEyMGZlYjNiNDNlMzZmODgtMTYyODc3ODAzNy5zdmcifQ:scout24:nRsRyHibKwLqMAwWHPO2YofYxIbhpzQGpAUnykAUsJ8" alt="Wohnung" loading="lazy" class="lp-img-fluid" />
+                          <p class="font-body-large-regular"><strong>Wohnung</strong></p>
+                        </div>
+                      </div>
+
+                      <div class="grid-item one-fourth palm-one-half">
+                        <div class="action-tiles_rle__tile lp-radius-12 lp-border-soft lp-elevation-10">
+                          <a class="action-tiles_rle__link"></a>
+                          <img src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcL2RjXC8zMzM0NlwvNTJmNDkyYTk2YzE5NDBmNDJkNzc2ODY2ZTllNTc4NTQtMTYxNDk0MzYyNy5zdmcifQ:scout24:aCox5bh3z_a7Q434yZz49T5NroCJkRlPh2IXes8_gg8" alt="Grundstück" loading="lazy" class="lp-img-fluid" />
+                          <p class="font-body-large-regular"><strong>Grundstück</strong></p>
+                        </div>
+                      </div>
+
+                      <div class="grid-item one-fourth palm-one-half">
+                        <div class="action-tiles_rle__tile lp-radius-12 lp-border-soft lp-elevation-10">
+                          <a class="action-tiles_rle__link"></a>
+                          <img src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcL2YxXC8zMzI5NFwvMTVhZTk5YzEwNGJkZWU1NjcwMTUxN2NlNjA4M2NhOTUtMTYxNDk0MzYyNy5zdmcifQ:scout24:pfYaJNMyvAkafZs6Td2Xo4gKNjowHTDi7Ur4WH4htoI" alt="Gewerbe" loading="lazy" class="lp-img-fluid" />
+                          <p class="font-body-large-regular"><strong>Gewerbe</strong></p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <ul class="checkmark-list">
+                      <li class="checkmark-list__item">
+                        <span class="checkmark-list__icon" aria-hidden="true"></span>
+                        <p class="checkmark-list__text font-body-large-regular">basierend auf echten Daten</p>
+                      </li>
+                      <li class="checkmark-list__item">
+                        <span class="checkmark-list__icon" aria-hidden="true"></span>
+                        <p class="checkmark-list__text font-body-large-regular">100% kostenlos und unverbindlich</p>
+                      </li>
+                      <li class="checkmark-list__item">
+                        <span class="checkmark-list__icon" aria-hidden="true"></span>
+                        <p class="checkmark-list__text font-body-large-regular">Richtwert direkt online</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <section class="library-panel" data-panel="lp-video">
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="video--youtube">
+                <span class="lp-module-label__name">video--youtube</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+
+            <section class="video-module  video--youtube">
+              <div class="video-module__inner">
+                <h2 class="video-module__title margin-bottom-xl">
+                  Your video title goes here
+                </h2>
+
+                <div class="lp-media lp-media--16x9 lp-radius-24 video-module__media" aria-label="Video poster">
+                  <div class="lp-media__inner">
+                    <img src="https://img.youtube.com/vi/SxkN--CkcwU/maxresdefault.jpg"
+                          alt="Video poster"
+                          class="lp-img-fluid video-module__poster"
+                          loading="lazy" />
+
+                    <button type="button" class="video-module__play lp-color-teal" aria-label="Play video" data-video-id="SxkN--CkcwU">
+                      <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.5833 61.25V8.75L61.25 35L14.5833 61.25ZM20.4166 18.515V51.4879L49.5833 35.0029L20.4166 18.515Z" fill="#333333"/>
+                      </svg>
+                    </button>
+
+                    <iframe class="video-module__player" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen hidden></iframe>
+                  </div>
+                </div>
+
+                <p class="video-module__notice">
+                  Mit Klick auf das Video wird eine Verbindung zu YouTube hergestellt.
+                </p>
+              </div>
+            </section>
+          </section>
+
+          <section class="library-panel" data-panel="lp-headings">
+            <section class="lp-spacer-label" aria-hidden="true">
+              <div class="lp-spacer-label__space"></div>
+              <div class="lp-module-label" data-module="font-heading-xlarge-bold">
+                <span class="lp-module-label__name">font-heading-xlarge-bold</span>
+                <button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="lp-module-label__feedback">Kopiert!</span>
+              <div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div>
+            </section>
+            <section><div class="font-heading-xlarge-bold">Headline xlarge bold</div></section>
+            <section class="lp-spacer-label" aria-hidden="true"><div class="lp-spacer-label__space"></div><div class="lp-module-label" data-module="font-heading-large-bold"><span class="lp-module-label__name">font-heading-large-bold</span><button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div><span class="lp-module-label__feedback">Kopiert!</span><div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div></section>
+            <section><div class="font-heading-large-bold">Headline large bold</div></section>
+            <section class="lp-spacer-label" aria-hidden="true"><div class="lp-spacer-label__space"></div><div class="lp-module-label" data-module="font-heading-medium-bold"><span class="lp-module-label__name">font-heading-medium-bold</span><button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div><span class="lp-module-label__feedback">Kopiert!</span><div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div></section>
+            <section><div class="font-heading-medium-bold">Headline medium bold</div></section>
+            <section class="lp-spacer-label" aria-hidden="true"><div class="lp-spacer-label__space"></div><div class="lp-module-label" data-module="font-heading-small-bold"><span class="lp-module-label__name">font-heading-small-bold</span><button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div><span class="lp-module-label__feedback">Kopiert!</span><div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div></section>
+            <section><div class="font-heading-small-bold">Headline small bold</div></section>
+            <section class="lp-spacer-label" aria-hidden="true"><div class="lp-spacer-label__space"></div><div class="lp-module-label" data-module="font-body-large-regular"><span class="lp-module-label__name">font-body-large-regular</span><button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div><span class="lp-module-label__feedback">Kopiert!</span><div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div></section>
+            <section><p class="font-body-large-regular">Body large regular lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></section>
+            <section class="lp-spacer-label" aria-hidden="true"><div class="lp-spacer-label__space"></div><div class="lp-module-label" data-module="font-body-large-bold"><span class="lp-module-label__name">font-body-large-bold</span><button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div><span class="lp-module-label__feedback">Kopiert!</span><div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div></section>
+            <section><p class="font-body-large-bold">Body large bold lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></section>
+            <section class="lp-spacer-label" aria-hidden="true"><div class="lp-spacer-label__space"></div><div class="lp-module-label" data-module="font-body-medium-regular"><span class="lp-module-label__name">font-body-medium-regular</span><button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div><span class="lp-module-label__feedback">Kopiert!</span><div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div></section>
+            <section><p class="font-body-medium-regular">Body medium regular lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></section>
+            <section class="lp-spacer-label" aria-hidden="true"><div class="lp-spacer-label__space"></div><div class="lp-module-label" data-module="font-body-medium-bold"><span class="lp-module-label__name">font-body-medium-bold</span><button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div><span class="lp-module-label__feedback">Kopiert!</span><div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div></section>
+            <section><p class="font-body-medium-bold">Body medium bold lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></section>
+            <section class="lp-spacer-label" aria-hidden="true"><div class="lp-spacer-label__space"></div><div class="lp-module-label" data-module="font-body-small-regular"><span class="lp-module-label__name">font-body-small-regular</span><button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div><span class="lp-module-label__feedback">Kopiert!</span><div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div></section>
+            <section><p class="font-body-small-regular">Body small regular lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></section>
+            <section class="lp-spacer-label" aria-hidden="true"><div class="lp-spacer-label__space"></div><div class="lp-module-label" data-module="font-body-small-bold"><span class="lp-module-label__name">font-body-small-bold</span><button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div><span class="lp-module-label__feedback">Kopiert!</span><div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div></section>
+            <section><p class="font-body-small-bold">Body small bold lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></section>
+          </section>
+
+          <section class="library-panel" data-panel="lp-buttons">
+            <section class="lp-spacer-label" aria-hidden="true"><div class="lp-spacer-label__space"></div><div class="lp-module-label" data-module="button-filled-default"><span class="lp-module-label__name">button-filled-default</span><button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div><span class="lp-module-label__feedback">Kopiert!</span><div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div></section>
+            <section><a class="ai-button button-filled-default">button-filled-default</a></section>
+            <section class="lp-spacer-label" aria-hidden="true"><div class="lp-spacer-label__space"></div><div class="lp-module-label" data-module="button-filled-brand"><span class="lp-module-label__name">button-filled-brand</span><button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div><span class="lp-module-label__feedback">Kopiert!</span><div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div></section>
+            <section><a class="ai-button button-filled-brand">button-filled-brand</a></section>
+            <section class="lp-spacer-label" aria-hidden="true"><div class="lp-spacer-label__space"></div><div class="lp-module-label" data-module="button-outline-strong"><span class="lp-module-label__name">button-outline-strong</span><button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div><span class="lp-module-label__feedback">Kopiert!</span><div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div></section>
+            <section><a class="ai-button button-outline-strong">button-outline-strong</a></section>
+            <section class="lp-spacer-label" aria-hidden="true"><div class="lp-spacer-label__space"></div><div class="lp-module-label" data-module="button-outline-weak"><span class="lp-module-label__name">button-outline-weak</span><button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div><span class="lp-module-label__feedback">Kopiert!</span><div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div></section>
+            <section><a class="ai-button button-outline-weak">button-outline-weak</a></section>
+            <section class="lp-spacer-label" aria-hidden="true"><div class="lp-spacer-label__space"></div><div class="lp-module-label" data-module="ai-textlink"><span class="lp-module-label__name">ai-textlink</span><button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div><span class="lp-module-label__feedback">Kopiert!</span><div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div></section>
+            <section><a class="ai-textlink">ai-textlink</a></section>
+            <section class="lp-spacer-label" aria-hidden="true"><div class="lp-spacer-label__space"></div><div class="lp-module-label" data-module="teaser-grid__textlink"><span class="lp-module-label__name">teaser-grid__textlink</span><button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div><span class="lp-module-label__feedback">Kopiert!</span><div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div></section>
+            <section><a class="teaser-grid__textlink"><img src="https://www.immobilienscout24.de/content/dam/claude-lp-creator/assets/Chevron.svg" alt="" class="teaser-grid__textlink-icon" width="16" height="16" loading="lazy" /><span class="font-body-large-bold">teaser-grid__textlink</span></a></section>
+            <section class="lp-spacer-label" aria-hidden="true"><div class="lp-spacer-label__space"></div><div class="lp-module-label" data-module="lp-text-highlight"><span class="lp-module-label__name">lp-text-highlight</span><button class="lp-module-label__copy" type="button" aria-label="Modulnamen kopieren" title="Modulnamen kopieren"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div><span class="lp-module-label__feedback">Kopiert!</span><div class="lp-spacer-label__space lp-spacer-label__space--bottom"></div></section>
+            <section><p class="font-body-large-regular">Text mit <span class="lp-text-highlight">lp-text-highlight</span> im Fließtext.</p></section>
+          </section>
 
           <section class="library-panel" data-panel="email-logo"><span class="library-panel__meta">E-Mail Builder / Logo</span><h2 class="library-panel__title">Logo</h2><p class="library-panel__copy">Kategorie vorbereitet, Inhalte folgen spaeter.</p><section class="library-empty"><div class="library-empty__content"><p class="library-empty__eyebrow">Leere Kategorie</p><h3 class="library-empty__title">Noch keine Module angelegt</h3><p class="library-empty__text">Der Bereich ist absichtlich noch leer.</p></div></section></section>
           <section class="library-panel" data-panel="email-heros"><span class="library-panel__meta">E-Mail Builder / Heros</span><h2 class="library-panel__title">Heros</h2><p class="library-panel__copy">Kategorie vorbereitet, Inhalte folgen spaeter.</p><section class="library-empty"><div class="library-empty__content"><p class="library-empty__eyebrow">Leere Kategorie</p><h3 class="library-empty__title">Noch keine Module angelegt</h3><p class="library-empty__text">Der Bereich ist absichtlich noch leer.</p></div></section></section>
@@ -796,5 +2590,23 @@
       </main>
     </div>
   </section>
+  <script src="https://is24-lp-creator.github.io/lp-creator/core/core-interactions.js"></script>
+  <script>
+    document.querySelectorAll('.lp-module-label__copy').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var label = button.closest('.lp-module-label');
+        var moduleName = label.dataset.module;
+
+        if (!navigator.clipboard || !navigator.clipboard.writeText) return;
+
+        navigator.clipboard.writeText(moduleName).then(function () {
+          label.classList.add('is-copied');
+          setTimeout(function () {
+            label.classList.remove('is-copied');
+          }, 600);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
