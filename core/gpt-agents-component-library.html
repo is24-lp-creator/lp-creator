@@ -12,7 +12,7 @@
     :root {
       --sidebar-width: 272px;
       --page-bg: #f6f4ef;
-      --sidebar-bg: #ece9e2;
+      --sidebar-bg: #f1efea;
       --panel-muted: #f3f2ef;
       --panel-stroke: #d9d3c8;
       --text: #272727;
@@ -506,6 +506,7 @@
       color: var(--text);
     }
 
+    #sidebar-home:checked ~ .library-layout [data-panel="home"],
     #sidebar-lp-heros:checked ~ .library-layout [data-panel="lp-heros"],
     #sidebar-lp-teaser:checked ~ .library-layout [data-panel="lp-teaser"],
     #sidebar-lp-steps:checked ~ .library-layout [data-panel="lp-steps"],
@@ -573,7 +574,8 @@
 </head>
 <body>
   <section class="library-shell">
-    <input class="library-state" type="radio" name="library-sidebar-panel" id="sidebar-lp-heros" checked />
+    <input class="library-state" type="radio" name="library-sidebar-panel" id="sidebar-home" checked />
+    <input class="library-state" type="radio" name="library-sidebar-panel" id="sidebar-lp-heros" />
     <input class="library-state" type="radio" name="library-sidebar-panel" id="sidebar-lp-teaser" />
     <input class="library-state" type="radio" name="library-sidebar-panel" id="sidebar-lp-steps" />
     <input class="library-state" type="radio" name="library-sidebar-panel" id="sidebar-lp-accordion" />
@@ -611,7 +613,7 @@
         </div>
 
         <nav class="library-nav" aria-label="Kategorienavigation">
-          <details class="library-tree" open>
+          <details class="library-tree">
             <summary class="library-tree__summary">
               <img class="library-tree__chevron" src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcL2NmXC8zMzE5N1wvNzUwYjQ2ZGI1OGY3MTA1OTA5Y2MyMDM1ZDE1M2JmODAtMTYxNDkyNDExNC5zdmcifQ:scout24:GgHPgcp4b9AaVfeuketcZ5AxZ5pRzGYQFL9K_XXCgi0" alt="" aria-hidden="true" />
               <img class="library-tree__folder-icon" src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcL2RhXC8zMzI1MlwvNmI4N2ZiMzBjMGZkN2VkMmRlYTAwZjk5N2M4OGIwOWUtMTYxNDkyNDExNC5zdmcifQ:scout24:fdVcwCoUsxIjr2oLxuBDrAZN0zcfIkoiuYUKmLGsx0c" alt="" aria-hidden="true" />
@@ -637,7 +639,7 @@
             </div>
           </details>
 
-          <details class="library-tree" open>
+          <details class="library-tree">
             <summary class="library-tree__summary">
               <img class="library-tree__chevron" src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcL2NmXC8zMzE5N1wvNzUwYjQ2ZGI1OGY3MTA1OTA5Y2MyMDM1ZDE1M2JmODAtMTYxNDkyNDExNC5zdmcifQ:scout24:GgHPgcp4b9AaVfeuketcZ5AxZ5pRzGYQFL9K_XXCgi0" alt="" aria-hidden="true" />
               <img class="library-tree__folder-icon" src="https://media.ffycdn.net/eu/scout24/eyJwYXRoIjoic2NvdXQyNFwvYWNjb3VudHNcLzFjXC80MDAwMjM0XC9wcm9qZWN0c1wvMTAwXC9hc3NldHNcL2RhXC8zMzI1MlwvNmI4N2ZiMzBjMGZkN2VkMmRlYTAwZjk5N2M4OGIwOWUtMTYxNDkyNDExNC5zdmcifQ:scout24:fdVcwCoUsxIjr2oLxuBDrAZN0zcfIkoiuYUKmLGsx0c" alt="" aria-hidden="true" />
@@ -661,6 +663,19 @@
 
       <main class="library-content">
         <div class="library-content__inner">
+          <section class="library-panel" data-panel="home">
+            <span class="library-panel__meta">GPT Builder / Overview</span>
+            <h2 class="library-panel__title">Component Library</h2>
+            <p class="library-panel__copy">Diese Startseite dient als neutraler Einstieg in die GitHub-Version der Library. Waehle links einen Builder und oeffne danach die passende Kategorie, um die einzelnen Module zu sehen.</p>
+            <section class="library-empty">
+              <div class="library-empty__content">
+                <p class="library-empty__eyebrow">Startseite</p>
+                <h3 class="library-empty__title">Waehle links eine Kategorie</h3>
+                <p class="library-empty__text">Landing Page Builder und E-Mail Builder starten bewusst eingeklappt. So wirkt die Library beim ersten Aufruf ruhiger und eher wie ein eigenstaendiges Tool.</p>
+              </div>
+            </section>
+          </section>
+
           <section class="library-panel" data-panel="lp-heros">
             <span class="library-panel__meta">Landing Page Builder / Heros</span>
             <h2 class="library-panel__title">Heros</h2>
