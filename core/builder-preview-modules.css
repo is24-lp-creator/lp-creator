@@ -81,8 +81,8 @@ a {
 }
 
 .module[data-module="hero"] .module__inner {
-  padding-top: var(--space-40);
-  padding-bottom: 0;
+  padding-top: var(--space-60);
+  padding-bottom: 25px;
 }
 
 .module[data-module="hero"] .module__copy {
@@ -830,6 +830,11 @@ a {
     width: 100%;
     padding-left: 24px;
     padding-right: 24px;
+  }
+
+  .module[data-module="hero"] .module__inner {
+    padding-top: var(--space-40);
+    padding-bottom: 20px;
   }
 
   .module[data-module="hero"] .module__hero-image-wrap--bleed,
