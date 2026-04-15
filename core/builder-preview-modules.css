@@ -7,7 +7,7 @@
   --border-soft: #dddddd;
   --border-strong: #d6d6d6;
   --brand-mint: #74ffdf;
-  --chevron-icon: url("https://www.static-immobilienscout24.de/statpic/icon/6eb373fcb3f662ff8dfbabbaeb55913d_chevron-textlink.png");
+  --chevron-icon: url("https://library.eu.iterable.com/33/98/a178a6459c3c432291d8c25be0f40928-emb_chevron-icon.png");
   --container-width: 600px;
   --space-12: 12px;
   --space-16: 16px;
@@ -151,6 +151,30 @@ a {
   margin-bottom: 0;
 }
 
+.module__teaser-richtext {
+  display: grid;
+  gap: var(--space-16);
+  font-size: 17px;
+  line-height: 26px;
+}
+
+.module__teaser-richtext p {
+  margin: 0;
+}
+
+.module__list--teaser {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.module__list--teaser li {
+  margin: 0 0 4px;
+}
+
+.module__list--teaser li:last-child {
+  margin-bottom: 0;
+}
+
 .module[data-module="footer"] .module__inner {
   padding-top: var(--space-60);
   padding-bottom: 50px;
@@ -231,8 +255,8 @@ a {
 
 .module__body {
   margin: 0;
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 17px;
+  line-height: 26px;
 }
 
 .module__copy {
@@ -253,7 +277,7 @@ a {
 }
 
 .module[data-module="teaser-1col"] .module__cta-row {
-  margin-top: var(--space-12);
+  margin-top: 0;
 }
 
 .button {
@@ -266,7 +290,7 @@ a {
   border-radius: 999px;
   background: var(--brand-mint);
   color: var(--text-primary);
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   line-height: 20px;
   text-decoration: none;
@@ -346,69 +370,14 @@ a {
   gap: var(--space-24);
 }
 
-.intro-copy {
-  display: grid;
-  gap: var(--space-16);
-}
-
-.intro-copy .module__cta-row {
-  margin-top: 8px;
-}
-
 .intro-richtext {
   display: grid;
   gap: var(--space-16);
 }
 
-.intro-list {
-  display: grid;
-  gap: var(--space-12);
-}
-
-.intro-list__item {
-  display: grid;
-  grid-template-columns: 24px minmax(0, 1fr);
-  gap: var(--space-12);
-  align-items: start;
-}
-
-.intro-list__marker {
-  display: inline-flex;
-  align-items: flex-start;
-  justify-content: center;
-  width: 24px;
-  min-height: 24px;
-  color: var(--text-primary);
-}
-
-.intro-list__marker--bullet {
-  font-family: Arial, Roboto, sans-serif;
-  font-size: 24px;
-  line-height: 24px;
-}
-
-.intro-list__marker--numbered {
-  justify-content: flex-start;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 26px;
-}
-
-.intro-list__icon {
-  display: block;
-  width: 24px;
-  height: 24px;
-  margin-top: 2px;
-  object-fit: contain;
-}
-
-.intro-list__text {
-  min-width: 0;
-}
-
 .teaser-single {
   display: grid;
-  gap: var(--space-12);
+  gap: var(--space-20);
 }
 
 .teaser-columns {
@@ -419,7 +388,13 @@ a {
 
 .teaser-column {
   display: grid;
-  gap: var(--space-12);
+  gap: var(--space-24);
+  align-content: start;
+}
+
+.teaser-column__copy {
+  display: grid;
+  gap: 8px;
   align-content: start;
 }
 
@@ -527,6 +502,14 @@ a {
   align-items: center;
 }
 
+.module[data-module="teaser-2col-horizontal"] .teaser-split {
+  align-items: start;
+}
+
+.module[data-module="teaser-2col-horizontal"] .teaser-split__copy {
+  align-content: start;
+}
+
 .teaser-split--reverse .teaser-split__media {
   order: 2;
 }
@@ -537,7 +520,7 @@ a {
 
 .teaser-split__copy {
   display: grid;
-  gap: var(--space-12);
+  gap: 8px;
   align-content: center;
 }
 
@@ -555,16 +538,16 @@ a {
 
 .listing-row__copy {
   display: grid;
-  gap: var(--space-12);
+  gap: 8px;
   align-content: start;
 }
 
 .teaser-link {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
   color: var(--text-primary);
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   line-height: 20px;
   text-decoration: underline;
@@ -572,10 +555,10 @@ a {
 
 .teaser-link::before {
   content: "";
-  width: 16px;
+  width: 8px;
   height: 16px;
-  flex: 0 0 16px;
-  background: center / 16px 16px no-repeat var(--chevron-icon);
+  flex: 0 0 8px;
+  background: center / 8px 16px no-repeat var(--chevron-icon);
 }
 
 .footer-marketing {
@@ -764,13 +747,18 @@ a {
 .data-table td {
   padding: 12px 0;
   color: var(--text-primary);
-  font-size: 16px;
-  line-height: 1.6;
   text-align: left;
 }
 
 .data-table th {
+  font-size: 16px;
   font-weight: 700;
+  line-height: 1.6;
+}
+
+.data-table td {
+  font-size: 17px;
+  line-height: 26px;
 }
 
 .data-table th + th,
@@ -815,8 +803,8 @@ a {
   padding: 12px 0;
   border-top: 1px solid var(--border-soft);
   color: var(--text-primary);
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 17px;
+  line-height: 26px;
 }
 
 .button--outline-soft {
