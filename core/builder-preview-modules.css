@@ -138,6 +138,10 @@ a {
   height: 19px;
 }
 
+.module__hero-spacer--salutation {
+  height: 8px;
+}
+
 .module__list--hero {
   margin: 0;
   padding-left: 22px;
@@ -329,6 +333,10 @@ a {
   aspect-ratio: 1 / 1;
 }
 
+.media--teaser-alternating {
+  aspect-ratio: 4 / 3;
+}
+
 .media--bleed {
   width: calc(100% + (var(--space-40) * 2));
   margin-left: calc(var(--space-40) * -1);
@@ -339,7 +347,7 @@ a {
 }
 
 .media--listing {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
 }
 
 .media-link {
@@ -893,6 +901,11 @@ a {
   .listing-row,
   .comparison-grid {
     grid-template-columns: 1fr;
+  }
+
+  .media--listing {
+    width: 125px;
+    max-width: 125px;
   }
 
   .teaser-split--reverse .teaser-split__media,
