@@ -65,8 +65,29 @@ a {
   padding-bottom: var(--space-24);
 }
 
-.preview-subject__text {
+.preview-subject__stack {
+  display: grid;
+  gap: 6px;
+}
+
+.preview-subject__line {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.preview-subject__line--title,
+.preview-subject__line--preheader {
+  color: #989898;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.preview-subject__line--subject {
   color: var(--text-primary);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 26px;
 }
 
 .module__inner {
