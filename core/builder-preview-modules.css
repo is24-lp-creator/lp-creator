@@ -555,8 +555,10 @@ a {
   align-items: center;
   gap: 8px;
   color: var(--text-primary);
+  font-family: "Make It Better", Arial, Roboto, sans-serif;
   font-size: 17px;
   font-weight: 700;
+  letter-spacing: 0;
   line-height: 20px;
   text-decoration: underline;
 }
@@ -581,9 +583,12 @@ a {
 }
 
 .footer-marketing__headline {
-  font-size: 20px;
+  color: var(--text-primary);
+  font-family: "Make It Better", Arial, Roboto, sans-serif;
+  font-size: 13px;
   font-weight: 700;
-  line-height: 1.5;
+  letter-spacing: 0;
+  line-height: 1.4;
 }
 
 .footer-marketing__badges {
