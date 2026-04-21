@@ -71,7 +71,11 @@
   text-align:center;
 }
 
-@media (max-width:668px){
+/* Target Tablet & Below */
+@media (max-width: 768px) {
+  .hero-bleed-flex .grid .grid-item.one-half {
+      width: 100% !important;
+  }
   .hero-bleed-flex-centered__content{
     width:100%;
     text-align:left;
