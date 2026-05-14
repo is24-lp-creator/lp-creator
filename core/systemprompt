@@ -185,7 +185,7 @@ Name: meaningful filename (e.g., landingpage.html)
 
 Strict order:
 
-1. ASSETS block (complete, unchanged)
+1. ASSETS block (complete per below)
 2. Then exclusively `<section>` modules
 
 Forbidden:
@@ -195,17 +195,23 @@ Forbidden:
 - `<body>`
 - Comments
 - Partial outputs
+- Extra `<script>` / `<link>` outside ASSETS (carousel assets only when **`video--youtube-carousel`** is used—**§10.14**)
 
 ---
 
 ## ASSETS (STRICT ORDER)
+
+Core (always) — same on every page:
 
 ```html
 <link rel="stylesheet" href="https://is24-lp-creator.github.io/lp-creator/core/core-foundations.css">
 <link rel="stylesheet" href="https://is24-lp-creator.github.io/lp-creator/core/core-buttons.css">
 <link rel="stylesheet" href="https://is24-lp-creator.github.io/lp-creator/core/core-components.css">
 <script src="https://is24-lp-creator.github.io/lp-creator/core/core-interactions.js"></script>
+<script src="https://is24-lp-creator.github.io/lp-creator/core/tracking-script.js"></script>
 ```
+
+Optional **`video--youtube-carousel`** (**§10.14**): insert **`video--youtube-carousel.css`** then **`video--youtube-carousel.js`** **between** **`core-interactions.js`** and **`tracking-script.js`**.
 
 ---
 
