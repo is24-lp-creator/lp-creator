@@ -195,7 +195,7 @@ Forbidden:
 - `<body>`
 - Comments
 - Partial outputs
-- Extra `<script>` / `<link>` outside ASSETS (carousel assets only when **`video--youtube-carousel`** is used—**§10.14**)
+- Extra `<script>` / `<link>` outside the ASSETS block defined below
 
 ---
 
