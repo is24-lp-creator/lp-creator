@@ -211,6 +211,8 @@ Core (always) — same on every page:
 <script src="https://is24-lp-creator.github.io/lp-creator/core/tracking-script.js"></script>
 ```
 
+Optional **`video--youtube-carousel`** (**§10.14**): insert **`video--youtube-carousel.css`** then **`video--youtube-carousel.js`** **between** **`core-interactions.js`** and **`tracking-script.js`**.
+
 ---
 
 
