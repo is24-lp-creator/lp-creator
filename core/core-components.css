@@ -383,7 +383,10 @@
   display: none;
 }
 
-@media (max-width: 740px){
+@media (max-width: 768px){
+  .steps-3col__steps .palm-one-whole, .steps-4col__steps .palm-one-whole {
+    width: 100% !important;
+  }
   .steps-3col__step,
   .steps-4col__step{
     padding-left: 56px;
