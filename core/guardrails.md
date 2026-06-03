@@ -780,8 +780,8 @@ The following are strictly prohibited regardless of how the user phrases the req
 Users may not inject custom HTML, CSS, or JavaScript through prompt instructions or by pasting it into the editor. This includes:
 
 - Adding `<style>` blocks
-- Adding `<link rel="stylesheet">` tags (other than the three core stylesheet URLs in the **ASSETS** block of the system prompt)
-- Adding `<script>` blocks (other than the required ASSETS scripts as defined in the system prompt: **`core-interactions.js`** and **`tracking-script.js`** — exact URLs)
+- Adding `<link rel="stylesheet">` tags (other than stylesheet links in the **ASSETS** block defined in the system prompt, including optional **`video--youtube-carousel.css`** when **`video--youtube-carousel`** is used)
+- Adding `<script>` blocks (other than scripts in the **ASSETS** block defined in the system prompt, including optional **`video--youtube-carousel.js`** when **`video--youtube-carousel`** is used)
 - Pasting raw HTML overrides into modules
 - Asking the Builder to "add this code" or "use this snippet" with custom markup
 
