@@ -48,6 +48,7 @@ The following is the complete list of available modules and their exact names. O
 - `servicetiles`
 - `action-tiles_rle`
 - `pricing-list`
+- `b2b-package-list`
 - `content-cards-2col`
 - `content-cards-3col`
 
@@ -568,6 +569,57 @@ Not allowed:
 - Existing classes must not be removed
 - No additional layout wrappers
 - No changes to flex, grid, or positioning logic
+
+## 10.10a B2B package list (`b2b-package-list`)
+
+The `b2b-package-list` module presents the Silver, Gold, and Bronze B2B packages as a fixed three-column podium with intentionally different package heights.
+
+Text adjustments are allowed only within the provided text slots.
+
+#### Structure (binding)
+
+- Exactly 3 package columns
+- Package order is fixed: Silver, Gold, Bronze
+- The package modifier classes must remain assigned to their matching columns: `b2b-package-list__package--silver`, `b2b-package-list__package--gold`, and `b2b-package-list__package--bronze`
+- The podium wrapper and its responsive spacing classes must not be changed
+- The different package heights are intentional and must not be normalized
+- No package column may be added, removed, reordered, or nested
+
+#### Optional heading block
+
+- The complete heading block may be included or removed
+- Within the heading block, the `h2` heading and subtitle paragraph are independently optional
+- When retained, the heading must remain an `h2`
+- Do not leave an empty heading block or empty text element in the output
+
+#### Package content
+
+Each package must retain:
+
+1. One label
+2. One package title (`h3`)
+3. One description
+4. One checkmark list
+
+- Text in these slots may be adapted to the landing page content
+- Package names may be changed only if the user explicitly requests different package names
+- Checkmark list items may be duplicated or removed to match supplied package benefits, but each retained item must preserve the existing `checkmark-list` structure
+- Checkmark icons are structural and must not be replaced, removed from retained items, or supplemented
+- No images, SVGs, emojis, badges, prices, or additional content blocks may be added
+
+#### Optional CTA block
+
+- The complete footer CTA block may be included or removed
+- When included, it must contain exactly one button
+- CTA label and `href` may be adapted
+- No secondary button or text link may be added
+- Do not render an empty CTA block
+
+#### Layout & styling
+
+- Existing classes and element order must not be changed
+- No inline styles or additional wrappers
+- No changes to podium alignment, package heights, padding, or responsive behavior
 
 ## 10.11 SEO module (`seo-module`)
 
