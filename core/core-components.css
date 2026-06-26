@@ -457,6 +457,15 @@
   align-self:flex-start;
 }
 
+.teaser-split-colour{
+  overflow:hidden;
+}
+
+.teaser-split-colour .teaser-split__media{
+  height:100%;
+  min-height:260px;
+}
+
 @media (max-width:668px){
   .teaser-split-image-right .teaser-split__media-col{
     order:1;
@@ -464,6 +473,10 @@
 
   .teaser-split-image-right .teaser-split__content-col{
     order:2;
+  }
+
+  .teaser-split-colour .teaser-split__media{
+    min-height:220px;
   }
 }
 
