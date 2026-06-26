@@ -458,7 +458,13 @@
 }
 
 .teaser-split-colour{
+  padding:40px;
+  border-radius:var(--border-radius-600);
   overflow:hidden;
+}
+
+.teaser-split-colour .teaser-split__media-col{
+  display:flex;
 }
 
 .teaser-split-colour .teaser-split__media{
@@ -473,6 +479,10 @@
 
   .teaser-split-image-right .teaser-split__content-col{
     order:2;
+  }
+
+  .teaser-split-colour{
+    padding:24px;
   }
 
   .teaser-split-colour .teaser-split__media{
