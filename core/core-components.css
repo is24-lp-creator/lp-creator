@@ -1577,6 +1577,7 @@ text-align: center;
 }
 
 .choice-card-list .b2b-package-list__label {
+  position: absolute;
   top: 0;
   left: 24px;
   transform: translateY(-50%);
