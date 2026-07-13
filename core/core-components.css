@@ -307,7 +307,7 @@
 }
 
 .hero-bleed-flex .hero-highlight--orange{
-  top:12%;
+  top:30px;
   left:16px;
 }
 
@@ -343,7 +343,7 @@
 }
 
 @media (max-width:900px){
-  .hero-highlights{
+  .hero-split .hero-highlights{
     top:-180px;
   }
 
