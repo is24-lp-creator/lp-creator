@@ -295,7 +295,6 @@
   width:100%;
   max-width:1157px;
   margin:0 auto;
-  overflow:hidden;
   pointer-events:none;
 }
 
@@ -329,12 +328,12 @@
 
 .hero-split .hero-highlight--orange{
   top:24px;
-  left:16px;
+  left:-35px;
 }
 
 .hero-split .hero-highlight--yellow{
   right:16px;
-  bottom:24px;
+  bottom:-45px;
 }
 
 @media (max-width:1120px){
@@ -376,10 +375,12 @@
 
   .hero-split .hero-highlight--orange{
     top:16px;
+    left:16px;
   }
 
   .hero-split .hero-highlight--yellow{
     top:100px;
+    right:16px;
     bottom:auto;
   }
 }
