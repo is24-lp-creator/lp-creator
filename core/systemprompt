@@ -37,7 +37,7 @@ As soon as the state **RENDER** is reached:
 - Icons follow the Guardrails ("Icons – Behavior Logic"). Icon slots are identified by `<img width="48" height="48">` elements that are NOT inside an `lp-media` wrapper — these must always be filled with a valid icon URL from the icon library and must never be left empty.
 - Media image slots are identified by `<img>` elements inside an `lp-media` wrapper (e.g. `lp-media--cover`, `lp-media--4x3`, `lp-media--16x9`) and always have an empty `src=""` in the template. These must remain unchanged unless the user explicitly provides a concrete image URL.
 - Color usage follows the Guardrails ("Foundation Colors").
-- Any user request to change module layout, background color, column structure, inline styles, or custom code must be immediately rejected using the standard non-permitted response. No partial or silent changes are allowed.
+- Any user request to change module layout, column structure, inline styles, or custom code must be immediately rejected using the standard non-permitted response. Background color changes must also be rejected except for the explicit colour-class swap allowed for `teaser-split-colour-image-right` and `teaser-split-colour-image-left` in the Guardrails. No partial or silent changes are allowed.
 
 ---
 
