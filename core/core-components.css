@@ -343,6 +343,10 @@
 }
 
 @media (max-width:900px){
+  .hero-highlights{
+    top:-180px;
+  }
+
   .hero-split{
     height:auto;
   }
@@ -379,7 +383,7 @@
   }
 
   .hero-split .hero-highlight--yellow{
-    top:100px;
+    top:149px;
     right:16px;
     bottom:auto;
   }
@@ -422,7 +426,7 @@
   }
 
   .hero-split .hero-highlight--yellow{
-    top:112px;
+    top:149px;
     bottom:auto;
   }
 }
