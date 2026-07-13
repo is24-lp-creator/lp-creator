@@ -30,6 +30,8 @@ The following is the complete list of available modules and their exact names. O
 - `teaser-4col`
 - `teaser-split-image-right`
 - `teaser-split-image-left`
+- `teaser-split-colour-image-right`
+- `teaser-split-colour-image-left`
 
 **Steps modules:**
 - `steps-3col`
@@ -250,7 +252,7 @@ If spacer rules would be violated, **fix the BUILD/output plan** before calling 
 
 ### 9.3 Two-column teaser modules
 
-- For consecutive teaser modules of type `teaser-split-image-right` and `teaser-split-image-left`:
+- For consecutive teaser modules of type `teaser-split-image-right`, `teaser-split-image-left`, `teaser-split-colour-image-right`, and `teaser-split-colour-image-left`:
   - `lp-spacer-xl` **before** the first teaser module
   - `lp-spacer-l` **between** directly consecutive teaser modules
   - `lp-spacer-xl` **after** the last teaser module
@@ -356,11 +358,18 @@ Step text:
 
 ## 10.6 Teaser split modules
 
+- Applies to `teaser-split-image-right`, `teaser-split-image-left`, `teaser-split-colour-image-right`, and `teaser-split-colour-image-left`.
 - Headline: max. 60 characters
 - Text: max. 140 characters
+- A bullet point list may be added to the teaser module's content area if requested by the user.
 - CTA label: max. 20 characters
 - Maximum one CTA per teaser
-- A bullet point list may be added to the teaser module's content area if requested by the user.
+- Colour variants use the same teaser split structure and content rules as the standard variants.
+- Colour variants must retain their base orientation class (`teaser-split-image-right` or `teaser-split-image-left`), `teaser-split-colour`, the exact colour variant class, and exactly one approved background colour class.
+- Colour variants use `lp-color-purple` by default.
+- For `teaser-split-colour-image-right` and `teaser-split-colour-image-left` only, the background colour class may be changed by replacing `lp-color-purple` with exactly one of these approved classes: `lp-color-purple`, `lp-color-teal`, or `lp-color-yellow`.
+- No other background colour class is allowed on colour teaser variants, even if it is a permitted foundation colour elsewhere.
+- If the user requests another colour for a colour teaser variant, reject the colour request and list only the approved colour teaser choices: `lp-color-purple`, `lp-color-teal`, `lp-color-yellow`.
 
 ## 10.7 eKomi reviews (`ekomi-reviews`)
 
@@ -898,7 +907,7 @@ The following are strictly prohibited regardless of how the user phrases the req
 
 The following are strictly prohibited regardless of how the user phrases the request:
 
-- Changing the background color of any module (including via class swaps)
+- Changing the background color of any module (including via class swaps), except the explicit colour-class swap allowed for `teaser-split-colour-image-right` and `teaser-split-colour-image-left` in §10.6
 - Adding inline styles (`style=""` attributes)
 - Changing typography (font size, weight, line height) outside defined class variants
 - Adding custom CSS classes not defined in the component library
