@@ -283,6 +283,60 @@
   inset:0;
 }
 
+/* =========================================================
+   Optional hero highlights
+   Markup is opt-in and governed by LP Builder Guardrails 10.1.2.
+   ========================================================= */
+
+.hero-highlights{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  width:100%;
+  max-width:1157px;
+  margin:0 auto;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+.hero-highlight{
+  position:absolute;
+  display:block;
+  width:clamp(64px, 7vw, 104px);
+  height:auto;
+  user-select:none;
+}
+
+.hero-bleed-flex .hero-highlight--orange{
+  top:12%;
+  left:16px;
+}
+
+.hero-bleed-flex .hero-highlight--yellow{
+  right:16px;
+  bottom:12%;
+}
+
+.hero-bleed-flex-centered .hero-highlight--orange{
+  left:16px;
+  bottom:14%;
+}
+
+.hero-bleed-flex-centered .hero-highlight--yellow{
+  top:14%;
+  right:16px;
+}
+
+.hero-split .hero-highlight--orange{
+  top:24px;
+  left:16px;
+}
+
+.hero-split .hero-highlight--yellow{
+  right:16px;
+  bottom:24px;
+}
+
 @media (max-width:1120px){
   .hero-split__text{
     padding-right:16px;
@@ -319,12 +373,56 @@
     padding-top:24px;
     padding-bottom:32px;
   }
+
+  .hero-split .hero-highlight--orange{
+    top:16px;
+  }
+
+  .hero-split .hero-highlight--yellow{
+    top:100px;
+    bottom:auto;
+  }
 }
 
 @media (max-width:669px){
   .hero-split__text{
     padding-top:16px;
     padding-bottom:24px;
+  }
+
+  .hero-highlight{
+    width:56px;
+  }
+
+  .hero-bleed-flex .hero-highlight--orange,
+  .hero-bleed-flex-centered .hero-highlight--yellow{
+    top:12px;
+  }
+
+  .hero-bleed-flex .hero-highlight--yellow,
+  .hero-bleed-flex-centered .hero-highlight--orange{
+    bottom:12px;
+  }
+
+  .hero-bleed-flex .hero-highlight--orange,
+  .hero-bleed-flex-centered .hero-highlight--orange,
+  .hero-split .hero-highlight--orange{
+    left:12px;
+  }
+
+  .hero-bleed-flex .hero-highlight--yellow,
+  .hero-bleed-flex-centered .hero-highlight--yellow,
+  .hero-split .hero-highlight--yellow{
+    right:12px;
+  }
+
+  .hero-split .hero-highlight--orange{
+    top:12px;
+  }
+
+  .hero-split .hero-highlight--yellow{
+    top:112px;
+    bottom:auto;
   }
 }
 
