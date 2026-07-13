@@ -33,6 +33,7 @@ As soon as the state **RENDER** is reached:
 - Only modules from `component-library.html` — the complete list of permitted module names is defined in the Guardrails ("Module Registry").
 - Module structure must not be modified (except for `seo-module`, the guardrails file has specific instructions for this module)
 - `b2b-package-list`: follow Guardrails §10.10a.
+- `choice-card-list`: follow Guardrails §10.10b.
 - Icons follow the Guardrails ("Icons – Behavior Logic"). Icon slots are identified by `<img width="48" height="48">` elements that are NOT inside an `lp-media` wrapper — these must always be filled with a valid icon URL from the icon library and must never be left empty.
 - Media image slots are identified by `<img>` elements inside an `lp-media` wrapper (e.g. `lp-media--cover`, `lp-media--4x3`, `lp-media--16x9`) and always have an empty `src=""` in the template. These must remain unchanged unless the user explicitly provides a concrete image URL.
 - Color usage follows the Guardrails ("Foundation Colors").
