@@ -48,6 +48,7 @@ The following is the complete list of available modules and their exact names. O
 - `servicetiles`
 - `action-tiles_rle`
 - `pricing-list`
+- `choice-card-list`
 - `b2b-package-list`
 - `content-cards-2col`
 - `content-cards-3col`
@@ -620,6 +621,84 @@ Each package must retain:
 - Existing classes and element order must not be changed
 - No inline styles or additional wrappers
 - No changes to podium alignment, package heights, padding, or responsive behavior
+
+## 10.10b Choice card list (`choice-card-list`)
+
+The `choice-card-list` module presents 2, 3, or 4 equal-width choice cards based on the `pricing-list` card structure, without a price row.
+
+The module allows only the explicit flexibility defined below. Nothing else about the module markup may be changed.
+
+#### Structure (binding)
+
+- The section must use `choice-card-list choice-card-list--N pricing-list`, where `N` is `2`, `3`, or `4`
+- The count modifier must match the actual number of cards:
+  - `choice-card-list--2` = exactly 2 `.pricing-list__card` cards
+  - `choice-card-list--3` = exactly 3 `.pricing-list__card` cards
+  - `choice-card-list--4` = exactly 4 `.pricing-list__card` cards
+- The `.pricing-list__cards` wrapper must remain
+- Cards must remain direct children of `.pricing-list__cards`
+- Each card must be an `<a>` element and must use `pricing-list__card lp-border-soft lp-radius-24 padding-l`
+- The card-level `href` is the only link target for that card
+- Cards must stay equal-width and inline on desktop
+- No price row is allowed
+- No additional wrappers, columns, nested modules, or layout containers may be added beyond the fixed inner content wrapper shown in `component-library.html`
+
+#### Optional module heading block
+
+- The complete heading grid block may be included or removed
+- Within the heading block, the `h2` heading and subtitle paragraph are independently optional
+- When retained, the heading must remain an `h2` with `font-heading-medium-bold`
+- When retained, the subtitle must remain a `p` with `font-body-large-regular margin-top-s`
+- If both heading and subtitle are removed, remove the complete heading grid block
+- Do not render empty heading wrappers or empty text elements
+
+#### Choice card content
+
+Each card may contain only the following elements, in this order:
+
+1. Fixed inner content wrapper (`div`)
+2. Optional visual button (`span.ai-button`)
+
+The fixed inner content wrapper may contain only the following optional elements, in this order:
+
+1. Optional pill label (`span.b2b-package-list__label`)
+2. Optional card heading (`h3`)
+3. Optional subtitle/description paragraph (`p`)
+4. Optional checkmark list (`ul.checkmark-list`)
+
+- The pill label is optional per card and may be removed when not needed
+- At most 1 pill label is allowed per card
+- If retained, the pill label must remain before the card heading and must keep the existing label classes
+- The card heading may be removed when the user requests removal
+- The subtitle/description paragraph may be removed when the user requests removal
+- The complete checkmark list may be removed when the user requests removal
+- The button may be removed when the user requests removal
+- Retained text slots may be adapted to the landing page content
+- Do not leave empty elements after removing optional card content
+
+#### Checkmark list
+
+- If the checkmark list is retained, it must use `checkmark-list margin-bottom-xl`
+- Each retained item must preserve the existing `checkmark-list__item`, `checkmark-list__icon`, and `checkmark-list__text font-body-large-regular` structure
+- Checkmark list item text may be adapted
+- Checkmark list items may be duplicated or removed to match supplied benefits
+- Checkmark icons are structural and must not be replaced, removed from retained items, or supplemented
+- No nested lists
+
+#### CTA rule
+
+- If a card button is retained, it must be a non-link `span` and the final element in that card
+- At most 1 visual button is allowed per card
+- Button text and the card-level `href` may be adapted
+- Button markup and classes must not be changed
+- No nested anchor, secondary button, or text link may be added
+
+#### Media & styling
+
+- No images, SVGs, emojis, prices, price rows, badges beyond the optional pill label, or additional content blocks may be added
+- Existing classes and element order must not be changed except for the count modifier matching the chosen card count
+- No inline styles
+- No changes to grid, flex, spacing, responsive behavior, card borders, radius, or shadow logic
 
 ## 10.11 SEO module (`seo-module`)
 
